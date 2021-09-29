@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+<head>
+ <title>Form</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+    <form method="GET" action="serve" id="sendForm">
+        <label style="padding-right: 10px;">Key: </label>
+        <input type="text" name="key" size="20" value=""/> <br/>
+        Value:
+        <input type="number" name="value" value=""/> <br/>
+        <label style="padding-right: 5px;">Mock: </label>
+        <input type="checkbox" value="true" name="mock" id="checkbox1"/> <br/>
+        <label style="padding-right: 10px;">Sync: </label>
+        <input type="checkbox" value="true" name="sync" id="checkbox2"/> <br/>
+
+        <input type="submit" value="Submit">
+    </form>
+	
+	<script type="text/javascript">
+		document.getElementById("sendForm").addEventListener("submit", function() {
+			checkbox1 = document.getElementById("checkbox1");
+			checkbox2 = document.getElementById("checkbox2");
+			
+			if(checkbox1.checked === false)
+			{
+				checkbox1.checked = true;
+				checkbox1.value = 'false';
+			}
+			
+			if(checkbox2.checked === false)
+			{
+				checkbox2.checked = true;
+				checkbox2.value = 'false';
+			}
+			
+		});
+	</script>
+</body>
+</html>
