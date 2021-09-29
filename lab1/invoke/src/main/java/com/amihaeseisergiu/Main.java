@@ -5,19 +5,11 @@
 package com.amihaeseisergiu;
 
 import java.io.IOException;
-import java.net.Authenticator;
-import java.net.InetSocketAddress;
-import java.net.ProxySelector;
 import java.net.URI;
 import java.net.http.HttpClient;
-import java.net.http.HttpClient.Redirect;
-import java.net.http.HttpClient.Version;
 import java.net.http.HttpRequest;
-import java.net.http.HttpRequest.BodyPublishers;
 import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
-import java.nio.file.Paths;
-import java.time.Duration;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.logging.Level;
@@ -35,7 +27,7 @@ public class Main {
         for (int i = 0; i < 1000; i++)
         {
             Runnable task = () -> {
-                sendRequest("b", 100, false, false);
+                sendRequest("b", 100, false, true);
             };
             executor.execute(task);
         }

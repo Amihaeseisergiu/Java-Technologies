@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import javafx.util.Pair;
 
 /**
  *
@@ -21,7 +20,7 @@ public class ProjectReader {
     
     public static String constructRepositoryHtml()
     {
-        List<Pair<String, String>> lines = new ArrayList<>();
+        List<ProjectData> lines = new ArrayList<>();
         
         try (BufferedReader bufferedReader = 
                 new BufferedReader(new FileReader("D:\\Facultate\\Tehnologii Java\\lab1\\repository.txt"))) {
@@ -37,17 +36,17 @@ public class ProjectReader {
                
                if(keyValue.length > 1)
                {
-                   lines.add(new Pair(keyValue[0], keyValue[1]));
+                   lines.add(new ProjectData(keyValue[0], keyValue[1]));
                }
                else
                {
-                   lines.add(new Pair(keyValue[0], ""));
+                   lines.add(new ProjectData(keyValue[0], ""));
                }
             }
             
-            Collections.sort(lines, new Comparator<Pair<String, String>>() {
+            Collections.sort(lines, new Comparator<ProjectData>() {
                 @Override
-                public int compare(final Pair<String, String> o1, final Pair<String, String> o2) {
+                public int compare(final ProjectData o1, final ProjectData o2) {
                     return o1.getValue().compareTo(o2.getValue());
                 }
             });
@@ -59,7 +58,7 @@ public class ProjectReader {
         StringBuilder ret = new StringBuilder();
         ret.append("<h1>Repository ordered by key: </h1>");
         
-        for(Pair<String, String> p : lines)
+        for(ProjectData p : lines)
         {
             ret.append("<h2>").append(p.getKey()).append(" ").append(p.getValue()).append(" </h2>");
         }
