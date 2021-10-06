@@ -8,10 +8,11 @@
         <title>Input JSP</title>
     </head>
     <body>
-        <form>
+        <form action="InputController">
             <div style="padding: 10px;">
                 <label for="category" style="padding-right: 7px;">Category:</label>
                 <select name="category" id="category" style="padding: 4px;">
+                    <option selected value></option>
                     <c:forEach items="${categories}" var="category">
                       <option value="${category}">${category}</option>
                     </c:forEach>

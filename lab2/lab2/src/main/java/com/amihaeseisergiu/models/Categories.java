@@ -1,12 +1,12 @@
 package com.amihaeseisergiu.models;
 
 public enum Categories {
-    NOUN,
-    PRONOUN,
-    VERB,
-    ADJECTIVE,
-    ADVERB,
-    PREPOSITION,
-    CONJUNCTION,
-    INTERJECTION,
+    Noun,
+    Pronoun,
+    Verb,
+    Adjective,
+    Adverb,
+    Preposition,
+    Conjunction,
+    Interjection,
 }
