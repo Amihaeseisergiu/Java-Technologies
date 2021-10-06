@@ -24,15 +24,27 @@
         <servlet-name>InputController</servlet-name>
         <servlet-class>com.amihaeseisergiu.controllers.InputController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CaptchaImage</servlet-name>
+        <servlet-class>com.amihaeseisergiu.controllers.CaptchaImage</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>InputController</servlet-name>
         <url-pattern>/InputController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CaptchaImage</servlet-name>
+        <url-pattern>/CaptchaImage</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
+    <context-param>
+        <param-name>defaultCategory</param-name>
+        <param-value>Unknown</param-value>
+    </context-param>
     <welcome-file-list>
         <welcome-file>input.jsp</welcome-file>
     </welcome-file-list>

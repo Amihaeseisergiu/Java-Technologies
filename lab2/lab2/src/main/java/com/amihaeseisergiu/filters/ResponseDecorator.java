@@ -18,7 +18,13 @@ public class ResponseDecorator implements Filter {
         String word = request.getParameter("word");
         String definition = request.getParameter("definition");
         
-        boolean checkParams = word != null && !word.isEmpty() && definition != null && !definition.isEmpty();
+        String userCaptchaParameter = request.getParameter("captcha");
+        boolean userCaptchaCheck = userCaptchaParameter != null && !userCaptchaParameter.isEmpty();
+        int userCaptcha = userCaptchaCheck ? Integer.valueOf(userCaptchaParameter) : -1;
+        int captchaAnswer = (int) request.getServletContext().getAttribute("captchaAnswer");
+        
+        boolean checkParams = word != null && !word.isEmpty() && definition != null && !definition.isEmpty()
+                                && userCaptcha == captchaAnswer;
         
         if(checkParams)
         {

@@ -12,7 +12,14 @@
             <div style="padding: 10px;">
                 <label for="category" style="padding-right: 7px;">Category:</label>
                 <select name="category" id="category" style="padding: 4px;">
-                    <option selected value></option>
+                    <c:choose>
+                        <c:when test="${cookie.categoryCookie == null}">
+                            <option selected value></option>
+                        </c:when>    
+                        <c:otherwise>
+                            <option selected value>${cookie.categoryCookie.getValue()}</option>
+                        </c:otherwise>
+                    </c:choose>
                     <c:forEach items="${categories}" var="category">
                       <option value="${category}">${category}</option>
                     </c:forEach>
@@ -25,6 +32,12 @@
             <div style="padding: 10px;">
                 <label for="definition">Definition:</label>
                 <input type="textarea" name="definition" id="definition" />
+            </div>
+            <div>
+                <img src="CaptchaImage" />
+                <br>
+                <label for="captcha">Number of circles:</label>
+                <input type="number" name="captcha" id="captcha" />
             </div>
             <div style="padding: 10px;">
                 <input type="submit" value="Submit">

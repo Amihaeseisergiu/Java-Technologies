@@ -9,4 +9,5 @@ public enum Categories {
     Preposition,
     Conjunction,
     Interjection,
+    Unknown,
 }

@@ -1,52 +1,54 @@
 package com.amihaeseisergiu.controllers;
 
-import com.amihaeseisergiu.models.Record;
-import com.amihaeseisergiu.services.RecordService;
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.Rectangle;
+import java.awt.RenderingHints;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.util.List;
+import java.io.OutputStream;
+import java.util.Random;
+import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class InputController extends HttpServlet {
+public class CaptchaImage extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        String categoryParameter = request.getParameter("category");
-        boolean categoryCheck = categoryParameter != null && !categoryParameter.isEmpty();
-        String category = categoryCheck ? categoryParameter : getServletContext().getInitParameter("defaultCategory");
+        int width = 300;
+        int height = 100;
+        BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
         
-        if(categoryCheck)
+        Graphics2D g = bufferedImage.createGraphics();
+        g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g.setColor(Color.WHITE);
+        g.fillRect(0, 0, width, height);
+        g.setColor(Color.BLUE);
+        
+        Random rand = new Random();
+        int circles = rand.nextInt(10) + 1;
+        getServletContext().setAttribute("captchaAnswer", circles);
+        
+        for (int i = 0; i < circles; i++)
         {
-            Cookie cookie = new Cookie("categoryCookie", categoryParameter);
-            response.addCookie(cookie);
+            int x = rand.nextInt(width - 50);
+            int y = rand.nextInt(height - 50);
+            int r = rand.nextInt((height/2 - 15) + 1) + 15;
+            g.drawOval(x, y, r, r);
         }
         
-        String word = request.getParameter("word");
-        String definition = request.getParameter("definition");
+        g.dispose();
         
-        String userCaptchaParameter = request.getParameter("captcha");
-        boolean userCaptchaCheck = userCaptchaParameter != null && !userCaptchaParameter.isEmpty();
-        int userCaptcha = userCaptchaCheck ? Integer.valueOf(userCaptchaParameter) : -1;
-        int captchaAnswer = (int) getServletContext().getAttribute("captchaAnswer");
-        
-        boolean checkParams = word != null && !word.isEmpty() && definition != null && !definition.isEmpty()
-                                && userCaptcha == captchaAnswer;
-        String nextPage = (checkParams ? "/result.jsp" : "/input.jsp");
-        
-        if(checkParams)
-        {
-            RecordService.writeRecord(new Record(category, word, definition));
-            List<Record> records = RecordService.readRecords();
-            
-            request.setAttribute("records", records);
-        }
-        
-        getServletContext().getRequestDispatcher(nextPage).forward(request, response);
+        response.setContentType("image/png");
+        OutputStream os = response.getOutputStream();
+
+        ImageIO.write(bufferedImage, "png", os);
+        os.close();
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

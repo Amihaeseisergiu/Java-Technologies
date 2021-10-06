@@ -11,6 +11,9 @@ public class Config implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent event) {
         event.getServletContext().setAttribute("categories", Categories.values());
+        
+        String defaultCategory = event.getServletContext().getInitParameter("defaultCategory");
+        event.getServletContext().setAttribute("defaultCategory", defaultCategory);
     }
 
     @Override
