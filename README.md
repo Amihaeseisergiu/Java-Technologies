@@ -13,3 +13,13 @@
 - [X] Created the web listener that reads a context init parameter to set a default category
 - [X] Created a "hand-made" cookie to store and restore the client's selected category
 - [X] Added a captcha to the input form
+
+### Laboratory 3
+- [X] Created Web Page for defining exams
+- [ ] Created Web Page for defining students
+- [X] Used relational database and JDBC in order to store and retrieve data
+- [X] Used at least one non trivial JSF component
+- [X] Internationalized the user interface
+- [ ] Solved the problem
+- [ ] Created a page for displaying the results
+- [ ] Created a random generator that produces problem instances of various sizes
