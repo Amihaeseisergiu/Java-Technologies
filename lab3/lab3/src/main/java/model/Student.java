@@ -1,21 +1,21 @@
 package model;
 
-import database.DatabaseConnection;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.inject.Named;
-import javax.enterprise.context.RequestScoped;
+import java.util.List;
 
-@Named
-@RequestScoped
 public class Student {
 
+    private Long id;
     String name;
+    private List<Exam> exams;
     
     public Student() {
+    }
+    
+    public Student(Long id, String name, List<Exam> exams)
+    {
+        this.id = id;
+        this.name = name;
+        this.exams = exams;
     }
 
     public String getName() {
@@ -25,17 +25,13 @@ public class Student {
     public void setName(String name) {
         this.name = name;
     }
-    
-    public void submit()
-    {
-        try {
-            Connection con = DatabaseConnection.getConnection();
-            System.out.println(this.name);
-            PreparedStatement stmt = con.prepareStatement("insert into students(name) values(?)");
-            stmt.setString(1, this.getName());
-            stmt.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(Student.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
+    public Long getId() {
+        return id;
     }
+
+    public List<Exam> getExams() {
+        return exams;
+    }
+    
 }

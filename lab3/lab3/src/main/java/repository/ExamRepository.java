@@ -38,14 +38,37 @@ public class ExamRepository {
         
         try {
             Connection conn = DatabaseConnection.getConnection();
-            String sql = "SELECT name, starting_time, duration FROM exams";
+            String sql = "SELECT * FROM exams";
             try (PreparedStatement stmt = conn.prepareStatement(sql); ResultSet rs = stmt.executeQuery())
             {
                 while (rs.next())
                 {
-                    exams.add(new Exam(rs.getString(1), rs.getTime(2).toLocalTime(), rs.getInt(3)));
+                    exams.add(new Exam(rs.getLong(1), rs.getString(2), rs.getTime(3).toLocalTime(), rs.getInt(4)));
                 }
             }
+        } catch (SQLException ex) {
+            Logger.getLogger(ExamRepository.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return exams;
+    }
+    
+    public static List<Exam> getStudentExams(Long id)
+    {   
+        List<Exam> exams = new ArrayList<>();
+        
+        try {
+            Connection conn = DatabaseConnection.getConnection();
+            PreparedStatement stmt = 
+                    conn.prepareStatement("SELECT * FROM exams e JOIN students_exams se ON se.exam_id=e.id WHERE se.student_id=?");
+            stmt.setLong(1, id);
+            ResultSet rs = stmt.executeQuery();
+            
+            while(rs.next())
+            {
+                exams.add(new Exam(rs.getLong(1), rs.getString(2), rs.getTime(3).toLocalTime(), rs.getInt(4)));
+            }
+            
         } catch (SQLException ex) {
             Logger.getLogger(ExamRepository.class.getName()).log(Level.SEVERE, null, ex);
         }

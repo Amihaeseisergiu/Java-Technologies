@@ -1,14 +1,10 @@
 package model;
 
 import java.time.LocalTime;
-import javax.inject.Named;
-import javax.enterprise.context.RequestScoped;
-import repository.ExamRepository;
 
-@Named
-@RequestScoped
 public class Exam {
     
+    private Long id;
     String name;
     LocalTime startingTime;
     Integer duration;
@@ -18,20 +14,12 @@ public class Exam {
         
     }
     
-    public Exam(String name, LocalTime startingTime, Integer duration)
+    public Exam(Long id, String name, LocalTime startingTime, Integer duration)
     {
+        this.id = id;
         this.name = name;
         this.startingTime = startingTime;
         this.duration = duration;
-    }
-    
-    public void addExam()
-    {
-        ExamRepository.addExam(name, startingTime, duration);
-        
-        this.name = null;
-        this.startingTime = null;
-        this.duration = 1;
     }
 
     public String getName() {
@@ -57,5 +45,12 @@ public class Exam {
     public void setDuration(Integer duration) {
         this.duration = duration;
     }
-    
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }

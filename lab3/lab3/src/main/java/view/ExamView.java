@@ -1,17 +1,22 @@
 package view;
 
 import java.io.Serializable;
+import java.time.LocalTime;
 import java.util.List;
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.RequestScoped;
+import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import model.Exam;
 import repository.ExamRepository;
 
 @Named
-@RequestScoped
+@ViewScoped
 public class ExamView implements Serializable {
     
+    private Long id;
+    private String name;
+    private LocalTime startingTime;
+    private Integer duration;
     List<Exam> exams;
     
     @PostConstruct
@@ -22,5 +27,46 @@ public class ExamView implements Serializable {
     public List<Exam> getExams()
     {
         return ExamRepository.getExams();
+    }
+    
+    public void addExam()
+    {
+        ExamRepository.addExam(name, startingTime, duration);
+        
+        this.name = null;
+        this.startingTime = null;
+        this.duration = 1;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public LocalTime getStartingTime() {
+        return startingTime;
+    }
+
+    public void setStartingTime(LocalTime startingTime) {
+        this.startingTime = startingTime;
+    }
+
+    public Integer getDuration() {
+        return duration;
+    }
+
+    public void setDuration(Integer duration) {
+        this.duration = duration;
     }
 }
