@@ -8,6 +8,7 @@ public class Exam {
     String name;
     LocalTime startingTime;
     Integer duration;
+    private Integer day;
     
     public Exam()
     {
@@ -20,6 +21,12 @@ public class Exam {
         this.name = name;
         this.startingTime = startingTime;
         this.duration = duration;
+    }
+    
+    public Integer getStartAsMinutes()
+    {
+        String[] startSplit = this.startingTime.toString().split(":");
+        return Integer.valueOf(startSplit[0]) * 60 + Integer.valueOf(startSplit[1]);
     }
 
     public String getName() {
@@ -53,4 +60,14 @@ public class Exam {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public Integer getDay() {
+        return day;
+    }
+
+    public void setDay(Integer day) {
+        this.day = day;
+    }
+    
+    
 }

@@ -28,7 +28,7 @@
             </h:form>
         </div>
         
-        <div class="flex flex-row justify-content-start p-5">
+        <div class="flex flex-row justify-content-start flex-wrap p-5">
             <h:link outcome="#{homeView.studentsPage()}"
                            class="m-3" style="text-decoration: none !important; color:black;">
                 <div class="card border-light shadow rounded" style="width: 18rem;">
@@ -48,6 +48,18 @@
                       <h5 class="card-title">#{msg.cardExamTitle}</h5>
                       <p class="card-text">
                           #{msg.cardExamDescription}
+                      </p>
+                    </div>
+                </div>
+            </h:link>
+            
+            <h:link outcome="#{homeView.resultsPage()}"
+                    class="m-3" style="text-decoration: none !important; color:black;">
+                <div class="card border-light shadow rounded" style="width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">#{msg.cardResultsTitle}</h5>
+                      <p class="card-text">
+                          #{msg.cardResultsDescription}
                       </p>
                     </div>
                 </div>

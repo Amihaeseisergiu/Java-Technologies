@@ -21,4 +21,9 @@ public class HomeView {
     {
         return "exams";
     }
+    
+    public String resultsPage()
+    {
+        return "results";
+    }
 }

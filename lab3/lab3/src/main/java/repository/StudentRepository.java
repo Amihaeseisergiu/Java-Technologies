@@ -79,4 +79,27 @@ public class StudentRepository {
         
         return students;
     }
+    
+    public static List<Student> getExamStudents(Long id)
+    {
+        List<Student> students = new ArrayList<>();
+        
+        try {
+            Connection conn = DatabaseConnection.getConnection();
+            PreparedStatement stmt = 
+                conn.prepareStatement("SELECT * FROM students s JOIN students_exams se ON se.student_id=s.id WHERE se.exam_id=?");
+            stmt.setLong(1, id);
+            ResultSet rs = stmt.executeQuery();
+            
+            while(rs.next())
+            {
+                students.add(new Student(rs.getLong(1), rs.getString(2)));
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ExamRepository.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return students;
+    }
 }

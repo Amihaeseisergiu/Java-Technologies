@@ -20,6 +20,6 @@
 - [X] Used relational database and JDBC in order to store and retrieve data
 - [X] Used at least one non trivial JSF component
 - [X] Internationalized the user interface
-- [ ] Solved the problem
-- [ ] Created a page for displaying the results
+- [X] Solved the problem
+- [X] Created a page for displaying the results
 - [ ] Created a random generator that produces problem instances of various sizes
