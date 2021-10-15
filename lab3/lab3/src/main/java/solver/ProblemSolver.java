@@ -29,7 +29,8 @@ public class ProblemSolver {
             {
                 if(i != j)
                 {
-                    if(conflictMatrix[i][j] == 1 && ((examsStart[i] <= examsEnd[j])  &&  (examsEnd[i] >= examsStart[j])))
+                    //no overlap ((examsStart[i] <= examsEnd[j])  &&  (examsEnd[i] >= examsStart[j]))
+                    if(conflictMatrix[i][j] == 1)
                     {
                         model.arithm(day[i], "!=", day[j]).post();
                     }
