@@ -21,7 +21,7 @@ public class ProblemSolver {
         Model model = new Model("Exam Scheduler");
 
         IntVar[] day = model.intVarArray("day", nrExams, 0, nrExams - 1);
-        IntVar totDay = model.intVar("Total Day Score", 0, (nrExams * (nrExams - 1)) / 2);
+        IntVar nrDistinct = model.intVar("distinct", 0, nrExams - 1);
 
         for (int i = 0; i < nrExams; i++)
         {
@@ -38,8 +38,8 @@ public class ProblemSolver {
             }
         }
         
-        model.sum(day, "=", totDay).post();
-        model.setObjective(Model.MINIMIZE, totDay);
+        model.nValues(day, nrDistinct).post();
+        model.setObjective(Model.MINIMIZE, nrDistinct);
 
         Solver solver = model.getSolver();
         Solution solution = new Solution(model);
@@ -56,6 +56,7 @@ public class ProblemSolver {
             
             for(int i = 0; i < nrExams; i++)
             {
+                //System.out.println("day[" + exams.get(i).getName() + "] = " + solution.getIntVal(day[i]));
                 exams.get(i).setDay(solution.getIntVal(day[i]));
             }
         }
