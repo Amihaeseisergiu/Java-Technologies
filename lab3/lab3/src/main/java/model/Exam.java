@@ -1,14 +1,16 @@
 package model;
 
 import java.time.LocalTime;
+import java.util.List;
 
 public class Exam {
     
-    private Long id;
+    Long id;
     String name;
     LocalTime startingTime;
     Integer duration;
-    private Integer day;
+    Integer day;
+    private List<Student> students;
     
     public Exam()
     {
@@ -21,6 +23,15 @@ public class Exam {
         this.name = name;
         this.startingTime = startingTime;
         this.duration = duration;
+    }
+    
+    public Exam(Long id, String name, LocalTime startingTime, Integer duration, List<Student> students)
+    {
+        this.id = id;
+        this.name = name;
+        this.startingTime = startingTime;
+        this.duration = duration;
+        this.students = students;
     }
     
     public Integer getStartAsMinutes()
@@ -68,6 +79,13 @@ public class Exam {
     public void setDay(Integer day) {
         this.day = day;
     }
-    
+
+    public List<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(List<Student> students) {
+        this.students = students;
+    }
     
 }

@@ -50,4 +50,24 @@ public class GrowlView {
         String body = bundle.getString("growlStudentAddFail");
         addMessage(FacesMessage.SEVERITY_ERROR, title, body);
     }
+    
+    public static void testingStarted()
+    {
+        FacesContext context = FacesContext.getCurrentInstance();
+        ResourceBundle bundle = context.getApplication().getResourceBundle(context, "msg");
+        
+        String title = bundle.getString("growlInfoTitle");
+        String body = bundle.getString("growlTestingStarted");
+        addMessage(FacesMessage.SEVERITY_INFO, title, body);
+    }
+    
+    public static void testingFinished(double seconds)
+    {
+        FacesContext context = FacesContext.getCurrentInstance();
+        ResourceBundle bundle = context.getApplication().getResourceBundle(context, "msg");
+        
+        String title = bundle.getString("growlInfoTitle");
+        String body = bundle.getString("growlTestingFinished") + seconds + " " + bundle.getString("seconds");
+        addMessage(FacesMessage.SEVERITY_INFO, title, body);
+    }
 }

@@ -22,4 +22,4 @@
 - [X] Internationalized the user interface
 - [X] Solved the problem
 - [X] Created a page for displaying the results
-- [ ] Created a random generator that produces problem instances of various sizes
+- [X] Created a random generator that produces problem instances of various sizes

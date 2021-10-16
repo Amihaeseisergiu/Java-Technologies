@@ -4,9 +4,9 @@ import java.util.List;
 
 public class Student {
 
-    private Long id;
+    Long id;
     String name;
-    private List<Exam> exams;
+    List<Exam> exams;
     
     public Student() {
     }

@@ -10,9 +10,8 @@ import org.chocosolver.solver.variables.IntVar;
 
 public class ProblemSolver {
     
-    public static List<Exam> solve()
+    public static List<Exam> solve(ProblemData pd)
     {
-        ProblemData pd = new ProblemData();
         int[][] conflictMatrix = pd.getConflictMatrix();
         int nrExams = pd.getNrExams();
         int[] examsStart = pd.getExamsStart();
