@@ -23,3 +23,9 @@
 - [X] Solved the problem
 - [X] Created a page for displaying the results
 - [X] Created a random generator that produces problem instances of various sizes
+
+### Laboratory 4
+- [X] Created the pages using templates
+- [X] Created at least one composite component
+- [ ] Used the components ajax and poll in order to continuously display information
+- [ ] Implemented an efficient way for obtaining connections to the database

@@ -1,0 +1,29 @@
+<ui:composition template="/WEB-INF/templates/page.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:as="http://xmlns.jcp.org/jsf/composite/components">
+    
+    <ui:param name="pageTitle" value="#{pageTitle}"></ui:param>
+    
+    <ui:define name="content">
+        
+        <div class="flex flex-row justify-content-start p-5">
+            <p:growl id="growl" showDetail="true" />
+            
+            <ui:insert name="dataAdd">
+                
+            </ui:insert>
+            
+            <ui:insert name="dataView">
+                
+            </ui:insert>
+        </div>
+        
+        <ui:insert name="additions">
+                
+        </ui:insert>
+        
+    </ui:define>
+</ui:composition>
