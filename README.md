@@ -27,5 +27,23 @@
 ### Laboratory 4
 - [X] Created the pages using templates
 - [X] Created at least one composite component
-- [ ] Used the components ajax and poll in order to continuously display information
-- [ ] Implemented an efficient way for obtaining connections to the database
+- [X] Used the components ajax and poll in order to continuously display information
+- [X] Implemented an efficient way for obtaining connections to the database
+
+  SQL command to see database connections: 
+  SELECT pid FROM pg_stat_activity WHERE datname='lab3' AND application_name<>'psql';;
+  
+  SQL command to kill all connections:
+  SELECT 
+    pg_terminate_backend(pid) 
+  FROM 
+    pg_stat_activity 
+  WHERE
+    pid <> pg_backend_pid()
+    AND datname = 'lab3';
+	
+  After closing all connection we get the following outcome: 
+  org.postgresql.util.PSQLException: This connection has been closed.
+  
+  If we're not closing the connection, thus not returning it to the pool, we get the following outcome:
+  javax.resource.spi.ResourceAllocationException: Error in allocating a connection. Cause: In-use connections equal max-pool-size and expired max-wait-time. Cannot allocate more connections.

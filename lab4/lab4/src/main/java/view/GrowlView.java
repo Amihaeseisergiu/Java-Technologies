@@ -37,6 +37,22 @@ public class GrowlView {
         addMessage(FacesMessage.SEVERITY_ERROR, title, body);
     }
     
+    public static void examUpdateSuccess() {
+        ResourceBundle bundle = getBundle();
+        
+        String title = bundle.getString("growlInfoTitle");
+        String body = bundle.getString("growlExamUpdate");
+        addMessage(FacesMessage.SEVERITY_INFO, title, body);
+    }
+    
+    public static void examUpdateFailure() {
+        ResourceBundle bundle = getBundle();
+        
+        String title = bundle.getString("growlErrorTitle");
+        String body = bundle.getString("growlExamUpdateFail");
+        addMessage(FacesMessage.SEVERITY_ERROR, title, body);
+    }
+    
     public static void studentAddedSuccess() {
         ResourceBundle bundle = getBundle();
         

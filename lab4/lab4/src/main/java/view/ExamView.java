@@ -1,39 +1,71 @@
 package view;
 
-import database.AbstractDatabaseInsert;
 import java.io.Serializable;
 import java.time.LocalTime;
 import java.util.List;
 import javax.annotation.PostConstruct;
-import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import model.Exam;
 import repository.ExamRepository;
+import abstraction.DatabaseInsert;
+import java.util.Collections;
+import java.util.Comparator;
+import javax.enterprise.context.SessionScoped;
+import javax.inject.Inject;
 
 @Named
-@ViewScoped
-public class ExamView extends AbstractDatabaseInsert implements Serializable {
+@SessionScoped
+public class ExamView extends DatabaseInsert implements Serializable {
     
-    private Long id;
-    private String name;
-    private LocalTime startingTime;
-    private Integer duration;
+    Long id;
+    String name;
+    LocalTime startingTime;
+    Integer duration;
     List<Exam> exams;
+    Exam selectedForEdit;
+    
+    @Inject
+    ExamRepository examRepository;
     
     @PostConstruct
     public void init() {
-        exams = ExamRepository.getExams();
+        exams = examRepository.getExams();
+        
+        Collections.sort(exams, new Comparator<Exam>() {
+            @Override
+            public int compare(Exam o1, Exam o2) {
+                
+                return -o2.getId().compareTo(o1.getId());
+            }
+        });
     }
     
     public List<Exam> getExams()
     {
-        return ExamRepository.getExams();
+        init();
+        return exams;
+    }
+    
+    public void editRow(Exam selected)
+    {
+        selectedForEdit = selected;
+    }
+    
+    public void save()
+    {
+        examRepository.updateExam(selectedForEdit);
+        selectedForEdit = null;
+    }
+    
+    public void cancel()
+    {
+        selectedForEdit = null;
     }
     
     @Override
     public void insertInDatabase()
     {
-        ExamRepository.addExam(name, startingTime, duration);
+        examRepository.addExam(name, startingTime, duration);
         
         this.name = null;
         this.startingTime = null;
@@ -70,5 +102,9 @@ public class ExamView extends AbstractDatabaseInsert implements Serializable {
 
     public void setDuration(Integer duration) {
         this.duration = duration;
+    }
+
+    public Exam getSelectedForEdit() {
+        return selectedForEdit;
     }
 }

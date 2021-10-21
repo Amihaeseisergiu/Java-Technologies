@@ -9,7 +9,7 @@
     
     <ui:define name="content">
         
-        <div class="flex flex-row justify-content-start p-5">
+        <div class="flex flex-row justify-content-start px-5 pt-5">
             <p:growl id="growl" showDetail="true" />
             
             <ui:insert name="dataAdd">
@@ -19,6 +19,33 @@
             <ui:insert name="dataView">
                 
             </ui:insert>
+            
+            <h:form id="dataEditForm">
+                <p:dialog id="dataEditDialog" widgetVar="dataEditDialog" header="#{editHeader}"
+                          modal="true" draggable="false">
+
+                    <ui:insert name="dataEdit">
+
+                    </ui:insert>
+
+                    <p:focus id="formFocus" context="dataEditForm"/>
+
+                    <div class="flex justify-content-end w-full">
+                        <p:commandButton id="cancelBtn" value="#{msg.cancel}"
+                                         styleClass="ui-button-raised ui-button-danger m-2"
+                                         immediate="true"
+                                         action="#{dataEdit.cancel}"
+                                         oncomplete="PF('dataEditDialog').hide();" />
+                        <p:commandButton id="saveBtn" value="#{msg.save}"
+                                         styleClass="ui-button-raised ui-button-success m-2"
+                                         update="#{updateAfterEdit}"
+                                         oncomplete="PF('dataEditDialog').hide();"
+                                         action="#{dataEdit.save()}" />
+                    </div>
+                    
+                    <p:ajax event="close" listener="#{dataEdit.cancel}" />
+                </p:dialog>
+            </h:form>
         </div>
         
         <ui:insert name="additions">

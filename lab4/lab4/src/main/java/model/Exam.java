@@ -40,14 +40,6 @@ public class Exam {
         return Integer.valueOf(startSplit[0]) * 60 + Integer.valueOf(startSplit[1]);
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public LocalTime getStartingTime() {
         return startingTime;
     }
@@ -86,6 +78,14 @@ public class Exam {
 
     public void setStudents(List<Student> students) {
         this.students = students;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
     
 }

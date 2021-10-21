@@ -7,10 +7,13 @@ import java.time.LocalTime;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 import model.Exam;
 import org.primefaces.model.timeline.TimelineEvent;
 import org.primefaces.model.timeline.TimelineModel;
+import repository.ExamRepository;
+import repository.StudentRepository;
 import solver.ProblemData;
 import solver.ProblemSolver;
 
@@ -24,9 +27,18 @@ public class ResultsView implements Serializable {
     Integer nrExams = 1;
     Integer nrStudents = 1;
     
+    @Inject
+    ProblemSolver problemSolver;
+    
+    @Inject
+    ExamRepository examRepository;
+    
+    @Inject
+    StudentRepository studentRepository;
+    
     @PostConstruct
     public void init() {
-        List<Exam> exams = ProblemSolver.solve(new ProblemData());
+        List<Exam> exams = problemSolver.solve(new ProblemData(examRepository, studentRepository));
         
         LocalTime midnight = LocalTime.MIDNIGHT;
         LocalDate today = LocalDate.now();
@@ -55,7 +67,7 @@ public class ResultsView implements Serializable {
     {
         long solverStart = System.nanoTime();  
         
-        List<Exam> exams = ProblemSolver.solve(new ProblemData(this.nrExams + 1, this.nrStudents + 1));
+        List<Exam> exams = problemSolver.solve(new ProblemData(this.nrExams + 1, this.nrStudents + 1));
         
         long estimatedTime = System.nanoTime() - solverStart;
         double elapsedTimeInSecond = (double) estimatedTime / 1_000_000_000;

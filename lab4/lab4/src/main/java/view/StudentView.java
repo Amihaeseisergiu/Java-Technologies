@@ -1,6 +1,5 @@
 package view;
 
-import database.AbstractDatabaseInsert;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,27 +11,35 @@ import model.Student;
 import org.primefaces.event.DragDropEvent;
 import repository.ExamRepository;
 import repository.StudentRepository;
+import abstraction.DatabaseInsert;
+import javax.inject.Inject;
 
 @Named
 @ViewScoped
-public class StudentView extends AbstractDatabaseInsert implements Serializable {
+public class StudentView extends DatabaseInsert implements Serializable {
     
     private String name;
     private List<Student> students;
     List<Exam> availableExams;
     List<Exam> droppedExams;
     
+    @Inject
+    ExamRepository examRepository;
+    
+    @Inject
+    StudentRepository studentRepository;
+    
     @PostConstruct
     public void init() {
-        students = StudentRepository.getStudents();
-        availableExams = ExamRepository.getExams();
+        students = studentRepository.getStudents();
+        availableExams = examRepository.getExams();
         droppedExams = new ArrayList<>();
     }
     
     @Override
     public void insertInDatabase()
     {
-        StudentRepository.addStudent(name, droppedExams);
+        studentRepository.addStudent(name, droppedExams);
         
         this.name = null;
         init();

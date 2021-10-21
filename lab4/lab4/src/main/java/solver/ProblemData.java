@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+import javax.inject.Inject;
 import model.Exam;
 import model.Student;
 import repository.ExamRepository;
@@ -21,6 +22,10 @@ public class ProblemData {
     private final int[] examsStart;
     private final int[] examsEnd;
     private final int[] examsDur;
+    
+    ExamRepository examRepository;
+    
+    StudentRepository studentRepository;
     
     public ProblemData(int nrEx, int nrSt)
     {
@@ -65,10 +70,12 @@ public class ProblemData {
         }
     }
     
-    public ProblemData()
+    public ProblemData(ExamRepository examRepository, StudentRepository studentRepository)
     {
-        exams = ExamRepository.getExams();
-        students = StudentRepository.getStudents();
+        this.examRepository = examRepository;
+        this.studentRepository = studentRepository;
+        exams = examRepository.getExams();
+        students = studentRepository.getStudents();
         nrExams = exams.size();
         nrStudents = students.size();
         conflictMatrix = new int[nrExams][nrExams];
@@ -79,13 +86,13 @@ public class ProblemData {
         for(int i = 0; i < conflictMatrix.length; i++)
         {
             Exam exami = exams.get(i);
-            List<Student> examStudentsi = StudentRepository.getExamStudents(exami.getId());
+            List<Student> examStudentsi = studentRepository.getExamStudents(exami.getId());
             
             for(int j = 0; j < conflictMatrix.length; j++)
             {
                 if(i != j)
                 {
-                    List<Student> examStudentsj = StudentRepository.getExamStudents(exams.get(j).getId());
+                    List<Student> examStudentsj = studentRepository.getExamStudents(exams.get(j).getId());
                     
                     if(!examsDisjoint(examStudentsi, examStudentsj))
                     {

@@ -1,16 +1,19 @@
 package solver;
 
 import java.util.List;
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Named;
 import model.Exam;
-import model.Student;
 import org.chocosolver.solver.Model;
 import org.chocosolver.solver.Solution;
 import org.chocosolver.solver.Solver;
 import org.chocosolver.solver.variables.IntVar;
 
+@Named
+@ApplicationScoped
 public class ProblemSolver {
     
-    public static List<Exam> solve(ProblemData pd)
+    public List<Exam> solve(ProblemData pd)
     {
         int[][] conflictMatrix = pd.getConflictMatrix();
         int nrExams = pd.getNrExams();
