@@ -22,7 +22,7 @@ import view.GrowlView;
 @ApplicationScoped
 public class ExamRepository implements Serializable {
     
-    @Resource(lookup="java:comp/env/database")
+    @Resource(name="database")
     private DataSource ds;
     
     public void addExam(String name, LocalTime startingTime, Integer duration)

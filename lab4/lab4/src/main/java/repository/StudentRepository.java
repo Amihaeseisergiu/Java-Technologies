@@ -22,7 +22,7 @@ import view.GrowlView;
 @ApplicationScoped
 public class StudentRepository {
     
-    @Resource(lookup="java:comp/env/database")
+    @Resource(name="database")
     private DataSource ds;
     
     @Inject
