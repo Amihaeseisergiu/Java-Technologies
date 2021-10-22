@@ -74,6 +74,11 @@
     </ui:define>
     
     <ui:define name="additions">
+        <h:form>
+            <f:websocket channel="push">
+                <f:ajax event="updateStudents" render=":studentsTable" />
+            </f:websocket>
+        </h:form>
         
         <div class="flex flex-column align-items-center min-w-full p-5">
             <h2>#{msg.addedStudents}</h2>

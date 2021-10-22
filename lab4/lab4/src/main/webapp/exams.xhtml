@@ -3,7 +3,8 @@
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-                xmlns:as="http://xmlns.jcp.org/jsf/composite/components">
+                xmlns:as="http://xmlns.jcp.org/jsf/composite/components"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <ui:param name="pageTitle" value="#{msg.exams}"></ui:param>
     <ui:param name="dataEdit" value="#{examView}" />
@@ -87,6 +88,14 @@
                 <p:slider id="examEditDurationSlider" for="examEditDuration" minValue="1" maxValue="1440" range="false"/>
             </h:panelGroup>
         </p:panelGrid>
+    </ui:define>
+    
+    <ui:define name="additions">
+        <h:form>
+            <f:websocket channel="push">
+                <f:ajax event="updateExams" render=":dataTable" />
+            </f:websocket>
+        </h:form>
     </ui:define>
 
 </ui:composition>

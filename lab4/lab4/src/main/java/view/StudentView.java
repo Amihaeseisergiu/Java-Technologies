@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
-import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import model.Exam;
 import model.Student;
@@ -12,10 +11,13 @@ import org.primefaces.event.DragDropEvent;
 import repository.ExamRepository;
 import repository.StudentRepository;
 import abstraction.DatabaseInsert;
+import javax.enterprise.context.SessionScoped;
+import javax.faces.push.Push;
+import javax.faces.push.PushContext;
 import javax.inject.Inject;
 
 @Named
-@ViewScoped
+@SessionScoped
 public class StudentView extends DatabaseInsert implements Serializable {
     
     private String name;
@@ -28,6 +30,10 @@ public class StudentView extends DatabaseInsert implements Serializable {
     
     @Inject
     StudentRepository studentRepository;
+    
+    @Inject
+    @Push(channel="push")
+    PushContext push;
     
     @PostConstruct
     public void init() {
@@ -43,6 +49,8 @@ public class StudentView extends DatabaseInsert implements Serializable {
         
         this.name = null;
         init();
+        
+        push.send("updateStudents");
     }
     
     public void onExamDrop(DragDropEvent<Exam> ddEvent) {

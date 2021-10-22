@@ -9,8 +9,9 @@ import model.Exam;
 import repository.ExamRepository;
 import abstraction.DatabaseInsert;
 import java.util.Collections;
-import java.util.Comparator;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.push.Push;
+import javax.faces.push.PushContext;
 import javax.inject.Inject;
 
 @Named
@@ -27,17 +28,15 @@ public class ExamView extends DatabaseInsert implements Serializable {
     @Inject
     ExamRepository examRepository;
     
+    @Inject
+    @Push(channel="push")
+    PushContext push;
+    
     @PostConstruct
     public void init() {
         exams = examRepository.getExams();
         
-        Collections.sort(exams, new Comparator<Exam>() {
-            @Override
-            public int compare(Exam o1, Exam o2) {
-                
-                return -o2.getId().compareTo(o1.getId());
-            }
-        });
+        Collections.sort(exams, (Exam o1, Exam o2) -> -o2.getId().compareTo(o1.getId()));
     }
     
     public List<Exam> getExams()
@@ -55,6 +54,8 @@ public class ExamView extends DatabaseInsert implements Serializable {
     {
         examRepository.updateExam(selectedForEdit);
         selectedForEdit = null;
+        
+        push.send("updateExams");
     }
     
     public void cancel()
@@ -70,6 +71,8 @@ public class ExamView extends DatabaseInsert implements Serializable {
         this.name = null;
         this.startingTime = null;
         this.duration = 1;
+        
+        push.send("updateExams");
     }
 
     public Long getId() {
