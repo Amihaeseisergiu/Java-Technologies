@@ -13,20 +13,20 @@ import org.primefaces.event.SelectEvent;
 
 @Named
 @RequestScoped
-public class ExamAutocomplete extends Autocompletable implements Serializable {
+public class ExamAutocomplete extends Autocompletable<Exam> implements Serializable {
     
     @Inject
     ExamView examView;
     
     @Override
-    public List<String> completeText(String query) {
+    public List<Exam> completeText(String query) {
         String queryLowerCase = query.toLowerCase();
-        List<String> examList = new ArrayList<>();
+        List<Exam> examList = new ArrayList<>();
         
         for (Exam e : examView.getExams()) {
             if(e.getName().toLowerCase().startsWith(queryLowerCase))
             {
-                examList.add(e.getName());
+                examList.add(e);
             }
         }
         
@@ -34,10 +34,10 @@ public class ExamAutocomplete extends Autocompletable implements Serializable {
     }
 
     @Override
-    public void onItemSelect(SelectEvent<String> event) {
+    public void onItemSelect(SelectEvent<Exam> event) {
         for(Exam e : examView.getExams())
         {
-            if(e.getName().equals(event.getObject()))
+            if(e.getId().equals(event.getObject().getId()))
             {
                 examView.editRow(e);
                 break;

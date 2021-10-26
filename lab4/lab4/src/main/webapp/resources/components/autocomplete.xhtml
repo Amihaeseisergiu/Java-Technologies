@@ -9,12 +9,14 @@
     <cc:interface>
         <cc:attribute name="searchLabel" />
         <cc:attribute name="view" type="abstraction.Autocompletable" />
+        <cc:attribute name="converter" type="javax.faces.convert.Converter" />
     </cc:interface>
 
     <cc:implementation>
         <h:form id="autocompleteForm" class="ui-float-label w-full">
             <p:autoComplete id="autocompleteEvent" value="#{cc.attrs.view.text}" styleClass="p-2"
-                            completeMethod="#{cc.attrs.view.completeText}" scrollHeight="250">
+                            completeMethod="#{cc.attrs.view.completeText}" scrollHeight="250"
+                            var="el" itemLabel="#{el.name}" itemValue="#{el}" converter="#{cc.attrs.converter}">
                 <p:ajax event="itemSelect" listener="#{cc.attrs.view.onItemSelect}"  />
             </p:autoComplete>
             <p:outputLabel styleClass="pl-2" value="#{msg.search} #{cc.attrs.searchLabel}" for="@previous" />

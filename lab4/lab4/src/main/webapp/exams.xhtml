@@ -38,7 +38,8 @@
     <ui:define name="dataView">
         
         <div class="card w-9">
-            <as:autocomplete searchLabel="#{msg.exams}" view="#{examAutocomplete}" />
+            <as:autocomplete searchLabel="#{msg.exams}" view="#{examAutocomplete}"
+                             converter="#{examAutocompleteConverter}" />
             
             <p:dataTable id="dataTable" var="ex" value="#{examView.exams}"
                          rows="5" paginator="true" paginatorPosition="top">
