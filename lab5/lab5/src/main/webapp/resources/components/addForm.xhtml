@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html xmlns = "http://www.w3.org/1999/xhtml"   
+      xmlns:h = "http://java.sun.com/jsf/html"
+      xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+      xmlns:p="http://primefaces.org/ui">
+    
+    <cc:interface>
+        <cc:attribute name="styleClass" />
+        <cc:attribute name="title" />
+        <cc:attribute name="view" type="abstraction.DatabaseInsert" />
+        <cc:attribute name="update" required="false" />
+    </cc:interface>
+
+    <cc:implementation>
+        <div class="card shadow border-light rounded #{cc.attrs.styleClass}">
+            <div class="card-body">
+                <h:form class="px-2">
+                    <div class="flex flex-row justify-content-between align-items-center">
+                        <h5 class="card-title flex flex-row justify-content-center">#{cc.attrs.title}</h5>
+                        <p:commandButton action="#{cc.attrs.view.insertInDatabase()}"
+                                         update="#{cc.attrs.update}"
+                                         icon="pi pi-plus" styleClass="rounded-button ui-button-outlined" />
+                    </div>
+                    <p:divider></p:divider>
+                    
+                    <cc:insertChildren />
+                    
+                </h:form>
+            </div>
+        </div>
+    </cc:implementation>
+    
+</html>

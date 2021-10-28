@@ -96,21 +96,27 @@ public class ExamRepository implements Serializable {
         List<Exam> exams = new ArrayList<>();
         
         Connection con = null;
+        PreparedStatement stmt = null;
         
         try {
             con = ds.getConnection();
             
-            String sql = "SELECT * FROM exams";
-            try (PreparedStatement stmt = con.prepareStatement(sql); ResultSet rs = stmt.executeQuery())
+            stmt = con.prepareStatement("SELECT * FROM exams");
+            ResultSet rs = stmt.executeQuery();
+            
+            while (rs.next())
             {
-                while (rs.next())
-                {
-                    exams.add(new Exam(rs.getLong(1), rs.getString(2), rs.getTime(3).toLocalTime(), rs.getInt(4)));
-                }
+                exams.add(new Exam(rs.getLong(1), rs.getString(2), rs.getTime(3).toLocalTime(), rs.getInt(4)));
             }
         } catch (SQLException ex) {
             Logger.getLogger(ExamRepository.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
+            if(stmt != null)
+            {
+                try {
+                    stmt.close();
+                } catch (SQLException ex) {}
+            }
             if(con != null)
             {
                 try {

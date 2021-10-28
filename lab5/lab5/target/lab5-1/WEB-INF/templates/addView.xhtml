@@ -1,0 +1,56 @@
+<ui:composition template="/WEB-INF/templates/page.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:as="http://xmlns.jcp.org/jsf/composite/components">
+    
+    <ui:param name="pageTitle" value="#{pageTitle}"></ui:param>
+    
+    <ui:define name="content">
+        
+        <div class="flex flex-row justify-content-start px-5 pt-5">
+            <p:growl id="growl" showDetail="true" />
+            
+            <ui:insert name="dataAdd">
+                
+            </ui:insert>
+            
+            <ui:insert name="dataView">
+                
+            </ui:insert>
+            
+            <h:form id="dataEditForm">
+                <p:dialog id="dataEditDialog" widgetVar="dataEditDialog" header="#{editHeader}"
+                          modal="true" draggable="false">
+
+                    <ui:insert name="dataEdit">
+
+                    </ui:insert>
+
+                    <p:focus id="formFocus" context="dataEditForm"/>
+
+                    <div class="flex justify-content-end w-full">
+                        <p:commandButton id="cancelBtn" value="#{msg.cancel}"
+                                         styleClass="ui-button-raised ui-button-danger m-2"
+                                         immediate="true"
+                                         action="#{dataEdit.cancel}"
+                                         oncomplete="PF('dataEditDialog').hide();" />
+                        <p:commandButton id="saveBtn" value="#{msg.save}"
+                                         styleClass="ui-button-raised ui-button-success m-2"
+                                         update="#{updateAfterEdit}"
+                                         oncomplete="PF('dataEditDialog').hide();"
+                                         action="#{dataEdit.save()}" />
+                    </div>
+                    
+                    <p:ajax event="close" listener="#{dataEdit.cancel}" />
+                </p:dialog>
+            </h:form>
+        </div>
+        
+        <ui:insert name="additions">
+                
+        </ui:insert>
+        
+    </ui:define>
+</ui:composition>

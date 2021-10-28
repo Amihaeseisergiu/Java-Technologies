@@ -1,0 +1,121 @@
+<ui:composition template="/WEB-INF/templates/addView.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:as="http://xmlns.jcp.org/jsf/composite/components">
+
+    <ui:param name="pageTitle" value="#{msg.students}"></ui:param>
+
+    <ui:define name="dataAdd">
+        
+        <as:addForm styleClass="m-5 w-6 h-30rem" title="#{msg.addStudentTitle}" view="#{studentView}"
+                    update="growl name dropArea availableExams studentsTable">
+            <span class="ui-float-label mt-4">
+                <p:inputText id="name" value="#{studentView.name}" class="min-w-full" />
+                <p:outputLabel for="@previous" value="#{msg.addStudentName}" />
+            </span>
+
+            <p:fieldset id="selectedExams" class="mt-3">
+                <p:outputPanel id="dropArea">
+                    <h:outputText value="#{msg.addStudentDropExam}" rendered="#{empty studentView.droppedExams}"
+                                  style="font-size:1.5rem"/>
+                    <p:dataTable id="selectedExamsTable" var="ex" value="#{studentView.droppedExams}"
+                                 rows="2" paginator="true" paginatorPosition="top"
+                                 rendered="#{not empty studentView.droppedExams}">
+                        <p:column headerText="#{msg.examTableId}">
+                            <h:outputText value="#{ex.id}"/>
+                        </p:column>
+
+                        <p:column headerText="#{msg.examTableName}">
+                            <h:outputText value="#{ex.name}"/>
+                        </p:column>
+
+                        <p:column headerText="#{msg.examTableStartingTime}">
+                            <h:outputText value="#{ex.startingTime}"/>
+                        </p:column>
+
+                        <p:column headerText="#{msg.examTableDuration}">
+                            <h:outputText value="#{ex.duration}"/>
+                        </p:column>
+                    </p:dataTable>
+                </p:outputPanel>
+            </p:fieldset>
+
+            <p:droppable for="selectedExams" tolerance="touch" activeStyleClass="ui-state-highlight"
+                         datasource="availableExams">
+                <p:ajax listener="#{studentView.onExamDrop}" update="dropArea availableExams"/>
+            </p:droppable>
+        </as:addForm>
+    </ui:define>
+    
+    <ui:define name="dataView">
+        
+        <div class="card w-6 m-5">
+            <p:dataView id="availableExams" var="ex" value="#{studentView.availableExams}"
+                        paginator="true" paginatorPosition="top"
+                        rows="6" layout="grid" gridIcon="pi pi-th-large">
+                <p:dataViewGridItem>
+                    <p:panel id="pnl" header="#{ex.name}" style="text-align:center">
+                        <h:panelGrid columns="2" style="width:100%">
+                            <h:outputText value="#{msg.examTableStartingTime}"/>
+                            <h:outputText value="#{ex.startingTime}"/>
+
+                            <h:outputText value="#{msg.examTableDuration}"/>
+                            <h:outputText value="#{ex.duration}"/>
+                        </h:panelGrid>
+                    </p:panel>
+
+                    <p:draggable for="pnl" revert="true" handle=".ui-panel-titlebar" stack=".ui-panel"/>
+                </p:dataViewGridItem>
+            </p:dataView>
+        </div>
+    </ui:define>
+    
+    <ui:define name="additions">
+        <h:form>
+            <f:websocket channel="push">
+                <f:ajax event="updateStudents" render=":studentsTable" />
+                <f:ajax event="updateExams" render=":availableExams" listener="#{studentView.getNewExams()}" />
+            </f:websocket>
+        </h:form>
+        
+        <div class="flex flex-column align-items-center min-w-full p-5">
+            <h2>#{msg.addedStudents}</h2>
+            
+            <p:dataTable id="studentsTable" var="st" value="#{studentView.students}"
+                        rows="4" paginator="true" paginatorPosition="top"
+                        rendered="#{not empty studentView.students}">
+                <p:column headerText="#{msg.studentTableId}">
+                   <h:outputText value="#{st.id}"/>
+                </p:column>
+
+                <p:column headerText="#{msg.studentTableName}">
+                   <h:outputText value="#{st.name}"/>
+                </p:column>
+                
+                <p:column headerText="#{msg.studentTableExams}">
+                    <p:dataTable var="stex" value="#{st.exams}"
+                        rows="2" paginator="true" paginatorPosition="top">
+                        <p:column headerText="#{msg.examTableId}">
+                            <h:outputText value="#{stex.id}"/>
+                        </p:column>
+
+                        <p:column headerText="#{msg.examTableName}">
+                            <h:outputText value="#{stex.name}"/>
+                        </p:column>
+
+                        <p:column headerText="#{msg.examTableStartingTime}">
+                            <h:outputText value="#{stex.startingTime}"/>
+                        </p:column>
+
+                        <p:column headerText="#{msg.examTableDuration}">
+                            <h:outputText value="#{stex.duration}"/>
+                        </p:column>
+                    </p:dataTable>
+                </p:column>
+            </p:dataTable>
+        </div>
+    </ui:define>
+</ui:composition>

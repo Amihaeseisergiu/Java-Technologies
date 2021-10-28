@@ -1,0 +1,24 @@
+<ui:composition template="/WEB-INF/templates/page.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+                xmlns:as="http://xmlns.jcp.org/jsf/composite/components">
+
+    <ui:param name="pageTitle" value="#{msg.home}"></ui:param>
+
+    <ui:define name="content">
+        <div class="flex flex-row justify-content-start flex-wrap p-5">
+            <as:cardLink link="#{homeView.studentsPage()}" cardTitle="#{msg.cardStudentTitle}"
+                         cardText="#{msg.cardStudentDescription}" paramName="currentTab" paramVal="1" />
+
+            <as:cardLink link="#{homeView.examsPage()}" cardTitle="#{msg.cardExamTitle}"
+                         cardText="#{msg.cardExamDescription}" paramName="currentTab" paramVal="2" />
+
+            <as:cardLink link="#{homeView.resultsPage()}" cardTitle="#{msg.cardResultsTitle}"
+                         cardText="#{msg.cardResultsDescription}" paramName="currentTab" paramVal="3" />
+        </div> 
+    </ui:define>
+
+</ui:composition>
