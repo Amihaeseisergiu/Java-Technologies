@@ -3,7 +3,7 @@
   
   <persistence-unit name="lab5PU" transaction-type="JTA">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-    <jta-data-source>sample</jta-data-source>
+    <jta-data-source>lab5</jta-data-source>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties/>
   </persistence-unit>

@@ -13,9 +13,15 @@
 
     <ui:define name="dataAdd">
         
-        <as:addForm styleClass="m-5 w-auto h-25rem" title="#{msg.addExamTitle}" view="#{examView}"
-                    update="growl name startingTime duration durationSlider dataTable">
+        <as:addForm styleClass="m-5 w-auto h-auto" title="#{msg.addExamTitle}" view="#{examView}"
+                    update="growl name startingTime duration durationSlider dataTable examTypeBlock">
             <p:panelGrid columns="1" styleClass="ui-noborder">
+                <h:panelGroup>
+                    <p:selectOneMenu styleClass="w-full" id="examType" value="#{examView.examType}">
+                        <f:selectItems value="#{examView.examTypes}"/>
+                        <f:ajax event="change" render="examTypeBlock" />
+                    </p:selectOneMenu>
+                </h:panelGroup>
                 <h:panelGroup class="ui-float-label">
                     <p:inputText id="name" value="#{examView.name}" class="w-full" />
                     <p:outputLabel for="@previous" value="#{msg.addExamName}" />
@@ -31,6 +37,50 @@
                     <p:inputText id="duration" value="#{examView.duration}" class="w-full" />
                     <p:slider id="durationSlider" for="duration" minValue="1" maxValue="1440" range="false"/>
                 </h:panelGroup>
+                <h:panelGroup id="examTypeBlock">
+                    <h:panelGroup id="examBibliographyBlock" rendered="#{examView.examType == msg.writtenTest}">
+                        <div class="card border-light shadow rounded w-full p-3">
+                            <div class="flex justify-content-between align-items-center">
+                                <h5 class="pr-5">#{msg.bibliographyList}</h5>
+                                <p:commandButton action="#{examView.insertBibliography()}"
+                                                 update="examTypeBlock"
+                                                 icon="pi pi-plus" styleClass="rounded-button ui-button-outlined" />
+                            </div>
+                            <p:divider />
+                            <h:panelGroup class="ui-float-label flex align-items-center">
+                                <p:inputText id="bibliographyName" value="#{examView.bibliographyName}" class="w-full" />
+                                <p:outputLabel for="@previous" value="#{msg.bibliographyName}" />
+                            </h:panelGroup>
+                            <p:divider />
+                            <ol>
+                                <ui:repeat value="#{examView.bibliographies}" var="bibliography">
+                                    <li class="fs-5"><h:outputText value="#{bibliography.name}" /></li>
+                                </ui:repeat>
+                            </ol>
+                        </div>
+                    </h:panelGroup>
+                    <h:panelGroup id="examResourceBlock" rendered="#{examView.examType == msg.projectPresentation}">
+                        <div class="card border-light shadow rounded w-full p-3">
+                            <div class="flex justify-content-between align-items-center">
+                                <h5 class="pr-5">#{msg.requiredResources}</h5>
+                                <p:commandButton action="#{examView.insertRequiredResource()}"
+                                                 update="examTypeBlock"
+                                                 icon="pi pi-plus" styleClass="rounded-button ui-button-outlined" />
+                            </div>
+                            <p:divider />
+                            <h:panelGroup class="ui-float-label flex align-items-center">
+                                <p:inputText id="resourceName" value="#{examView.resourceName}" class="w-full" />
+                                <p:outputLabel for="@previous" value="#{msg.resourceName}" />
+                            </h:panelGroup>
+                            <p:divider />
+                            <ol>
+                                <ui:repeat value="#{examView.requiredResources}" var="requiredResource">
+                                    <li class="fs-5"><h:outputText value="#{requiredResource.name}" /></li>
+                                </ui:repeat>
+                            </ol>
+                        </div>
+                    </h:panelGroup>
+                </h:panelGroup>
             </p:panelGrid>
         </as:addForm>
     </ui:define>
@@ -38,8 +88,49 @@
     <ui:define name="dataView">
         
         <div class="card w-9">
-            <as:autocomplete searchLabel="#{msg.exams}" view="#{examAutocomplete}"
-                             converter="#{examAutocompleteConverter}" />
+            <h:panelGroup id="dataViewTop" class="w-full flex p-3">
+                <as:autocomplete searchLabel="#{msg.exams}" view="#{examAutocomplete}"
+                                     converter="#{examAutocompleteConverter}" />
+                <h:form>
+                    <h:panelGroup class="w-full flex justify-content-between pl-2">
+                        <p:selectBooleanCheckbox value="#{examView.filterExamNameBool}">
+                            <p:ajax update=":dataTable" listener="#{examView.applyFilters}"/>
+                        </p:selectBooleanCheckbox>
+                        <h:panelGroup class="ui-float-label px-2 flex">
+                            <p:inputText id="filterExamName" value="#{examView.filterExamName}" size="10">
+                                <p:ajax update=":dataTable" event="keyup" listener="#{examView.applyFilters}"/>
+                            </p:inputText>
+                            <p:outputLabel for="@previous" value="#{msg.addExamName}" />
+                        </h:panelGroup>
+                        <p:selectBooleanCheckbox value="#{examView.filterStudentNameBool}">
+                            <p:ajax update=":dataTable" listener="#{examView.applyFilters}"/>
+                        </p:selectBooleanCheckbox>
+                        <h:panelGroup class="ui-float-label px-2">
+                            <p:inputText id="filterStudentName" value="#{examView.filterStudentName}" size="10">
+                                <p:ajax update=":dataTable" event="keyup" listener="#{examView.applyFilters}"/>
+                            </p:inputText>
+                            <p:outputLabel for="@previous" value="#{msg.addStudentName}" />
+                        </h:panelGroup>
+                        <p:selectBooleanCheckbox value="#{examView.filterTimeBool}">
+                            <p:ajax update=":dataTable" listener="#{examView.applyFilters}"/>
+                        </p:selectBooleanCheckbox>
+                        <h:panelGroup class="ui-float-label px-2 flex">
+                            <p:datePicker id="filterStartTime" value="#{examView.filterFrom}" size="10"
+                                          timeOnly="true" pattern="HH:mm">
+                                <p:ajax update=":dataTable" event="change" listener="#{examView.applyFilters}"/>
+                            </p:datePicker>
+                            <p:outputLabel for="@previous" value="#{msg.from}" />
+                        </h:panelGroup>
+                        <h:panelGroup class="ui-float-label px-2 flex">
+                            <p:datePicker id="filterEndTime" value="#{examView.filterTo}" size="10"
+                                          timeOnly="true" pattern="HH:mm">
+                                <p:ajax update=":dataTable" event="change" listener="#{examView.applyFilters}"/>
+                            </p:datePicker>
+                            <p:outputLabel for="@previous" value="#{msg.to}" />
+                        </h:panelGroup>
+                    </h:panelGroup>
+                </h:form>
+            </h:panelGroup>
             
             <p:dataTable id="dataTable" var="ex" value="#{examView.exams}"
                          rows="5" paginator="true" paginatorPosition="top">

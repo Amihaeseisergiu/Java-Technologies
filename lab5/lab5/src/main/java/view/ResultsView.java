@@ -40,26 +40,29 @@ public class ResultsView implements Serializable {
     public void init() {
         List<Exam> exams = problemSolver.solve(new ProblemData(examRepository, studentRepository));
         
-        LocalTime midnight = LocalTime.MIDNIGHT;
-        LocalDate today = LocalDate.now();
-        start = LocalDateTime.of(today, midnight);
-        end = start.plusDays(1);
-        
-        model = new TimelineModel<>();
-        
-        for(Exam e : exams)
+        if(exams != null && !exams.isEmpty())
         {
-            LocalDateTime examStart = start.plusDays(e.getAssignedDay()).plusMinutes(e.getStartAsMinutes());
-            LocalDateTime examEnd = start.plusDays(e.getAssignedDay()).plusMinutes(e.getStartAsMinutes() + e.getDuration());
-            
-            TimelineEvent ex = TimelineEvent.builder()
-                    .data(e.getName())
-                    .startDate(examStart)
-                    .endDate(examEnd)
-                    .styleClass("blue")
-                    .build();
+            LocalTime midnight = LocalTime.MIDNIGHT;
+            LocalDate today = LocalDate.now();
+            start = LocalDateTime.of(today, midnight);
+            end = start.plusDays(1);
 
-            model.add(ex);
+            model = new TimelineModel<>();
+
+            for(Exam e : exams)
+            {
+                LocalDateTime examStart = start.plusDays(e.getAssignedDay()).plusMinutes(e.getStartAsMinutes());
+                LocalDateTime examEnd = start.plusDays(e.getAssignedDay()).plusMinutes(e.getStartAsMinutes() + e.getDuration());
+
+                TimelineEvent ex = TimelineEvent.builder()
+                        .data(e.getName())
+                        .startDate(examStart)
+                        .endDate(examEnd)
+                        .styleClass("blue")
+                        .build();
+
+                model.add(ex);
+            }
         }
     }
     

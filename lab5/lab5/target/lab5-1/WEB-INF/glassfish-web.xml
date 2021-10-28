@@ -25,6 +25,6 @@
   
   <resource-ref>
     <res-ref-name>database</res-ref-name>
-    <jndi-name>sample</jndi-name>
+    <jndi-name>lab5</jndi-name>
   </resource-ref> 
 </glassfish-web-app>

@@ -13,13 +13,15 @@
     </cc:interface>
 
     <cc:implementation>
-        <h:form id="autocompleteForm" class="ui-float-label w-full">
-            <p:autoComplete id="autocompleteEvent" value="#{cc.attrs.view.text}" styleClass="p-2"
-                            completeMethod="#{cc.attrs.view.completeText}" scrollHeight="250"
-                            var="el" itemLabel="#{el.name}" itemValue="#{el}" converter="#{cc.attrs.converter}">
-                <p:ajax event="itemSelect" listener="#{cc.attrs.view.onItemSelect}"  />
-            </p:autoComplete>
-            <p:outputLabel styleClass="pl-2" value="#{msg.search} #{cc.attrs.searchLabel}" for="@previous" />
+        <h:form id="autocompleteForm" class="ui-float-label">
+            <h:panelGroup class="ui-float-label">
+                <p:autoComplete id="autocompleteEvent" value="#{cc.attrs.view.text}"
+                                completeMethod="#{cc.attrs.view.completeText}" scrollHeight="250"
+                                var="el" itemLabel="#{el.name}" itemValue="#{el}" converter="#{cc.attrs.converter}">
+                    <p:ajax event="itemSelect" listener="#{cc.attrs.view.onItemSelect}"  />
+                </p:autoComplete>
+                <p:outputLabel styleClass="pl-2" value="#{msg.search} #{cc.attrs.searchLabel}" for="@previous" />
+            </h:panelGroup>
         </h:form>
     </cc:implementation>
     

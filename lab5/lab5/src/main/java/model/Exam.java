@@ -4,15 +4,19 @@ import abstraction.AbstractEntity;
 import java.time.LocalTime;
 import java.util.List;
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
 @Entity
 @Table(name = "exams")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="exam_type", discriminatorType = DiscriminatorType.CHAR)
 public class Exam extends AbstractEntity<Long> {
     
     @Column(name = "name")

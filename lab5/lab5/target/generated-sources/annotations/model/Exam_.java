@@ -8,7 +8,7 @@ import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 import model.Student;
 
-@Generated(value="EclipseLink-2.7.7.v20200504-rNA", date="2021-10-28T03:02:01")
+@Generated(value="EclipseLink-2.7.7.v20200504-rNA", date="2021-10-28T23:10:02")
 @StaticMetamodel(Exam.class)
 public class Exam_ extends AbstractEntity_ {
 

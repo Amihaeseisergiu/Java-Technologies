@@ -9,10 +9,10 @@ import view.GrowlView;
 public abstract class DataRepository<T extends AbstractEntity, ID extends Serializable> {
     
     protected Class<T> entityClass;
-    private boolean showMessages;
+    private final boolean showMessages;
     
     @PersistenceContext(unitName = "lab5PU")
-    private EntityManager em;
+    protected EntityManager em;
     
     protected DataRepository(Class<T> entityClass, boolean showMessages) {
         

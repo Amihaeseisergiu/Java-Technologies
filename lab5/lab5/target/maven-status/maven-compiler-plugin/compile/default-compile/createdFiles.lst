@@ -1,3 +1,4 @@
+repository\BibliographyRepository.class
 abstraction\DatabaseInsert.class
 converter\ExamAutocompleteConverter.class
 abstraction\AbstractEntity.class
@@ -6,13 +7,22 @@ view\ExamView.class
 abstraction\Autocompletable.class
 solver\ProblemSolver.class
 view\ExamAutocomplete.class
+model\Bibliography_.class
 model\Exam_.class
 model\Exam.class
 view\ResultsView.class
 abstraction\DataRepository.class
+model\RequiredResource.class
 model\Student.class
+model\WrittenTest_.class
+model\RequiredResource_.class
 abstraction\AbstractEntity_.class
+model\ProjectPresentation.class
 view\GrowlView.class
+model\ProjectPresentation_.class
+model\Bibliography.class
+model\WrittenTest.class
+repository\RequiredResourceRepository.class
 view\StudentView.class
 config\UserLanguage.class
 model\Student_.class
