@@ -47,3 +47,8 @@
   
   If we're not closing the connection, thus not returning it to the pool, we get the following outcome:
   javax.resource.spi.ResourceAllocationException: Error in allocating a connection. Cause: In-use connections equal max-pool-size and expired max-wait-time. Cannot allocate more connections.
+  
+### Laboratory 5
+- [X] Rewrote the persistence layer of the application according to the JPA specifications
+- [X] Created two new type of Exams: Written Test and Project Manager, each having a list of distinct attributes
+- [X] Implemented an exam search using JPA Criteria API
