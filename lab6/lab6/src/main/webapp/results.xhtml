@@ -1,0 +1,68 @@
+<ui:composition template="/WEB-INF/templates/page.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:param name="pageTitle" value="#{msg.results}"></ui:param>
+
+    <ui:define name="content">
+        
+        <style type="text/css">
+            div.blue {
+                color: black !important;
+                background: #80bfff none !important;
+                border-color: #0080ff !important;
+            }
+        </style>
+        
+        <div class="flex flex-column justify-content-start p-5">
+            <p:timeline id="timeline" value="#{resultsView.model}" class="min-w-full"
+                        start="#{resultsView.start}" end="#{resultsView.end}"
+                        eventMargin="10" eventMarginAxis="10" height="350px"
+                        showCurrentTime="false">
+                <f:facet name="loading">
+                    <h1>#{msg.loading}</h1>
+                </f:facet>
+            </p:timeline>
+            
+            <div class="card shadow border-light rounded mx-5 mt-4">
+                <div class="card-body">
+                    <h:form id="testForm" class="px-2 flex flex-row justify-content-between">
+                        <p:growl id="growl" showDetail="true" />
+                        
+                        <div class="flex flex-row justify-content-center align-items-center">
+                            <h5 class="card-title flex flex-row justify-content-center">#{msg.testTitle}</h5>
+                        </div>
+                        
+                        <p:divider layout="vertical"></p:divider>
+                        
+                        <span class="p-field px-3">
+                            <p:outputLabel for="nrExams" styleClass="p-d-block text-xs ml-2">
+                                #{msg.testNrExams}
+                            </p:outputLabel>
+                            <p:inputText id="nrExams" value="#{resultsView.nrExams}" class="min-w-full" />
+                            <p:slider id="nrExamsSlider" for="nrExams" minValue="1" />
+                        </span>
+                        <span class="p-field px-3">
+                            <p:outputLabel for="nrStudents" styleClass="p-d-block text-xs ml-2">
+                                #{msg.testNrStudents}
+                            </p:outputLabel>
+                            <p:inputText id="nrStudents" value="#{resultsView.nrStudents}" class="min-w-full" />
+                            <p:slider id="nrStudentsSlider" for="nrStudents" minValue="1" />
+                        </span>
+                        
+                        <p:divider layout="vertical"></p:divider>
+                        
+                        <p:commandButton action="#{resultsView.test()}"
+                                         update="testForm timeline growl"
+                                         value="#{msg.test}" class="w-2 fs-3 m-3">
+                        </p:commandButton>
+                    </h:form>
+                </div>
+            </div>
+        </div>
+    
+    </ui:define>
+</ui:composition>

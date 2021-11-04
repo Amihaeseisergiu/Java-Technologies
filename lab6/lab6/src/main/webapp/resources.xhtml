@@ -1,0 +1,66 @@
+<ui:composition template="/WEB-INF/templates/addView.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:as="http://xmlns.jcp.org/jsf/composite/components"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:param name="pageTitle" value="#{msg.resources}"></ui:param>
+
+    <ui:define name="dataAdd">
+        
+        <as:addForm styleClass="m-5 w-auto h-auto" title="#{msg.addResourceTitle}" view="#{resourceAddView}"
+                    update="growl name number numberSlider dataTable">
+            <p:panelGrid columns="1" styleClass="ui-noborder">
+                <h:panelGroup class="ui-float-label">
+                    <p:inputText id="name" value="#{resourceAddView.name}" class="w-full" />
+                    <p:outputLabel for="@previous" value="#{msg.addResourceName}" />
+                </h:panelGroup>
+                <h:panelGroup class="p-field">
+                    <p:outputLabel value="#{msg.addResourceNumber}"
+                                   for="number" styleClass="p-d-block text-xs ml-2" />
+                    <p:inputText id="number" value="#{resourceAddView.number}" class="w-full" />
+                    <p:slider id="numberSlider" for="number" minValue="1" maxValue="100" range="false"/>
+                </h:panelGroup>
+            </p:panelGrid>
+        </as:addForm>
+    </ui:define>
+
+    <ui:define name="dataView">
+        
+        <div class="card w-9">
+            
+            <p:dataTable id="dataTable" var="re" value="#{resourceView.resources}"
+                         rows="2" paginator="true" paginatorPosition="top">
+                <p:column styleClass="w-2rem" headerText="#{msg.resourceTableId}">
+                    <h:outputText value="#{re.id}" />
+                </p:column>
+                <p:column headerText="#{msg.resourceTableName}">
+                    <h:outputText value="#{re.name}" />
+                </p:column>
+                <p:column headerText="#{msg.resourceTableNumber}">
+                    <h:outputText value="#{re.number}" />
+                </p:column>
+                
+                <p:column headerText="#{msg.resourceTableExams}">
+                    <p:dataTable var="rex" value="#{re.exams}"
+                        rows="2" paginator="true" paginatorPosition="top">
+                        <p:column headerText="#{msg.examTableName}">
+                            <h:outputText value="#{rex.name}"/>
+                        </p:column>
+                    </p:dataTable>
+                </p:column>
+            </p:dataTable>
+        </div>
+    </ui:define>
+    
+    <ui:define name="additions">
+        <h:form>
+            <f:websocket channel="push">
+                <f:ajax event="updateResources" render=":dataTable" listener="#{resourceView.fetchNewResources()}" />
+            </f:websocket>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

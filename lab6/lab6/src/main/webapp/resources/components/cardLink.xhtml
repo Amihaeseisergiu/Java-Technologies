@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html xmlns = "http://www.w3.org/1999/xhtml"   
+      xmlns:h = "http://java.sun.com/jsf/html"
+      xmlns:f = "http://java.sun.com/jsf/core"
+      xmlns:cc="http://xmlns.jcp.org/jsf/composite">
+    
+    <cc:interface>
+        <cc:attribute name="link" required="true" />
+        <cc:attribute name="cardTitle" required="false" />
+        <cc:attribute name="cardText" required="false" />
+        <cc:attribute name="paramName" required="false" />
+        <cc:attribute name="paramVal" required="false" />
+    </cc:interface>
+
+    <cc:implementation>
+        <h:link outcome="#{cc.attrs.link}"
+                class="m-3" style="text-decoration: none !important; color:black;">
+            <div class="card border-light shadow rounded" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">#{cc.attrs.cardTitle}</h5>
+                    <p class="card-text">
+                        #{cc.attrs.cardText}
+                    </p>
+                </div>
+            </div>
+            
+            <f:param name="#{cc.attrs.paramName}" value="#{cc.attrs.paramVal}"/>
+        </h:link>
+    </cc:implementation>
+    
+</html>

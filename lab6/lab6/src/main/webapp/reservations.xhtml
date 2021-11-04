@@ -1,0 +1,80 @@
+<ui:composition template="/WEB-INF/templates/addView.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:as="http://xmlns.jcp.org/jsf/composite/components">
+
+    <ui:param name="pageTitle" value="#{msg.reservations}"></ui:param>
+
+    <ui:define name="dataAdd">
+        
+        <as:addForm styleClass="m-5 w-6 h-30rem" title="#{msg.makeReservationTitle}" view="#{reservationView}"
+                    update="growl examName dropArea availableResources">
+            <h:panelGroup>
+                <p:selectOneMenu styleClass="w-full" id="examName" value="#{reservationView.selectedExam}"
+                                 converter="#{examConverter}">
+                    <f:selectItems value="#{reservationView.exams}" var="ex"
+                                   itemValue="#{ex}" itemLabel="#{ex.name}"/>
+                </p:selectOneMenu>
+            </h:panelGroup>
+
+            <p:fieldset id="selectedResources" class="mt-3">
+                <p:outputPanel id="dropArea">
+                    <h:outputText value="#{msg.reservationDropResource}" rendered="#{empty reservationView.droppedResources}"
+                                  style="font-size:1.5rem"/>
+                    <p:dataTable id="selectedResourcesTable" var="res" value="#{reservationView.droppedResources}"
+                                 rows="2" paginator="true" paginatorPosition="top"
+                                 rendered="#{not empty reservationView.droppedResources}">
+                        <p:column headerText="#{msg.resourceTableId}">
+                            <h:outputText value="#{res.id}"/>
+                        </p:column>
+
+                        <p:column headerText="#{msg.resourceTableName}">
+                            <h:outputText value="#{res.name}"/>
+                        </p:column>
+
+                        <p:column headerText="#{msg.resourceTableNumber}">
+                            <h:outputText value="#{res.number}"/>
+                        </p:column>
+                    </p:dataTable>
+                </p:outputPanel>
+            </p:fieldset>
+
+            <p:droppable for="selectedResources" tolerance="touch" activeStyleClass="ui-state-highlight"
+                         datasource="availableResources">
+                <p:ajax listener="#{reservationView.onResourceDrop}" update="dropArea availableResources"/>
+            </p:droppable>
+        </as:addForm>
+    </ui:define>
+    
+    <ui:define name="dataView">
+        
+        <div class="card w-6 m-5">
+            <p:dataView id="availableResources" var="res" value="#{reservationView.availableResources}"
+                        paginator="true" paginatorPosition="top"
+                        rows="6" layout="grid" gridIcon="pi pi-th-large">
+                <p:dataViewGridItem>
+                    <p:panel id="pnl" header="#{res.name}" style="text-align:center">
+                        <h:panelGrid columns="2" style="width:100%">
+                            <h:outputText value="#{msg.resourceTableNumber}"/>
+                            <h:outputText value="#{res.number}"/>
+                        </h:panelGrid>
+                    </p:panel>
+
+                    <p:draggable for="pnl" revert="true" handle=".ui-panel-titlebar" stack=".ui-panel"/>
+                </p:dataViewGridItem>
+            </p:dataView>
+        </div>
+    </ui:define>
+    
+    <ui:define name="additions">
+        <h:form>
+            <f:websocket channel="push">
+                <f:ajax event="updateResources" render=":availableResources" listener="#{reservationView.fetchNewResources()}" />
+                <f:ajax event="updateExams" render=":addForm:examName" listener="#{reservationView.fetchNewExams()}" />
+            </f:websocket>
+        </h:form>
+    </ui:define>
+</ui:composition>

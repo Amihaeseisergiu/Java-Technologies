@@ -1,0 +1,30 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+    
+    <h:form>
+        <p:tabMenu activeIndex="#{param.currentTab}" class="user-select-none">
+            <p:menuitem value="#{msg.homeworkTitle}" outcome="#{homeView.homePage()}" class="fs-3">
+                <f:param name="currentTab" value="0"/>
+            </p:menuitem>
+            <p:menuitem value="#{msg.students}" outcome="#{homeView.studentsPage()}" icon="pi pi-fw pi-user">
+                <f:param name="currentTab" value="1"/>
+            </p:menuitem>
+            <p:menuitem value="#{msg.exams}" outcome="#{homeView.examsPage()}" icon="pi pi-fw pi-calendar">
+                <f:param name="currentTab" value="2"/>
+            </p:menuitem>
+            <p:menuitem value="#{msg.resources}" outcome="#{homeView.resourcesPage()}" icon="pi pi-fw pi-briefcase">
+                <f:param name="currentTab" value="3"/>
+            </p:menuitem>
+            <p:menuitem value="#{msg.reservations}" outcome="#{homeView.reservationsPage()}" icon="pi pi-fw pi-link">
+                <f:param name="currentTab" value="4"/>
+            </p:menuitem>
+            <p:menuitem value="#{msg.results}" outcome="#{homeView.resultsPage()}" icon="pi pi-fw pi-book">
+                <f:param name="currentTab" value="5"/>
+            </p:menuitem>
+        </p:tabMenu>
+    </h:form>
+    
+</ui:composition>
