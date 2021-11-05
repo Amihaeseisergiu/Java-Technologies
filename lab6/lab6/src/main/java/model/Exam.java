@@ -2,17 +2,18 @@ package model;
 
 import abstraction.AbstractEntity;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -37,16 +38,12 @@ public class Exam extends AbstractEntity<Long> {
     @ManyToMany(mappedBy = "exams")
     List<Student> students;
     
-    @JoinTable(name = "exams_resources",
-            joinColumns = {
-                @JoinColumn(name = "exam_id", referencedColumnName = "id")
-            },
-            inverseJoinColumns = {
-                @JoinColumn(name = "resource_id", referencedColumnName = "id")
-            }
+    @OneToMany(
+        mappedBy = "exam",
+        cascade = CascadeType.ALL,
+        orphanRemoval = true
     )
-    @ManyToMany(mappedBy = "exams")
-    List<Resource> resources;
+    List<ExamResource> resources = new ArrayList<>();
     
     public Exam()
     {
@@ -121,6 +118,14 @@ public class Exam extends AbstractEntity<Long> {
 
     public void setName(String name) {
         this.name = name;
+    }
+    
+    public List<ExamResource> getResources() {
+        return resources;
+    }
+
+    public void setResources(List<ExamResource> resources) {
+        this.resources = resources;
     }
     
     @Override

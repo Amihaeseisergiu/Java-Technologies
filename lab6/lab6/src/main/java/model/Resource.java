@@ -4,11 +4,10 @@ import abstraction.AbstractEntity;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -21,16 +20,12 @@ public class Resource extends AbstractEntity<Long> {
     String name;
     Integer number;
     
-    @JoinTable(name = "exams_resources",
-            joinColumns = {
-                @JoinColumn(name = "resource_id", referencedColumnName = "id")
-            },
-            inverseJoinColumns = {
-                @JoinColumn(name = "exam_id", referencedColumnName = "id")
-            }
+    @OneToMany(
+        mappedBy = "resource",
+        cascade = CascadeType.ALL,
+        orphanRemoval = true
     )
-    @ManyToMany
-    List<Exam> exams = new ArrayList<>();
+    List<ExamResource> exams = new ArrayList<>();
     
     public Resource()
     {
@@ -45,7 +40,9 @@ public class Resource extends AbstractEntity<Long> {
 
     public void addExam(Exam exam)
     {
-        this.exams.add(exam);
+        ExamResource examResource = new ExamResource(exam, this);
+        exams.add(examResource);
+        exam.getResources().add(examResource);
     }
     
     public String getName() {
@@ -64,11 +61,11 @@ public class Resource extends AbstractEntity<Long> {
         this.number = number;
     }
 
-    public List<Exam> getExams() {
+    public List<ExamResource> getExams() {
         return exams;
     }
 
-    public void setExams(List<Exam> exams) {
+    public void setExams(List<ExamResource> exams) {
         this.exams = exams;
     }
     

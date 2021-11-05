@@ -7,6 +7,7 @@
         <class>model.Exam</class>
         <class>model.Student</class>
         <class>model.Resource</class>
+        <class>model.ExamResource</class>
         <properties>
             <property name="javax.persistence.jdbc.url"
                       value="jdbc:h2:mem:test:sample;DB_CLOSE_ON_EXIT=FALSE;" />
