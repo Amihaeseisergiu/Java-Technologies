@@ -5,6 +5,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.annotation.PostConstruct;
+import javax.ejb.ConcurrencyManagement;
+import javax.ejb.ConcurrencyManagementType;
+import javax.ejb.Lock;
+import javax.ejb.LockType;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
 import model.Exam;
@@ -12,6 +16,7 @@ import model.Resource;
 
 @Singleton
 @Startup
+@ConcurrencyManagement(ConcurrencyManagementType.CONTAINER)
 public class ResourceMap {
     
     Map<Resource, List<Exam>> resourceMap;
@@ -22,6 +27,7 @@ public class ResourceMap {
         resourceMap = new HashMap<>();
     }
     
+    @Lock(LockType.WRITE)
     public void add(Resource resource, Exam exam)
     {
         if(resourceMap.containsKey(resource))
@@ -37,6 +43,7 @@ public class ResourceMap {
         }
     }
 
+    @Lock(LockType.READ)
     public Map<Resource, List<Exam>> getResourceMap() {
         return resourceMap;
     }

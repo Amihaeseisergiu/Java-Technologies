@@ -47,7 +47,11 @@
                     <p:dataTable var="rex" value="#{re.exams}"
                         rows="2" paginator="true" paginatorPosition="top">
                         <p:column headerText="#{msg.examTableName}">
-                            <h:outputText value="#{rex.name}"/>
+                            <h:outputText value="#{rex.exam.name}"/>
+                        </p:column>
+                        
+                        <p:column headerText="#{msg.resourceTableAssigned}">
+                            <h:outputText value="#{rex.assigned}"/>
                         </p:column>
                     </p:dataTable>
                 </p:column>

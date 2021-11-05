@@ -8,7 +8,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-import javax.enterprise.context.ApplicationScoped;
+import javax.faces.push.Push;
+import javax.faces.push.PushContext;
+import javax.faces.view.ViewScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 import model.Exam;
 import model.Resource;
@@ -18,7 +21,7 @@ import repository.ResourceRepository;
 import service.ResourceAssignment;
 
 @Named
-@ApplicationScoped
+@ViewScoped
 public class ReservationView extends DatabaseInsert implements Serializable {
     
     List<Exam> exams;
@@ -36,6 +39,10 @@ public class ReservationView extends DatabaseInsert implements Serializable {
     @EJB
     ResourceAssignment resourceAssignment;
     
+    @Inject
+    @Push(channel="push")
+    PushContext push;
+    
     @PostConstruct
     public void init()
     {
@@ -51,6 +58,8 @@ public class ReservationView extends DatabaseInsert implements Serializable {
     {
         try {
             resourceAssignment.save(selectedExam);
+            
+            push.send("updateResources");
         } catch (ResourceException ex) {
             GrowlView.showEntityMessage("Resource", "Number", false);
             resourceAssignment.reset();

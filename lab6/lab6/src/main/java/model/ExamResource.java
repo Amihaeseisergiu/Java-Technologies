@@ -1,6 +1,5 @@
 package model;
 
-import abstraction.AbstractEntity;
 import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Column;
@@ -9,14 +8,11 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity(name = "ExamResource")
 @Table(name = "exams_resources")
-@NamedQuery(name = "ExamResource.increaseAssigned",
-        query = "UPDATE ExamResource er SET er.assigned = er.assigned+1 WHERE er.id = :id")
-public class ExamResource extends AbstractEntity<ExamResourceId> implements Serializable {
+public class ExamResource implements Serializable {
     
     @EmbeddedId
     ExamResourceId id;
@@ -57,14 +53,6 @@ public class ExamResource extends AbstractEntity<ExamResourceId> implements Seri
         return Objects.hash(exam, resource);
     }
 
-    public ExamResourceId getId() {
-        return id;
-    }
-
-    public void setId(ExamResourceId id) {
-        this.id = id;
-    }
-
     public Exam getExam() {
         return exam;
     }
@@ -88,6 +76,13 @@ public class ExamResource extends AbstractEntity<ExamResourceId> implements Seri
     public void setAssigned(Integer assigned) {
         this.assigned = assigned;
     }
-    
+
+    public ExamResourceId getId() {
+        return id;
+    }
+
+    public void setId(ExamResourceId id) {
+        this.id = id;
+    }
     
 }

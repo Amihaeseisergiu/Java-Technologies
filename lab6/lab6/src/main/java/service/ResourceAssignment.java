@@ -8,9 +8,7 @@ import javax.ejb.EJB;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateful;
 import model.Exam;
-import model.ExamResourceId;
 import model.Resource;
-import repository.ExamResourceRepository;
 import repository.ResourceRepository;
 
 @Stateful
@@ -21,9 +19,6 @@ public class ResourceAssignment {
     
     @EJB
     ResourceRepository resourceRepository;
-    
-    @EJB
-    ExamResourceRepository examResourceRepository;
     
     @EJB
     ResourceMap resourceMap;
@@ -48,10 +43,10 @@ public class ResourceAssignment {
     {
         for(Resource r : resources)
         {
-            r.addExam(exam);
             resourceRepository.claim(r);
+            r.assign(exam);
             resourceRepository.update(r);
-            examResourceRepository.increaseAssigned(new ExamResourceId(exam.getId(), r.getId()));
+            
             resourceMap.add(r, exam);
         }
         

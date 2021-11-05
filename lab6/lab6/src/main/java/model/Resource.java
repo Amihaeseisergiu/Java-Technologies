@@ -4,6 +4,7 @@ import abstraction.AbstractEntity;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.NamedQuery;
@@ -36,6 +37,25 @@ public class Resource extends AbstractEntity<Long> {
     {
         this.name = name;
         this.number = number;
+    }
+    
+    public void assign(Exam exam)
+    {
+        Optional<ExamResource> er = 
+                this.exams.stream().filter(e -> e.getExam().getId().equals(exam.getId()) 
+                        && e.getResource().getId().equals(this.id)).findFirst();
+        
+        int assigned = 0;
+        
+        if(er.isPresent())
+        {
+            assigned = er.get().getAssigned();
+        }
+        
+        ExamResource examResource = new ExamResource(exam, this);
+        examResource.setAssigned(assigned + 1);
+        exams.add(examResource);
+        exam.getResources().add(examResource);
     }
 
     public void addExam(Exam exam)
