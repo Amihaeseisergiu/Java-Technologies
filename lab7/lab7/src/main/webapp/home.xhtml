@@ -1,0 +1,32 @@
+<ui:composition template="/WEB-INF/templates/page.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+                xmlns:as="http://xmlns.jcp.org/jsf/composite/components">
+
+    <ui:param name="pageTitle" value="Home"></ui:param>
+    
+    <ui:define name="content">
+        <div class="flex flex-column p-5 justify-content-start">
+            
+            <h:panelGroup rendered="#{authenticationManager.loggedIn}">
+                <p class="fs-3">Welcome back, #{authenticationManager.user.username}</p>
+            </h:panelGroup>
+            
+            <h:panelGroup rendered="#{not authenticationManager.loggedIn}">
+                <p class="fs-3">Welcome to an app that manages the submissions of documents into a repository!</p>
+            
+                <div class="flex flex-wrap">
+                    <as:cardLink link="#{pageController.signUp()}" cardTitle="Sign Up" 
+                                 cardText="Create an account to enjoy the benefits of this amazing, totally unbuggy, app" />
+
+                    <as:cardLink link="#{pageController.login()}" cardTitle="Login"
+                                 cardText="If you already have an account, please login to continue where you left off"/>
+                </div>
+            </h:panelGroup>
+        </div> 
+    </ui:define>
+
+</ui:composition>

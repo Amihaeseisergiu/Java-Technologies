@@ -1,0 +1,58 @@
+<ui:composition template="/WEB-INF/templates/page.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+                xmlns:as="http://xmlns.jcp.org/jsf/composite/components"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:param name="pageTitle" value="Login"></ui:param>
+
+    <ui:define name="content">
+        <div class="flex p-5 justify-content-center align-items-center">
+            
+            <div class="card shadow border-light rounded w-5">
+                <div class="card-body">
+                    <div class="flex justify-content-center align-items-center">
+                        <div class="flex flex-row justify-content-center fs-3 fw-bold text-muted">
+                            Login
+                        </div>
+                    </div>
+                    <p:divider />
+                    <h:form class="flex flex-column align-items-center ui-fluid">
+                        <p:messages id="messages" closable="true" showIcon="false">
+                            <p:autoUpdate/>
+                        </p:messages>
+                        
+                        <span class="ui-float-label w-7 my-3">
+                            <p:inputText value="#{loginService.user.username}"
+                                         class="w-full" id="userName"
+                                         required="true" label="Username"/>
+                            <h:outputLabel for="@previous" value="Username"/>
+                        </span>
+                        
+                        <span class="ui-float-label w-7 my-3">
+                            <p:password value="#{loginService.user.password}"
+                                        class="w-full" id="pwd1" label="Password" required="true"
+                                        toggleMask="true" redisplay="true"/>
+                            <h:outputLabel for="@previous" value="Password"/>
+                        </span>
+
+                        <p:commandButton class="w-7 my-3 fw-bold" value="Login"
+                                         action="#{loginService.login()}" update="@form"/>
+                    </h:form>
+                    
+                    <h:form class="flex flex-column align-items-center">
+                        <p:commandLink class="w-7 flex justify-content-center" ajax="false"
+                                       action="#{pageController.signUp()}">
+                            <h:outputText value="Don't have an account?" />
+                        </p:commandLink>
+                    </h:form>
+                </div>
+            </div>
+            
+        </div> 
+    </ui:define>
+
+</ui:composition>
