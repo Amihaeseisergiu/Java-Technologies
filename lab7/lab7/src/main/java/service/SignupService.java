@@ -1,10 +1,11 @@
 package service;
 
+import abstraction.DataEdit;
+import abstraction.Signup;
 import controller.PageController;
 import entity.User;
 import java.util.Arrays;
 import java.util.List;
-import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -13,10 +14,9 @@ import utility.PasswordEncryption;
 
 @Named
 @RequestScoped
-public class SignupService {
+public class SignupService extends DataEdit<User, UserRepository> implements Signup {
     
-    User user;
-    List<String> types;
+    List<String> types = Arrays.asList("Admin", "Author", "Reviewer");
     
     @Inject
     UserRepository userRepository;
@@ -24,37 +24,38 @@ public class SignupService {
     @Inject
     PageController pageController;
     
-    @Inject
-    MessageService messageService;
-    
-    @PostConstruct
-    public void init()
+    public SignupService()
     {
-        user = new User();
-        types = Arrays.asList("Admin", "Author", "Reviewer");
+        super(User.class);
     }
     
-    public String signUp()
+    @Override
+    public UserRepository getRepository()
     {
-        if(userRepository.usernameExists(user.getUsername()))
+        return userRepository;
+    }
+    
+    @Override
+    public void beforeSave()
+    {
+        if(userRepository.usernameExists(entity.getUsername()))
         {
-            messageService.showError("Username already exists!", null);
-            init();
-            return pageController.signUp();
+            throw new RuntimeException("Username already exists!");
         }
         
-        user.setPassword(PasswordEncryption.generateHash(user.getPassword()));
-        userRepository.create(user);
-        
-        return pageController.login();
+        entity.setPassword(PasswordEncryption.generateHash(entity.getPassword()));
     }
-
-    public User getUser() {
-        return user;
+    
+    @Override
+    public String successOutcome()
+    {
+        return pageController.login() + "?faces-redirect=true";
     }
-
-    public void setUser(User user) {
-        this.user = user;
+    
+    @Override
+    public String signup()
+    {
+        return save();
     }
 
     public List<String> getTypes() {

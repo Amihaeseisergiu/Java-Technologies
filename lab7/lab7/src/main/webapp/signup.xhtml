@@ -20,25 +20,23 @@
                         </div>
                     </div>
                     <p:divider />
+                    <p:messages id="messages" closable="true" showIcon="false" />
                     <h:form class="flex flex-column align-items-center ui-fluid">
-                        <p:messages id="messages" closable="true" showIcon="false">
-                            <p:autoUpdate/>
-                        </p:messages>
                         
-                        <p:selectOneMenu value="#{signupService.user.type}"
+                        <p:selectOneMenu value="#{signupService.entity.type}"
                                          class="w-7 my-3" id="type" label="Type">
                             <f:selectItems value="#{signupService.types}" />
                         </p:selectOneMenu>
                         
                         <span class="ui-float-label w-7 my-3">
-                            <p:inputText value="#{signupService.user.username}"
+                            <p:inputText value="#{signupService.entity.username}"
                                          class="w-full" id="userName"
                                          required="true" label="Username"/>
                             <h:outputLabel for="@previous" value="Username"/>
                         </span>
                         
                         <span class="ui-float-label w-7 my-3">
-                            <p:password value="#{signupService.user.password}"
+                            <p:password value="#{signupService.entity.password}"
                                         class="w-full" id="pwd1" label="Password" match="pwd2" required="true"
                                         toggleMask="true" redisplay="true" feedback="true"/>
                             <h:outputLabel for="@previous" value="Password"/>
@@ -51,7 +49,7 @@
                         </span>
 
                         <p:commandButton class="w-7 my-3 fw-bold" value="Create account"
-                                         action="#{signupService.signUp()}" update="@form" />
+                                         action="#{signupService.signup()}" update="@form :messages" />
                     </h:form>
                     
                     <h:form class="flex flex-column align-items-center">

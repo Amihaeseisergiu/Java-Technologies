@@ -1,7 +1,10 @@
 package entity;
 
 import abstraction.AbstractEntity;
+import java.util.List;
+import java.util.Objects;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -20,6 +23,9 @@ public class User extends AbstractEntity<Long> {
     
     @NotNull(message = "Type must be provided!")
     String type;
+    
+    @ManyToMany(mappedBy = "authors")
+    List<Document> documents;
 
     public String getUsername() {
         return username;
@@ -45,4 +51,23 @@ public class User extends AbstractEntity<Long> {
         this.type = type;
     }
     
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + (int) (id ^ (id >>> 32));
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        User other = (User) obj;
+        return Objects.equals(id, other.getId());
+    }
 }

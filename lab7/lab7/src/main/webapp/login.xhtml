@@ -20,10 +20,8 @@
                         </div>
                     </div>
                     <p:divider />
+                    <p:messages id="messages" closable="true" showIcon="false" />
                     <h:form class="flex flex-column align-items-center ui-fluid">
-                        <p:messages id="messages" closable="true" showIcon="false">
-                            <p:autoUpdate/>
-                        </p:messages>
                         
                         <span class="ui-float-label w-7 my-3">
                             <p:inputText value="#{loginService.user.username}"
@@ -40,7 +38,7 @@
                         </span>
 
                         <p:commandButton class="w-7 my-3 fw-bold" value="Login"
-                                         action="#{loginService.login()}" update="@form"/>
+                                         action="#{loginService.login()}" update="@form :messages"/>
                     </h:form>
                     
                     <h:form class="flex flex-column align-items-center">
