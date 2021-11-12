@@ -8,4 +8,8 @@
         <class>decorator.VerifyTimeFrameDecorator</class>
     </decorators>
     
+    <interceptors>
+        <class>interceptor.SubmissionLogInterceptor</class>
+    </interceptors>
+    
 </beans>

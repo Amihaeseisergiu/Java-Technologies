@@ -1,7 +1,8 @@
 package decorator;
 
-import abstraction.Signup;
+import abstraction.Registration;
 import entity.TimeFrame;
+import java.io.Serializable;
 import java.time.LocalTime;
 import javax.decorator.Decorator;
 import javax.decorator.Delegate;
@@ -11,12 +12,12 @@ import repository.TimeFrameRepository;
 import service.MessageService;
 
 @Decorator
-public abstract class VerifyTimeFrameDecorator implements Signup {
+class VerifyTimeFrameDecorator implements Registration, Serializable {
     
     @Inject
     @Delegate
     @Any
-    Signup signup;
+    Registration registration;
     
     @Inject
     TimeFrameRepository timeFrameRepository;
@@ -25,7 +26,7 @@ public abstract class VerifyTimeFrameDecorator implements Signup {
     MessageService messageService;
     
     @Override
-    public String signup()
+    public String register()
     {
         TimeFrame timeFrame = timeFrameRepository.get();
         LocalTime now = LocalTime.now();
@@ -36,7 +37,6 @@ public abstract class VerifyTimeFrameDecorator implements Signup {
             return null;
         }
         
-        return signup.signup();
+        return registration.register();
     }
-    
 }

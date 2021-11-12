@@ -1,7 +1,6 @@
 package service;
 
 import abstraction.DataEdit;
-import abstraction.Signup;
 import controller.PageController;
 import entity.User;
 import java.util.Arrays;
@@ -11,10 +10,11 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import repository.UserRepository;
 import utility.PasswordEncryption;
+import abstraction.Registration;
 
 @Named
 @RequestScoped
-public class SignupService extends DataEdit<User, UserRepository> implements Signup {
+public class SignupService extends DataEdit<User, UserRepository> implements Registration {
     
     List<String> types = Arrays.asList("Admin", "Author", "Reviewer");
     
@@ -53,7 +53,7 @@ public class SignupService extends DataEdit<User, UserRepository> implements Sig
     }
     
     @Override
-    public String signup()
+    public String register()
     {
         return save();
     }

@@ -24,4 +24,13 @@ public abstract class DataView<T extends AbstractEntity, R extends DataRepositor
         return entities;
     }
     
+    public T getLastEntity()
+    {
+        if(!entities.isEmpty())
+        {
+            return entities.get(entities.size() - 1);
+        }
+        
+        return null;
+    }
 }

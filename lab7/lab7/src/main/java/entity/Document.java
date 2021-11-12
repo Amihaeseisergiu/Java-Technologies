@@ -1,7 +1,6 @@
 package entity;
 
 import abstraction.AbstractEntity;
-import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Column;
@@ -34,10 +33,13 @@ public class Document extends AbstractEntity<Long> {
     @ManyToMany
     List<User> authors = new ArrayList<>();
     
-    @NotNull(message = "Document content must be provided!")
     @Lob
     @Column(name = "content")
-    Blob content;
+    byte[] content;
+    
+    @NotNull(message = "Each document must have a registration number!")
+    @Column(name = "registration_number")
+    String registrationNumber;
 
     public String getName() {
         return name;
@@ -55,11 +57,20 @@ public class Document extends AbstractEntity<Long> {
         this.authors = authors;
     }
 
-    public Blob getContent() {
+    public byte[] getContent() {
         return content;
     }
 
-    public void setContent(Blob content) {
+    public void setContent(byte[] content) {
         this.content = content;
     }
+
+    public String getRegistrationNumber() {
+        return registrationNumber;
+    }
+
+    public void setRegistrationNumber(String registrationNumber) {
+        this.registrationNumber = registrationNumber;
+    }
+    
 }

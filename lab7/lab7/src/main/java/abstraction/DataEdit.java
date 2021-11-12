@@ -3,6 +3,7 @@ package abstraction;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.enterprise.event.Event;
+import javax.enterprise.inject.Any;
 import javax.faces.push.Push;
 import javax.faces.push.PushContext;
 import javax.inject.Inject;
@@ -14,6 +15,7 @@ public abstract class DataEdit<T extends AbstractEntity, R extends DataRepositor
     protected T entity;
     
     @Inject
+    @Any
     protected Event<T> dataEvent;
     
     @Inject

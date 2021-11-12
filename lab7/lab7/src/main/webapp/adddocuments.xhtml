@@ -22,7 +22,8 @@
                         </div>
                         <p:divider />
                         <p:messages id="messages" closable="true" showIcon="false" />
-                        <h:form id="addDocuments" class="flex flex-column align-items-center ui-fluid">
+                        <h:form enctype="multipart/form-data"
+                                id="addDocuments" class="flex flex-column align-items-center ui-fluid">
 
                             <span class="ui-float-label w-7 my-3">
                                 <p:inputText value="#{documentService.entity.name}"
@@ -53,7 +54,7 @@
                                         </h:panelGroup>
                                     </h:panelGroup>
                                     <h:panelGroup id="addedAuthors">
-                                        <ol>
+                                        <ol class="mt-2">
                                             <ui:repeat value="#{documentService.entity.authors}" var="au">
                                                 <li class="fs-5"><h:outputText value="#{au.username}" /></li>
                                             </ui:repeat>
@@ -66,8 +67,8 @@
                                           label="Upload document" chooseIcon="pi pi-plus"
                                           value="#{documentService.file}" mode="simple" skinSimple="true"/>
 
-                            <p:commandButton class="w-7 my-3 fw-bold" value="Add Document"
-                                             action="#{documentService.addAuthor()}"
+                            <p:commandButton class="w-7 my-3 fw-bold" value="Add Document" ajax="false"
+                                             action="#{documentService.register()}"
                                              update="@form :messages"/>
                         </h:form>
                     </div>
@@ -77,7 +78,8 @@
 
             <h:form>
                 <f:websocket channel="push">
-                    <f:ajax event="updateUser" render=":addDocuments:addAuthors" />
+                    <f:ajax event="updateUser" listener="#{documentService.fetchNewAuthors()}"
+                            render=":addDocuments:addAuthors" />
                 </f:websocket>
             </h:form>
         </h:panelGroup>

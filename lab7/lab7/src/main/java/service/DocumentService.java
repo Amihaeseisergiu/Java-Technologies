@@ -1,24 +1,28 @@
 package service;
 
 import abstraction.DataEdit;
+import abstraction.Registration;
 import entity.Document;
 import entity.User;
+import interceptor.Submission;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.RequestScoped;
 import javax.enterprise.event.Observes;
+import javax.enterprise.inject.Instance;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import org.primefaces.model.file.UploadedFile;
+import qualifier.Random;
 import repository.DocumentRepository;
-import repository.UserRepository;
+import view.UserView;
 
 @Named
-@RequestScoped
-public class DocumentService extends DataEdit<Document, DocumentRepository> implements Serializable {
+@ViewScoped
+public class DocumentService extends DataEdit<Document, DocumentRepository> implements Registration, Serializable {
 
     UploadedFile file;
     List<User> authors = new ArrayList<>();
@@ -28,12 +32,16 @@ public class DocumentService extends DataEdit<Document, DocumentRepository> impl
     DocumentRepository documentRepository;
     
     @Inject
-    UserRepository userRepository;
+    UserView userView;
+    
+    @Inject
+    @Random
+    Instance<String> registrationNumber;
     
     @PostConstruct
     public void construct()
     {
-        authors = userRepository.findAll().stream().filter(u -> u.getType().equals("Author")).collect(Collectors.toList());
+        authors = userView.getEntities().stream().filter(u -> u.getType().equals("Author")).collect(Collectors.toList());
     }
     
     public DocumentService()
@@ -43,7 +51,7 @@ public class DocumentService extends DataEdit<Document, DocumentRepository> impl
     
     public void onUserAdded(@Observes User user)
     {
-        if(user.getType().equals("Author") && !authors.contains(user))
+        if(user.getType().equals("Author"))
         {
             authors.add(user);
         }
@@ -59,10 +67,32 @@ public class DocumentService extends DataEdit<Document, DocumentRepository> impl
     }
     
     @Override
-    public String save()
+    public void beforeSave()
     {
-        System.out.println(entity.getName());
-        return null;
+        entity.setContent(file.getContent());
+        entity.setRegistrationNumber(registrationNumber.get());
+    }
+    
+    @Override
+    @Submission
+    public String register()
+    {
+        return save();
+    }
+    
+    @Override
+    public void afterSave()
+    {
+        super.afterSave();
+        construct();
+    }
+    
+    public void fetchNewAuthors()
+    {
+        if(userView.getLastEntity().getType().equals("Author"))
+        {
+            authors.add(userView.getLastEntity());
+        }
     }
     
     @Override
