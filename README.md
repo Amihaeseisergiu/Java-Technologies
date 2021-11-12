@@ -72,3 +72,17 @@
 		- Second Level Cache: 14 ms
 		- Entity Graph: 299 ms
 		
+### Laboratory 7
+- [X] Created a JSF Application for managing submissions of documents
+	- [X] An authentication mechanism based on username and password. Additionally, the current logged in user is kept in a session and content is displayed according to his role. Also, the users' passwords are encrypted.
+	- [X] Register new users and assign them a specific role. When registering, the application verifies if there is already an user with the same name.
+	- [X] The possibility to upload a document. The uploaded document is kept as a blob in the database.
+	- [X] The possibility to view documents. The documents are displayed in the table, and the admin can view it's content via PrimeFaces' Media Component or view it's authors.
+- [X] User Contexts and Dependency Injection for:
+	- [X] the management of application's beans (@Inject) and transactions (@Transactional)
+	- [X] decoupling the components using dependency injection. Registration Numbers are generated as UUIDs.
+	- [X] decoupling orthogonal concerns, such as logging;
+	- [X] decoupling bussines concerns, such as verifying the date for operations like registration and submission
+	- [X] implementing at least one event-based comunication. Created DataEdit and DataView abstract classes to send Events between each other. Also these classes send WebSocket notifications to the client.
+	- [X] data validation, using Bean Validation annotations.
+		

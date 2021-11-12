@@ -4,17 +4,58 @@
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
                 xmlns:cc="http://xmlns.jcp.org/jsf/composite"
-                xmlns:as="http://xmlns.jcp.org/jsf/composite/components">
-
+                xmlns:as="http://xmlns.jcp.org/jsf/composite/components"
+                xmlns:p="http://primefaces.org/ui">
+    
     <ui:param name="pageTitle" value="Home"></ui:param>
     
     <ui:define name="content">
-        <div class="flex flex-column p-5 justify-content-start">
+        <h:panelGroup rendered="#{authenticationManager.loggedIn and authenticationManager.user.type == 'Admin'}">
+            <div class="flex p-5 justify-content-center align-items-center">
+                
+                <p:dataTable id="dataTable" var="doc" value="#{documentTableView.entities}"
+                             rows="4" paginator="true" paginatorPosition="top">
+                    
+                    <p:column headerText="Registration Number">
+                        <h:outputText value="#{doc.registrationNumber}" />
+                    </p:column>
+                    
+                    <p:column headerText="Name">
+                        <h:outputText value="#{doc.name}" />
+                    </p:column>
+                    
+                    <p:column headerText="Authors">
+                        <p:dataTable var="aut" value="#{doc.authors}"
+                            rows="2" paginator="true" paginatorPosition="top">
+                            <p:column headerText="Name">
+                                <h:outputText value="#{aut.username}"/>
+                            </p:column>
+                        </p:dataTable>
+                    </p:column>
+
+                    <p:column style="width:4rem">
+                        <h:form>
+                            <p:commandButton action="#{documentView.selectDocument(doc)}"
+                                             update=":documentDialog"
+                                             oncomplete="PF('documentDialog').show();"
+                                             icon="pi pi-book" styleClass="rounded-button ui-button-outlined" />
+                        </h:form>
+                    </p:column>
+                </p:dataTable>
+                
+            </div>
             
-            <h:panelGroup rendered="#{authenticationManager.loggedIn and authenticationManager.user.type == 'Admin'}">
-                <p class="fs-3">View Documents</p>
-            </h:panelGroup>
-        </div> 
+            <p:dialog id="documentDialog" widgetVar="documentDialog" header="Document"
+                      modal="true" draggable="false" styleClass="ui-fluid w-full h-screen p-2">
+                <p:media value="#{documentView.fileContent}" width="100%" height="600rem" player="pdf" />
+            </p:dialog>
+            
+            <h:form>
+                <f:websocket channel="push">
+                    <f:ajax event="updateDocument" render=":dataTable" />
+                </f:websocket>
+            </h:form>
+        </h:panelGroup>
     </ui:define>
 
 </ui:composition>

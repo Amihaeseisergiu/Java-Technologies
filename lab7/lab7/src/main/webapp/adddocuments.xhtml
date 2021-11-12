@@ -65,6 +65,7 @@
                             
                             <p:fileUpload class="w-7 my-3 flex flex-column"
                                           label="Upload document" chooseIcon="pi pi-plus"
+                                          validateContentType="true" accept=".pdf,.docx,.txt"
                                           value="#{documentService.file}" mode="simple" skinSimple="true"/>
 
                             <p:commandButton class="w-7 my-3 fw-bold" value="Add Document" ajax="false"
