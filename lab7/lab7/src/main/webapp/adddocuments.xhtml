@@ -68,7 +68,7 @@
                                           value="#{documentService.file}" mode="simple" skinSimple="true"/>
 
                             <p:commandButton class="w-7 my-3 fw-bold" value="Add Document" ajax="false"
-                                             action="#{documentService.register()}"
+                                             action="#{documentService.submit(documentService.entity)}"
                                              update="@form :messages"/>
                         </h:form>
                     </div>

@@ -74,10 +74,15 @@ public class DocumentService extends DataEdit<Document, DocumentRepository> impl
     }
     
     @Override
-    @Submission
     public String register()
     {
         return save();
+    }
+    
+    @Submission
+    public String submit(Document document)
+    {
+        return register();
     }
     
     @Override
