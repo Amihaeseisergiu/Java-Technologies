@@ -86,3 +86,8 @@
 	- [X] implementing at least one event-based comunication. Created DataEdit and DataView abstract classes to send Events between each other. Also these classes send WebSocket notifications to the client.
 	- [X] data validation, using Bean Validation annotations.
 		
+### Laboratory 8
+- [X] Created RESTFul Web service using JAX-RS for Document CRUD operations. Every change to a document will reflect on the frontend aswell via WebSockets. File upload is also supported via form parameters.
+	- [X] Used JSON for representing consumed and produces data
+	- [X] Commented the services using OpenAPI
+	- [ ] Tested at least one service

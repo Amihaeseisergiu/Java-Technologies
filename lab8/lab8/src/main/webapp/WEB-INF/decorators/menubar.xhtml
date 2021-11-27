@@ -1,0 +1,27 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+    
+    <h:form>
+        <p:tabMenu activeIndex="#{param.tab}" class="user-select-none">
+            <p:menuitem value="#{config.homeworkTitle}" outcome="#{pageController.homePage()}" class="fs-3">
+                <f:param name="tab" value="0"/>
+            </p:menuitem>
+            <p:menuitem rendered="#{authenticationManager.user.type == 'Admin'}" 
+                        value="Time Frame" outcome="#{pageController.timeFrame()}" icon="pi pi-fw pi-clock">
+                <f:param name="tab" value="1"/>
+            </p:menuitem>
+            <p:menuitem rendered="#{authenticationManager.user.type == 'Admin'}" 
+                        value="View Documents" outcome="#{pageController.viewDocuments()}" icon="pi pi-fw pi-search">
+                <f:param name="tab" value="2"/>
+            </p:menuitem>
+            <p:menuitem rendered="#{authenticationManager.user.type == 'Author'}" 
+                        value="Add Documents" outcome="#{pageController.addDocuments()}" icon="pi pi-fw pi-plus-circle">
+                <f:param name="tab" value="1"/>
+            </p:menuitem>
+        </p:tabMenu>
+    </h:form>
+    
+</ui:composition>
