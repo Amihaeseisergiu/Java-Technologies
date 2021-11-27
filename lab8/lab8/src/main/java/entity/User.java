@@ -2,6 +2,7 @@ package entity;
 
 import abstraction.AbstractEntity;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import javax.persistence.Entity;
@@ -28,7 +29,7 @@ public class User extends AbstractEntity<Long> {
     
     @ManyToMany(mappedBy = "authors")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    List<Document> documents;
+    List<Document> documents = new ArrayList<>();
 
     public String getUsername() {
         return username;

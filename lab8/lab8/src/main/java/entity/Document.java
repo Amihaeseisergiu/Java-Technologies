@@ -42,7 +42,7 @@ public class Document extends AbstractEntity<Long> {
     @NotNull(message = "Each document must have a registration number!")
     @Column(name = "registration_number")
     String registrationNumber;
-
+    
     public String getName() {
         return name;
     }

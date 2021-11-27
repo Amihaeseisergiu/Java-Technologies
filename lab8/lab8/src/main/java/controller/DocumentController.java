@@ -1,5 +1,6 @@
 package controller;
 
+import cache.Cached;
 import entity.Document;
 import exception.DocumentException;
 import java.io.IOException;
@@ -130,6 +131,7 @@ public class DocumentController {
                 .build();
     }
     
+    @Cached
     @GET
     @Path("/view")
     @Produces(MediaType.APPLICATION_JSON)

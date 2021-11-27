@@ -91,3 +91,4 @@
 	- [X] Used JSON for representing consumed and produces data
 	- [X] Commented the services using OpenAPI
 	- [X] Tested at least one service (Only with Postman)
+- [X] Created a filter that will act as a cache for the ViewDocumentService. The method that will be cached is marked with an annotation. Used CDI Events to determine when to reset the cache.

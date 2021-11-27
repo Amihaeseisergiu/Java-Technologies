@@ -56,6 +56,7 @@ public class DocumentWebService {
         Document document = fillDocumentData(json, content);
         
         documentRepository.create(document);
+        documentRepository.clearCache();
         
         documentCreate.fire(document);
         push.send("updateDocument");
@@ -72,6 +73,7 @@ public class DocumentWebService {
         document.setId(id);
         
         documentRepository.update(document);
+        documentRepository.clearCache();
         
         documentUpdate.fire(document);
         push.send("updateDocument");
@@ -87,6 +89,7 @@ public class DocumentWebService {
         }
         
         documentRepository.remove(foundDocument);
+        documentRepository.clearCache();
         
         documentDelete.fire(foundDocument);
         push.send("updateDocument");
