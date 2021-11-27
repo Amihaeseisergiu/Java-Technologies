@@ -54,6 +54,7 @@ public class DocumentWebService {
     public void addDocument(String json, InputStream content) throws DocumentException
     {
         Document document = fillDocumentData(json, content);
+        document.setRegistrationNumber(registrationNumber.get());
         
         documentRepository.create(document);
         documentRepository.clearCache();
@@ -64,18 +65,22 @@ public class DocumentWebService {
     
     public void updateDocument(Long id, String json, InputStream content) throws DocumentException
     {
-        if(!documentRepository.exists(id))
+        Document foundDocument = documentRepository.findById(id);
+        if(foundDocument == null)
         {
             throw new DocumentException("Document with id " + id + " not found");
         }
         
         Document document = fillDocumentData(json, content);
-        document.setId(id);
+        foundDocument.setName(document.getName());
+        foundDocument.setAuthors(document.getAuthors());
+        foundDocument.setContent(document.getContent());
+        foundDocument.setReferences(document.getReferences());
         
-        documentRepository.update(document);
+        documentRepository.update(foundDocument);
         documentRepository.clearCache();
         
-        documentUpdate.fire(document);
+        documentUpdate.fire(foundDocument);
         push.send("updateDocument");
     }
     
@@ -110,7 +115,6 @@ public class DocumentWebService {
     public Document fillDocumentData(String json, InputStream content) throws DocumentException
     {
         Document document = getDocumentFromJson(json);
-        document.setRegistrationNumber(registrationNumber.get());
         
         try {
             document.setContent(IOUtils.toByteArray(content));
@@ -140,6 +144,22 @@ public class DocumentWebService {
         }
         
         document.setAuthors(authors);
+        
+        List<Document> references = new ArrayList<>();
+        
+        for(Document r : document.getReferences())
+        {
+            Document reference = documentRepository.findById(r.getId());
+            
+            if(reference == null)
+            {
+                throw new DocumentException("Reference with id " + r.getId() + " doesn't exist");
+            }
+            
+            references.add(reference);
+        }
+        
+        document.setReferences(references);
         
         return document;
     }

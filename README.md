@@ -92,3 +92,8 @@
 	- [X] Commented the services using OpenAPI
 	- [X] Tested at least one service (Only with Postman)
 - [X] Created a filter that will act as a cache for the ViewDocumentService. The method that will be cached is marked with an annotation. Used CDI Events to determine when to reset the cache.
+- [X] Modified the model such that every documents has a list of other documents that represents its references.
+	- [X] The /documents/view endpoint returns asyncronously.
+	- [X] Created another service that reads asynchronously from /documents/view all the documents and:
+		- [ ] Verifies that there are no circuits in the corresponding directed graph
+		- [ ] establishes a chronological order of the documents based on their references

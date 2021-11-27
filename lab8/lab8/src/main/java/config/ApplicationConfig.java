@@ -2,6 +2,7 @@ package config;
 
 import cache.CacheFilter;
 import controller.DocumentController;
+import controller.GraphController;
 import java.util.HashSet;
 import java.util.Set;
 import javax.ws.rs.ApplicationPath;
@@ -19,6 +20,7 @@ public class ApplicationConfig extends Application {
         classes.add(DocumentController.class);
         classes.add(MultiPartFeature.class);
         classes.add(CacheFilter.class);
+        classes.add(GraphController.class);
         return classes;
     }
 }

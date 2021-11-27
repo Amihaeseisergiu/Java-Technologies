@@ -1,6 +1,7 @@
 package entity;
 
 import abstraction.AbstractEntity;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +44,22 @@ public class Document extends AbstractEntity<Long> {
     @Column(name = "registration_number")
     String registrationNumber;
     
+    @JoinTable(name="documents_references",
+            joinColumns = {
+                @JoinColumn(name = "document_id", referencedColumnName = "id")
+            },
+            inverseJoinColumns = {
+                @JoinColumn(name = "reference_id", referencedColumnName = "id")
+            }
+    )
+    @ManyToMany
+    @JsonIgnoreProperties("references")
+    List<Document> references = new ArrayList<>();
+
+    @ManyToMany(mappedBy = "references")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    List<Document> referenced = new ArrayList<>();
+    
     public String getName() {
         return name;
     }
@@ -73,6 +90,22 @@ public class Document extends AbstractEntity<Long> {
 
     public void setRegistrationNumber(String registrationNumber) {
         this.registrationNumber = registrationNumber;
+    }
+
+    public List<Document> getReferences() {
+        return references;
+    }
+
+    public void setReferences(List<Document> references) {
+        this.references = references;
+    }
+
+    public List<Document> getReferenced() {
+        return referenced;
+    }
+
+    public void setReferenced(List<Document> referenced) {
+        this.referenced = referenced;
     }
     
 }

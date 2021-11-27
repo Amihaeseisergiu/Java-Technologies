@@ -6,6 +6,7 @@ import exception.DocumentException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
+import javax.ejb.Asynchronous;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -17,6 +18,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.container.AsyncResponse;
+import javax.ws.rs.container.Suspended;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
@@ -132,6 +135,7 @@ public class DocumentController {
     }
     
     @Cached
+    @Asynchronous
     @GET
     @Path("/view")
     @Produces(MediaType.APPLICATION_JSON)
@@ -146,22 +150,21 @@ public class DocumentController {
         summary = "Returns a list of documents",
         description = "Returns the list of all documents. If the userId "
             + " parameter is specified then it returns the user's documents")
-    public Response viewDocuments(@QueryParam("userId") Long id)
+    public void viewDocuments(@QueryParam("userId") Long id, @Suspended final AsyncResponse async)
     {
         List<Document> documents;
         
         try {
             documents = documentWebService.viewDocuments(id);
-        } catch (DocumentException ex) {
-            return Response
-                .status(Status.NOT_ACCEPTABLE)
-                .entity(ex.getMessage())
-                .build();
-        }
-        
-        return Response
+            async.resume(Response
                 .ok(documents)
                 .type(MediaType.APPLICATION_JSON)
-                .build();
+                .build());
+        } catch (DocumentException ex) {
+            async.resume(Response
+                .status(Status.NOT_ACCEPTABLE)
+                .entity(ex.getMessage())
+                .build());
+        }
     }
 }
