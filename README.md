@@ -90,4 +90,4 @@
 - [X] Created RESTFul Web service using JAX-RS for Document CRUD operations. Every change to a document will reflect on the frontend aswell via WebSockets. File upload is also supported via form parameters.
 	- [X] Used JSON for representing consumed and produces data
 	- [X] Commented the services using OpenAPI
-	- [ ] Tested at least one service
+	- [X] Tested at least one service (Only with Postman)
