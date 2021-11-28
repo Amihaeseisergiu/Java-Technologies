@@ -95,5 +95,5 @@
 - [X] Modified the model such that every documents has a list of other documents that represents its references.
 	- [X] The /documents/view endpoint returns asyncronously.
 	- [X] Created another service that reads asynchronously from /documents/view all the documents and:
-		- [ ] Verifies that there are no circuits in the corresponding directed graph
-		- [ ] establishes a chronological order of the documents based on their references
+		- [X] Verifies that there are no circuits in the corresponding directed graph
+		- [X] establishes a chronological order of the documents based on their references

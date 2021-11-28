@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.concurrent.Future;
 import javax.ejb.Asynchronous;
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -16,10 +17,14 @@ import javax.ws.rs.container.AsyncResponse;
 import javax.ws.rs.container.Suspended;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import webservice.GraphWebService;
 
 @Path("/graphs")
 @RequestScoped
 public class GraphController {
+    
+    @Inject
+    GraphWebService graphWebService;
     
     @GET
     @Path("/order")
@@ -36,11 +41,23 @@ public class GraphController {
                 .request(MediaType.APPLICATION_JSON)
                 .async()
                 .get(new InvocationCallback<List<Document>>() {
+                    
                     @Override
                     public void completed(List<Document> documents) {
                         
+                        List<String> sorted = graphWebService
+                                .sortTopologically(documents);
+                        
+                        if(sorted == null)
+                        {
+                            async.resume(Response
+                                .status(Response.Status.CONFLICT)
+                                .entity("The graph contains a cycle")
+                                .build());
+                        }
+                        
                         async.resume(Response
-                            .ok(documents)
+                            .ok(sorted)
                             .type(MediaType.APPLICATION_JSON)
                             .build());
                     }
@@ -48,7 +65,6 @@ public class GraphController {
                     @Override
                     public void failed(Throwable throwable) {
                         throwable.printStackTrace();
-                        
                         async.resume(Response
                             .status(Response.Status.INTERNAL_SERVER_ERROR)
                             .entity("An error occured")

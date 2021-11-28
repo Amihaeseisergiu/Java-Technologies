@@ -57,7 +57,7 @@ public class Document extends AbstractEntity<Long> {
     List<Document> references = new ArrayList<>();
 
     @ManyToMany(mappedBy = "references")
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @JsonIgnoreProperties({"references", "referenced"})
     List<Document> referenced = new ArrayList<>();
     
     public String getName() {

@@ -16,7 +16,6 @@ public class AbstractEntity<ID extends Serializable> implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "id")
     @Basic(optional = false)
     @Column(name = "id")
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     protected ID id;
 
     public ID getId() {
