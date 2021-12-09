@@ -1,0 +1,69 @@
+<ui:composition template="/WEB-INF/templates/page.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+                xmlns:as="http://xmlns.jcp.org/jsf/composite/components"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:param name="pageTitle" value="Signup"></ui:param>
+
+    <ui:define name="content">
+        <div class="flex p-5 justify-content-center align-items-center">
+            
+            <div class="card shadow border-light rounded w-5">
+                <div class="card-body">
+                    <div class="flex justify-content-center align-items-center">
+                        <div class="flex flex-row justify-content-center fs-3 fw-bold text-muted">
+                            Sign Up
+                        </div>
+                    </div>
+                    <p:divider />
+                    <p:messages id="messages" closable="true" showIcon="false" />
+                    <h:form class="flex flex-column align-items-center ui-fluid">
+                        
+                        <p:selectOneMenu value="#{signupService.entity.roles}"
+                                         converter="#{roleConverter}"
+                                         class="w-7 my-3" id="type" label="Role">
+                            <f:selectItems value="#{signupService.roles}" var="role"
+                                           itemValue="#{[role]}" itemLabel="#{role.name}" />
+                        </p:selectOneMenu>
+                        
+                        <span class="ui-float-label w-7 my-3">
+                            <p:inputText value="#{signupService.entity.username}"
+                                         class="w-full" id="userName"
+                                         required="true" label="Username"/>
+                            <h:outputLabel for="@previous" value="Username"/>
+                        </span>
+                        
+                        <span class="ui-float-label w-7 my-3">
+                            <p:password value="#{signupService.entity.password}"
+                                        class="w-full" id="pwd1" label="Password" match="pwd2" required="true"
+                                        toggleMask="true" redisplay="true" feedback="true"/>
+                            <h:outputLabel for="@previous" value="Password"/>
+                        </span>
+
+                        <span class="ui-float-label w-7 my-3">
+                            <p:password class="w-full" id="pwd2" label="Retype Password" required="true"
+                                        toggleMask="true" redisplay="true"/>
+                            <h:outputLabel for="@previous" value="Retype Password"/>
+                        </span>
+
+                        <p:commandButton class="w-7 my-3 fw-bold" value="Create account"
+                                         action="#{signupService.register()}" update="@form :messages" />
+                    </h:form>
+                    
+                    <h:form class="flex flex-column align-items-center">
+                        <p:commandLink class="w-7 flex justify-content-center" ajax="false"
+                                       action="#{pageController.login()}">
+                            <h:outputText value="Already have an account?" />
+                        </p:commandLink>
+                    </h:form>
+                </div>
+            </div>
+            
+        </div> 
+    </ui:define>
+
+</ui:composition>

@@ -97,3 +97,13 @@
 	- [X] Created another service that reads asynchronously from /documents/view all the documents and:
 		- [X] Verifies that there are no circuits in the corresponding directed graph
 		- [X] establishes a chronological order of the documents based on their references
+		
+### Laboratory 9
+- [X] Added the following security features  to the app:
+	- [X] Authentication, using JDBC Realm
+	- [X] Controlled acces to Web Resources, using Web Constraints
+	- [X] Secured business logic and REST services
+- [ ] Exposed a CRUD REST resource from the previous lab as a microservice
+	- [ ] Ran the microservice using an Eclipse Microprofile server implementation
+	- [ ] Created an additional microservice that invokes the first one
+	- [ ] Created Docker containers for the microservices. Also deployed the database as a container.
