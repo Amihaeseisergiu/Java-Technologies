@@ -142,7 +142,6 @@ public class DocumentController {
     @Asynchronous
     @GET
     @Path("/view")
-    @RolesAllowed("admin")
     @Produces(MediaType.APPLICATION_JSON)
     @APIResponse(
         responseCode = "406",

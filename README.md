@@ -103,7 +103,6 @@
 	- [X] Authentication, using JDBC Realm
 	- [X] Controlled acces to Web Resources, using Web Constraints
 	- [X] Secured business logic and REST services
-- [ ] Exposed a CRUD REST resource from the previous lab as a microservice
-	- [ ] Ran the microservice using an Eclipse Microprofile server implementation
-	- [ ] Created an additional microservice that invokes the first one
-	- [ ] Created Docker containers for the microservices. Also deployed the database as a container.
+- [X] Exposed a CRUD REST resource from the previous lab as a microservice
+	- [X] Ran the microservice using an Eclipse Microprofile server implementation
+	- [X] Created an additional microservice that invokes the first one
