@@ -1,0 +1,5 @@
+service\GraphService.class
+config\MicroservicesRestApplication.class
+client\ServiceController.class
+secure\ProtectedController.class
+client\GraphController.class

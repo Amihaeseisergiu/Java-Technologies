@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+    service-a:
+        build: ./service-a
+        ports:
+            - 9080:9080
+    service-b:
+        build: ./service-b
+        ports:
+            - 9081:9081

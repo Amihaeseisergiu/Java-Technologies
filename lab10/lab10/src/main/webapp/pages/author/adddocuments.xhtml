@@ -1,0 +1,88 @@
+<ui:composition template="/WEB-INF/templates/page.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+                xmlns:as="http://xmlns.jcp.org/jsf/composite/components"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:param name="pageTitle" value="Home"></ui:param>
+    
+    <ui:define name="content">
+        <h:panelGroup rendered="#{authenticationManager.loggedIn and authenticationManager.hasRole('Author')}">
+            <div class="flex p-5 justify-content-center align-items-center">
+                
+                <div class="card shadow border-light rounded w-5">
+                    <div class="card-body">
+                        <div class="flex flex-column justify-content-center align-items-center">
+                            <div class="flex flex-row justify-content-center fs-3 fw-bold text-muted">
+                                Add Documents
+                            </div>
+                        </div>
+                        <p:divider />
+                        <p:messages id="messages" closable="true" showIcon="false" />
+                        <h:form enctype="multipart/form-data"
+                                id="addDocuments" class="flex flex-column align-items-center ui-fluid">
+
+                            <span class="ui-float-label w-7 my-3">
+                                <p:inputText value="#{documentService.entity.name}"
+                                             class="w-full" id="documentName"
+                                             required="true" label="Document Name"/>
+                                <h:outputLabel for="@previous" value="Document Name"/>
+                            </span>
+
+                            <div class="card shadow border-light rounded w-7">
+                                <div class="card-body">
+                                    <div class="flex justify-content-center align-items-center fs-5">
+                                        Authors
+                                    </div>
+                                    <p:divider/>
+                                    <h:panelGroup id="addAuthors"
+                                                  class="flex flex-row justify-content-evenly align-items-center">
+                                        <h:panelGroup rendered="#{not empty documentService.authors}">
+                                            <p:selectOneMenu value="#{documentService.selectedAuthor}"
+                                                             converter="#{userConverter}"
+                                                             class="w-9" label="Author">
+                                                <f:selectItems value="#{documentService.authors}" var="aut"
+                                                               itemValue="#{aut}"
+                                                               itemLabel="#{aut.username}"/>
+                                            </p:selectOneMenu>
+                                            <p:commandButton action="#{documentService.addAuthor()}" 
+                                                             update="addAuthors addedAuthors :messages"
+                                                             icon="pi pi-plus" />
+                                        </h:panelGroup>
+                                    </h:panelGroup>
+                                    <h:panelGroup id="addedAuthors">
+                                        <ol class="mt-2">
+                                            <ui:repeat value="#{documentService.entity.authors}" var="au">
+                                                <li class="fs-5"><h:outputText value="#{au.username}" /></li>
+                                            </ui:repeat>
+                                        </ol>
+                                    </h:panelGroup>
+                                </div>
+                            </div>
+                            
+                            <p:fileUpload class="w-7 my-3 flex flex-column"
+                                          label="Upload document" chooseIcon="pi pi-plus"
+                                          validateContentType="true" accept=".pdf,.docx,.txt"
+                                          value="#{documentService.file}" mode="simple" skinSimple="true"/>
+
+                            <p:commandButton class="w-7 my-3 fw-bold" value="Add Document" ajax="false"
+                                             action="#{documentService.submit(documentService.entity)}"
+                                             update="@form :messages"/>
+                        </h:form>
+                    </div>
+                </div>
+
+            </div>
+
+            <h:form>
+                <f:websocket channel="push">
+                    <f:ajax event="updateUser" render=":addDocuments:addAuthors" />
+                </f:websocket>
+            </h:form>
+        </h:panelGroup>
+    </ui:define>
+
+</ui:composition>

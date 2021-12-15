@@ -106,3 +106,15 @@
 - [X] Exposed a CRUD REST resource from the previous lab as a microservice
 	- [X] Ran the microservice using an Eclipse Microprofile server implementation
 	- [X] Created an additional microservice that invokes the first one
+	
+### Laboratory 10
+- [X] Ran the microservices using an Eclipse Microprofile implementation (Open Liberty)
+	- [X] Created Docker containers for the microservices. Created a docker compose file so that the microservices can communicate with eachother.
+	- [X] Deployed the database as a container
+
+- [ ] Implemented simple test cases to highlight the support offered by MicroProfile for writing resilient microservices
+	- [ ] Used Fallback + Timeout and Retry, CircuitBreaker, Bulkhead thread-pool and Semaphore
+	- [ ] Invoked the annotated methods and analyzed their behaviour
+- [ ] Implemented and tested a health check procedure, in order to determine the readiness and liveness of my service
+- [ ] Used MicroProfile Metrics API in order to monitor the behaviour of my service
+	- [ ] Analyzed the number of invocations and the response time for at least one method
