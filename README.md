@@ -112,9 +112,10 @@
 	- [X] Created Docker containers for the microservices. Created a docker compose file so that the microservices can communicate with eachother.
 	- [X] Deployed the database as a container
 
-- [ ] Implemented simple test cases to highlight the support offered by MicroProfile for writing resilient microservices
-	- [ ] Used Fallback + Timeout and Retry, CircuitBreaker, Bulkhead thread-pool and Semaphore
-	- [ ] Invoked the annotated methods and analyzed their behaviour
-- [ ] Implemented and tested a health check procedure, in order to determine the readiness and liveness of my service
-- [ ] Used MicroProfile Metrics API in order to monitor the behaviour of my service
-	- [ ] Analyzed the number of invocations and the response time for at least one method
+- [X] Implemented simple test cases to highlight the support offered by MicroProfile for writing resilient microservices
+	- [X] Used Fallback + Timeout and Retry, CircuitBreaker, Bulkhead thread-pool and Semaphore
+	- [X] Invoked the annotated methods and analyzed their behaviour
+		- [Load Test](https://loadster.app/dashboard/reports/ACNTl3ngdbN4H2tX)
+- [X] Implemented and tested a health check procedure, in order to determine the readiness and liveness of my service
+- [X] Used MicroProfile Metrics API in order to monitor the behaviour of my service
+	- [X] Analyzed the number of invocations and the response time for at least one method
