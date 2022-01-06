@@ -21,6 +21,18 @@
       <type>pom</type>
       <scope>provided</scope>
     </dependency>
+    <dependency>
+        <groupId>javax.persistence</groupId>
+        <artifactId>javax.persistence-api</artifactId>
+        <version>2.2</version>
+        <scope>provided</scope>
+    </dependency>
+    <dependency>
+        <groupId>javax</groupId>
+        <artifactId>javaee-api</artifactId>
+        <version>8.0.1</version>
+        <scope>provided</scope>
+    </dependency>
   </dependencies>
   <build>
     <finalName>microservices</finalName>

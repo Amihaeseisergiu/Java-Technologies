@@ -38,7 +38,7 @@ public class TestSecureController {
             throw new WebApplicationException("Unable to read privateKey.pem", 500);
         }
         String jwt = generateJWT(key);
-        WebTarget target = ClientBuilder.newClient().target("http://172.17.0.3:9080/data/protected");
+        WebTarget target = ClientBuilder.newClient().target("http://172.17.0.4:9080/data/protected");
         Response response = target.request().header("authorization", "Bearer " + jwt).buildGet().invoke();
         return String.format("Claim value within JWT of 'custom-value' : %s", response.readEntity(String.class));
     }

@@ -1,0 +1,10 @@
+
+ Index  Count  Time of first Occurrence    Time of last Occurrence     Exception SourceId ProbeId
+------+------+---------------------------+---------------------------+---------------------------
+     0      4     1/6/22 21:35:55:446 EET     1/6/22 21:36:03:782 EET java.lang.ClassNotFoundException com.ibm.ws.jdbc.internal.JDBCDriverService 234
+                                                                            - D:\Facultate\Tehnologii Java\lab11\service-a\target\liberty\wlp\usr\servers\microservices\logs\ffdc\ffdc_22.01.06_21.35.55.0.log
+     1      4     1/6/22 21:35:55:454 EET     1/6/22 21:36:03:782 EET java.sql.SQLNonTransientException com.ibm.ws.jdbc.DataSourceService 587
+                                                                            - D:\Facultate\Tehnologii Java\lab11\service-a\target\liberty\wlp\usr\servers\microservices\logs\ffdc\ffdc_22.01.06_21.35.55.1.log
+     2      4     1/6/22 21:35:55:550 EET     1/6/22 21:36:03:782 EET java.sql.SQLNonTransientException com.ibm.ws.resource.internal.ResourceFactoryTrackerData$1 121
+                                                                            - D:\Facultate\Tehnologii Java\lab11\service-a\target\liberty\wlp\usr\servers\microservices\logs\ffdc\ffdc_22.01.06_21.35.55.2.log
+------+------+---------------------------+---------------------------+---------------------------

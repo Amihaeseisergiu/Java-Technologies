@@ -1,4 +1,4 @@
-#Thu Jan 06 13:09:39 EET 2022
+#Thu Jan 06 20:33:24 EET 2022
 lib/features/com.ibm.websphere.appserver.javax.jaxrs-2.0.mf=09e8b8e0093b572dffa8d69a2eb5e4c0
 dev/api/spec/com.ibm.websphere.javaee.activation.1.1_1.0.59.jar=0a3b26c3009fcd63b6458b869e61cb31
 dev/api/ibm/com.ibm.websphere.appserver.api.jaxrs20_1.1.59.jar=7a64fc9616278502b553041f039a1810

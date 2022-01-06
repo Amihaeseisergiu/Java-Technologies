@@ -1,4 +1,4 @@
-#Thu Jan 06 13:09:30 EET 2022
+#Thu Jan 06 20:33:02 EET 2022
 lib/features/com.ibm.websphere.appserver.anno-1.0.mf=02cedaf6e905613d05b664c13f038761
 dev/spi/ibm/com.ibm.websphere.appserver.spi.anno_1.1.59.jar=677a45f7e5aa3e792a0fd7249789055f
 lib/com.ibm.ws.anno_1.1.59.jar=92cef1d90e5e31cecea5b646aeb97200

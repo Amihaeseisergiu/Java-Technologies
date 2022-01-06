@@ -1,4 +1,4 @@
-#Thu Jan 06 13:09:30 EET 2022
+#Thu Jan 06 20:33:02 EET 2022
 lib/com.ibm.ws.artifact_1.0.59.jar=c004f856b7a4f5327a63192f4172c1bd
 lib/com.ibm.ws.artifact.bundle_1.0.59.jar=00d3942f39b5adb97e80108769c48fb1
 lib/com.ibm.ws.artifact.equinox.module_1.0.59.jar=f295b750874e8b9586b1d27b4d0e54b9

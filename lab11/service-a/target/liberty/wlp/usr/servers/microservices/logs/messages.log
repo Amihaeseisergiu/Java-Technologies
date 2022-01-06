@@ -1,0 +1,430 @@
+********************************************************************************
+product = Open Liberty 21.0.0.12 (wlp-1.0.59.cl211220211117-1256)
+wlp.install.dir = D:/Facultate/Tehnologii Java/lab11/service-a/target/liberty/wlp/
+java.home = C:\Program Files\Java\jdk1.8.0_301\jre
+java.version = 1.8.0_301
+java.runtime = Java(TM) SE Runtime Environment (1.8.0_301-b09)
+os = Windows 10 (10.0; amd64) (en_US)
+process = 72136@DESKTOP-4C65F0G
+********************************************************************************
+[1/6/22 21:35:48:282 EET] 00000001 com.ibm.ws.kernel.launch.internal.FrameworkManager           A CWWKE0001I: The server microservices has been launched.
+[1/6/22 21:35:49:242 EET] 00000001 com.ibm.ws.kernel.launch.internal.FrameworkManager           I CWWKE0002I: The kernel started after 1.145 seconds
+[1/6/22 21:35:49:282 EET] 00000022 com.ibm.ws.kernel.feature.internal.FeatureManager            I CWWKF0007I: Feature update started.
+[1/6/22 21:35:50:697 EET] 00000017 .apache.cxf.cxf.core.3.2:1.0.59.cl211220211117-1256(id=130)] I Aries Blueprint packages not available. So namespaces will not be registered
+[1/6/22 21:35:50:697 EET] 00000019 .apache.cxf.cxf.core.3.2:1.0.59.cl211220211117-1256(id=130)] I Aries Blueprint packages not available. So namespaces will not be registered
+[1/6/22 21:35:50:752 EET] 00000016 com.ibm.ws.security.ready.internal.SecurityReadyServiceImpl  I CWWKS0007I: The security service is starting...
+[1/6/22 21:35:50:952 EET] 0000001e com.ibm.ws.library.internal.SharedLibraryImpl                W CWWKL0012W: The library [library[postgresql-library]] specifies a file with name [jdbc/postgresql.jar]. This file either does not exist or is incorrectly specified.
+[1/6/22 21:35:50:984 EET] 00000017 com.ibm.ws.app.manager.internal.monitor.DropinMonitor        A CWWKZ0058I: Monitoring dropins for applications.
+[1/6/22 21:35:51:324 EET] 00000019 .ws.security.mp.jwt.v11.config.impl.MpConfigProxyServiceImpl I CWWKS5775I: The MicroProfile JWT version 1.1 mpConfigProxy processed successfully.
+[1/6/22 21:35:51:324 EET] 00000018 rty.security.mp.jwt.v12.config.impl.MpConfigProxyServiceImpl I CWWKS5780I: The MicroProfile JWT version 1.2 mpConfigProxy processed successfully.
+[1/6/22 21:35:51:344 EET] 0000001a com.ibm.ws.cache.ServerCache                                 I DYNA1001I: WebSphere Dynamic Cache instance named baseCache initialized successfully.
+[1/6/22 21:35:51:347 EET] 0000001a com.ibm.ws.cache.ServerCache                                 I DYNA1071I: The cache provider default is being used.
+[1/6/22 21:35:51:348 EET] 0000001a com.ibm.ws.cache.CacheServiceImpl                            I DYNA1056I: Dynamic Cache (object cache) initialized successfully.
+[1/6/22 21:35:51:524 EET] 0000001e com.ibm.ws.ssl.config.WSKeyStore                             I CWPKI0802I: Creating the SSL certificate. This may take a few seconds.
+[1/6/22 21:35:51:550 EET] 00000033 com.ibm.ws.security.token.ltpa.LTPAKeyInfoManager            I CWWKS4103I: Creating the LTPA keys. This may take a few seconds.
+[1/6/22 21:35:51:576 EET] 00000016 ibm.ws.security.authentication.internal.jaas.JAASServiceImpl I CWWKS1123I: The collective authentication plugin with class name NullCollectiveAuthenticationPlugin has been activated. 
+[1/6/22 21:35:51:784 EET] 00000016 com.ibm.ws.security.jwt.internal.ConsumerImpl                I CWWKS6012I: The JSON Web Token (JWT) consumer service is available.
+[1/6/22 21:35:51:807 EET] 00000016 com.ibm.ws.security.jwt.web.JwtEndpointServices              I CWWKS6002I: The JSON Web Token (JWT) endpoint service is available.
+[1/6/22 21:35:51:856 EET] 00000016 com.ibm.ws.security.jaspi.AuthConfigFactoryWrapper           I CWWKS1655I: The default Java Authentication SPI for Containers (JASPIC) AuthConfigFactory class com.ibm.ws.security.jaspi.ProviderRegistry is being used because the Java security property authconfigprovider.factory is not set. 
+[1/6/22 21:35:52:300 EET] 00000016 com.ibm.ws.session.WASSessionCore                            I SESN8501I: The session manager did not find a persistent storage location; HttpSession objects will be stored in the local application server's memory.
+[1/6/22 21:35:52:340 EET] 0000001e com.ibm.ws.ssl.config.WSKeyStore                             A CWPKI0803A: SSL certificate created in 0.816 seconds. SSL key file: D:/Facultate/Tehnologii Java/lab11/service-a/target/liberty/wlp/usr/servers/microservices/resources/security/public.jks
+[1/6/22 21:35:52:342 EET] 0000001e com.ibm.ws.ssl.config.WSKeyStore                             I Successfully loaded default keystore: D:/Facultate/Tehnologii Java/lab11/service-a/target/liberty/wlp/usr/servers/microservices/resources/security/public.jks of type: JKS
+[1/6/22 21:35:52:402 EET] 00000033 com.ibm.ws.security.token.ltpa.LTPAKeyInfoManager            A CWWKS4104A: LTPA keys created in 0.852 seconds. LTPA key file: D:/Facultate/Tehnologii Java/lab11/service-a/target/liberty/wlp/usr/servers/microservices/resources/security/ltpa.keys
+[1/6/22 21:35:52:411 EET] 00000033 com.ibm.ws.security.token.ltpa.internal.LTPAKeyCreateTask    I CWWKS4105I: LTPA configuration is ready after 0.867 seconds.
+[1/6/22 21:35:52:447 EET] 0000001e com.ibm.ws.security.mp.jwt.impl.MicroProfileJwtServiceImpl   I CWWKS5500I: The MicroProfile JWT configuration [MicroProfileJwtService] was successfully processed.
+[1/6/22 21:35:52:449 EET] 0000001e com.ibm.ws.security.mp.jwt.impl.MicroProfileJwtConfigImpl    I CWWKS5500I: The MicroProfile JWT configuration [jwtUserConsumer] was successfully processed.
+[1/6/22 21:35:52:450 EET] 0000001e com.ibm.ws.security.mp.jwt.impl.MicroProfileJwtConfigImpl    I CWWKS5500I: The MicroProfile JWT configuration [defaultMpJwt] was successfully processed.
+[1/6/22 21:35:52:497 EET] 00000016 .microprofile.metrics.internal.monitor.MonitorMetricsHandler I CWPMI2003I: Monitoring metrics can be retrieved through mpMetrics.
+[1/6/22 21:35:52:948 EET] 00000024 com.ibm.ws.app.manager.AppMessageHelper                      I CWWKZ0018I: Starting application microservices.
+[1/6/22 21:35:52:952 EET] 00000024 bm.ws.app.manager.war.internal.WARDeployedAppInfoFactoryImpl I CWWKZ0134I: The microservices application is using the loose application definition at the D:\Facultate\Tehnologii Java\lab11\service-a\target\liberty\wlp\usr\servers\microservices\apps\microservices.war.xml location.
+[1/6/22 21:35:53:642 EET] 00000032 com.ibm.ws.webcontainer.osgi.webapp.WebGroup                 I SRVE0169I: Loading Web Module: MicroProfileOpenAPI.
+[1/6/22 21:35:53:642 EET] 00000035 com.ibm.ws.webcontainer.osgi.webapp.WebGroup                 I SRVE0169I: Loading Web Module: ibm/api.
+[1/6/22 21:35:53:642 EET] 00000025 com.ibm.ws.webcontainer.osgi.webapp.WebGroup                 I SRVE0169I: Loading Web Module: health.
+[1/6/22 21:35:53:642 EET] 00000030 com.ibm.ws.webcontainer.osgi.webapp.WebGroup                 I SRVE0169I: Loading Web Module: com.ibm.ws.security.jwt.
+[1/6/22 21:35:53:642 EET] 00000038 com.ibm.ws.webcontainer.osgi.webapp.WebGroup                 I SRVE0169I: Loading Web Module: PublicMicroProfileMetrics.
+[1/6/22 21:35:53:648 EET] 00000032 com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0016I: Web application available (default_host): http://localhost:9080/openapi/
+[1/6/22 21:35:53:661 EET] 00000035 com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0016I: Web application available (default_host): http://localhost:9080/ibm/api/
+[1/6/22 21:35:53:664 EET] 00000038 com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0016I: Web application available (default_host): http://localhost:9080/metrics/
+[1/6/22 21:35:53:664 EET] 00000034 com.ibm.ws.webcontainer.osgi.webapp.WebGroup                 I SRVE0169I: Loading Web Module: OpenAPIUI.
+[1/6/22 21:35:53:664 EET] 00000034 com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0016I: Web application available (default_host): http://localhost:9080/openapi/ui/
+[1/6/22 21:35:53:664 EET] 00000030 com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0016I: Web application available (default_host): http://localhost:9080/jwt/
+[1/6/22 21:35:53:674 EET] 00000025 com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0016I: Web application available (default_host): http://localhost:9080/health/
+[1/6/22 21:35:53:774 EET] 00000038 com.ibm.ws.session.WASSessionCore                            I SESN0176I: A new session context will be created for application key default_host/metrics
+[1/6/22 21:35:53:774 EET] 00000029 com.ibm.ws.session.WASSessionCore                            I SESN0176I: A new session context will be created for application key default_host/jwt
+[1/6/22 21:35:53:774 EET] 00000032 com.ibm.ws.session.WASSessionCore                            I SESN0176I: A new session context will be created for application key default_host/openapi
+[1/6/22 21:35:53:774 EET] 00000027 com.ibm.ws.session.WASSessionCore                            I SESN0176I: A new session context will be created for application key default_host/openapi/ui
+[1/6/22 21:35:53:784 EET] 00000026 com.ibm.ws.session.WASSessionCore                            I SESN0176I: A new session context will be created for application key default_host/ibm/api
+[1/6/22 21:35:53:793 EET] 00000028 com.ibm.ws.session.WASSessionCore                            I SESN0176I: A new session context will be created for application key default_host/health
+[1/6/22 21:35:53:856 EET] 00000038 com.ibm.ws.util                                              I SESN0172I: The session manager is using the Java default SecureRandom implementation for session ID generation.
+[1/6/22 21:35:53:872 EET] 00000028 com.ibm.ws.util                                              I SESN0172I: The session manager is using the Java default SecureRandom implementation for session ID generation.
+[1/6/22 21:35:53:874 EET] 00000026 com.ibm.ws.util                                              I SESN0172I: The session manager is using the Java default SecureRandom implementation for session ID generation.
+[1/6/22 21:35:53:874 EET] 00000027 com.ibm.ws.util                                              I SESN0172I: The session manager is using the Java default SecureRandom implementation for session ID generation.
+[1/6/22 21:35:53:874 EET] 00000032 com.ibm.ws.util                                              I SESN0172I: The session manager is using the Java default SecureRandom implementation for session ID generation.
+[1/6/22 21:35:53:874 EET] 00000029 com.ibm.ws.util                                              I SESN0172I: The session manager is using the Java default SecureRandom implementation for session ID generation.
+[1/6/22 21:35:53:908 EET] 00000027 com.ibm.ws.cache.CacheServiceImpl                            I DYNA1056I: Dynamic Cache (object cache) initialized successfully.
+[1/6/22 21:35:54:080 EET] 00000028 com.ibm.ws.webcontainer.servlet                              I SRVE0242I: [io.openliberty.microprofile.health.3.0.internal] [/health] [HealthCheckReadinessServlet]: Initialization successful.
+[1/6/22 21:35:54:084 EET] 00000028 com.ibm.ws.webcontainer.servlet                              I SRVE0242I: [io.openliberty.microprofile.health.3.0.internal] [/health] [HealthCheckServlet]: Initialization successful.
+[1/6/22 21:35:54:084 EET] 00000032 com.ibm.ws.webcontainer.servlet                              I SRVE0242I: [io.openliberty.microprofile.openapi.2.0.internal] [/openapi] [ApplicationServlet]: Initialization successful.
+[1/6/22 21:35:54:085 EET] 00000038 com.ibm.ws.webcontainer.servlet                              I SRVE0242I: [io.openliberty.microprofile.metrics.internal.public] [/metrics] [PublicMetricsRESTProxyServlet]: Initialization successful.
+[1/6/22 21:35:54:089 EET] 00000028 com.ibm.ws.webcontainer.servlet                              I SRVE0242I: [io.openliberty.microprofile.health.3.0.internal] [/health] [HealthCheckLivenessServlet]: Initialization successful.
+[1/6/22 21:35:54:122 EET] 00000025 com.ibm.ws.webcontainer.osgi.mbeans.PluginGenerator          I SRVE9103I: A configuration file for a web server plugin was automatically generated for this server at D:\Facultate\Tehnologii Java\lab11\service-a\target\liberty\wlp\usr\servers\microservices\logs\state\plugin-cfg.xml.
+[1/6/22 21:35:55:395 EET] 00000024 com.ibm.ws.jca.cm.ConnectorService                           I J2CA8050I: An authentication alias should be used instead of defining a user name and password on dataSource[datasource].
+[1/6/22 21:35:55:454 EET] 00000024 com.ibm.ws.logging.internal.impl.IncidentImpl                I FFDC1015I: An FFDC Incident has been created: "java.lang.ClassNotFoundException: org.postgresql.ds.PGConnectionPoolDataSource com.ibm.ws.jdbc.internal.JDBCDriverService 234" at ffdc_22.01.06_21.35.55.0.log
+[1/6/22 21:35:55:549 EET] 00000024 com.ibm.ws.logging.internal.impl.IncidentImpl                I FFDC1015I: An FFDC Incident has been created: "java.sql.SQLNonTransientException: DSRA4000E: No implementations of org.postgresql.ds.PGConnectionPoolDataSource are found for dataSource[datasource] with library postgresql-library. The name or location of JDBC driver JAR files might be incorrect or inaccessible. Searched in: []. Searched under packages: [org.postgresql.ds]. com.ibm.ws.jdbc.DataSourceService 587" at ffdc_22.01.06_21.35.55.1.log
+[1/6/22 21:35:55:692 EET] 00000024 com.ibm.ws.logging.internal.impl.IncidentImpl                I FFDC1015I: An FFDC Incident has been created: "java.sql.SQLNonTransientException: DSRA4000E: No implementations of org.postgresql.ds.PGConnectionPoolDataSource are found for dataSource[datasource] with library postgresql-library. The name or location of JDBC driver JAR files might be incorrect or inaccessible. Searched in: []. Searched under packages: [org.postgresql.ds]. com.ibm.ws.resource.internal.ResourceFactoryTrackerData$1 121" at ffdc_22.01.06_21.35.55.2.log
+[1/6/22 21:35:55:724 EET] 00000014 LogService-49-com.ibm.ws.jdbc                                E CWWKE0701E: FrameworkEvent ERROR org.osgi.framework.ServiceException: Exception in com.ibm.ws.resource.internal.ResourceFactoryTrackerData$1.getService()
+	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse.factoryGetService(ServiceFactoryUse.java:226)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse.getService(ServiceFactoryUse.java:114)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceConsumer$2.getService(ServiceConsumer.java:48)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistrationImpl.getService(ServiceRegistrationImpl.java:547)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.getService(ServiceRegistry.java:533)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.getService(BundleContextImpl.java:656)
+	at com.ibm.ws.jndi.internal.WSContextFactory.lambda$getService$0(WSContextFactory.java:81)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.ibm.ws.jndi.internal.WSContextFactory.lambda$getService$1(WSContextFactory.java:81)
+	at java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1660)
+	at com.ibm.ws.jndi.internal.WSContextFactory.getService(WSContextFactory.java:81)
+	at com.ibm.ws.jndi.internal.WSContext.getReference(WSContext.java:520)
+	at com.ibm.ws.jndi.internal.WSContext.resolveObject(WSContext.java:139)
+	at com.ibm.ws.jndi.internal.WSContext.lookup(WSContext.java:309)
+	at com.ibm.ws.jndi.WSContextBase.lookup(WSContextBase.java:61)
+	at org.apache.aries.jndi.DelegateContext.lookup(DelegateContext.java:149)
+	at javax.naming.InitialContext.lookup(InitialContext.java:417)
+	at com.ibm.ws.jpa.container.osgi.internal.OSGiJPAPUnitInfo.lookupDataSource(OSGiJPAPUnitInfo.java:317)
+	at com.ibm.ws.jpa.management.JPAPUnitInfo.getJPADataSource(JPAPUnitInfo.java:338)
+	at com.ibm.ws.jpa.management.JPAPUnitInfo.getJtaDataSource(JPAPUnitInfo.java:381)
+	at com.ibm.ws.jpa.management.JPAPUnitInfo.initialize(JPAPUnitInfo.java:751)
+	at com.ibm.ws.jpa.management.JPAPxmlInfo.extractPersistenceUnits(JPAPxmlInfo.java:182)
+	at com.ibm.ws.jpa.management.JPAScopeInfo.processPersistenceUnit(JPAScopeInfo.java:88)
+	at com.ibm.ws.jpa.management.JPAApplInfo.addPersistenceUnits(JPAApplInfo.java:119)
+	at com.ibm.ws.jpa.container.osgi.internal.JPAComponentImpl.processWebModulePersistenceXml(JPAComponentImpl.java:554)
+	at com.ibm.ws.jpa.container.osgi.internal.JPAComponentImpl.applicationStarting(JPAComponentImpl.java:341)
+	at com.ibm.ws.container.service.state.internal.ApplicationStateManager.fireStarting(ApplicationStateManager.java:51)
+	at com.ibm.ws.container.service.state.internal.StateChangeServiceImpl.fireApplicationStarting(StateChangeServiceImpl.java:50)
+	at com.ibm.ws.app.manager.module.internal.SimpleDeployedAppInfoBase.preDeployApp(SimpleDeployedAppInfoBase.java:547)
+	at com.ibm.ws.app.manager.module.internal.SimpleDeployedAppInfoBase.installApp(SimpleDeployedAppInfoBase.java:508)
+	at com.ibm.ws.app.manager.module.internal.DeployedAppInfoBase.deployApp(DeployedAppInfoBase.java:349)
+	at com.ibm.ws.app.manager.war.internal.WARApplicationHandlerImpl.install(WARApplicationHandlerImpl.java:65)
+	at com.ibm.ws.app.manager.internal.statemachine.StartAction.execute(StartAction.java:149)
+	at com.ibm.ws.app.manager.internal.statemachine.ApplicationStateMachineImpl.enterState(ApplicationStateMachineImpl.java:1352)
+	at com.ibm.ws.app.manager.internal.statemachine.ApplicationStateMachineImpl.run(ApplicationStateMachineImpl.java:897)
+	at com.ibm.ws.threading.internal.ExecutorServiceImpl$RunnableWrapper.run(ExecutorServiceImpl.java:238)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.RuntimeException: java.sql.SQLNonTransientException: DSRA4000E: No implementations of org.postgresql.ds.PGConnectionPoolDataSource are found for dataSource[datasource] with library postgresql-library. The name or location of JDBC driver JAR files might be incorrect or inaccessible. Searched in: []. Searched under packages: [org.postgresql.ds].
+	at com.ibm.ws.resource.internal.ResourceFactoryTrackerData$1.getService(ResourceFactoryTrackerData.java:122)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse$1.run(ServiceFactoryUse.java:216)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse.factoryGetService(ServiceFactoryUse.java:213)
+	... 38 more
+Caused by: java.sql.SQLNonTransientException: DSRA4000E: No implementations of org.postgresql.ds.PGConnectionPoolDataSource are found for dataSource[datasource] with library postgresql-library. The name or location of JDBC driver JAR files might be incorrect or inaccessible. Searched in: []. Searched under packages: [org.postgresql.ds].
+	at com.ibm.ws.jdbc.internal.JDBCDriverService.classNotFound(JDBCDriverService.java:224)
+	at com.ibm.ws.jdbc.internal.JDBCDriverService.create(JDBCDriverService.java:348)
+	at com.ibm.ws.jdbc.internal.JDBCDriverService.createConnectionPoolDataSource(JDBCDriverService.java:563)
+	at com.ibm.ws.jdbc.DataSourceService.init(DataSourceService.java:612)
+	at com.ibm.ws.jca.cm.AbstractConnectionFactoryService$2.run(AbstractConnectionFactoryService.java:522)
+	at com.ibm.ws.jca.cm.AbstractConnectionFactoryService$2.run(AbstractConnectionFactoryService.java:519)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.ibm.ws.jca.cm.AbstractConnectionFactoryService.initPrivileged(AbstractConnectionFactoryService.java:519)
+	at com.ibm.ws.jca.cm.AbstractConnectionFactoryService.createResource(AbstractConnectionFactoryService.java:149)
+	at com.ibm.ws.resource.internal.ResourceFactoryTrackerData$1.getService(ResourceFactoryTrackerData.java:120)
+	... 41 more
+Caused by: java.lang.ClassNotFoundException: org.postgresql.ds.PGConnectionPoolDataSource
+	at com.ibm.ws.classloading.internal.AppClassLoader.findClassCommonLibraryClassLoaders(AppClassLoader.java:654)
+	at com.ibm.ws.classloading.internal.AppClassLoader.findClass(AppClassLoader.java:296)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:418)
+	at com.ibm.ws.classloading.internal.AppClassLoader.findOrDelegateLoadClass(AppClassLoader.java:632)
+	at com.ibm.ws.classloading.internal.AppClassLoader.loadClass(AppClassLoader.java:531)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:351)
+	at com.ibm.ws.jdbc.internal.JDBCDriverService$1.run(JDBCDriverService.java:272)
+	at com.ibm.ws.jdbc.internal.JDBCDriverService$1.run(JDBCDriverService.java:262)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.ibm.ws.jdbc.internal.JDBCDriverService.create(JDBCDriverService.java:262)
+	... 49 more
+ Event:org.osgi.framework.FrameworkEvent[source=com.ibm.ws.jdbc_1.0.59.cl211220211117-1256 [49]] 
+[1/6/22 21:35:55:962 EET] 00000024 com.ibm.ws.jca.cm.ConnectorService                           I J2CA8050I: An authentication alias should be used instead of defining a user name and password on dataSource[datasource].
+[1/6/22 21:35:55:962 EET] 00000014 LogService-49-com.ibm.ws.jdbc                                E CWWKE0701E: FrameworkEvent ERROR org.osgi.framework.ServiceException: Exception in com.ibm.ws.resource.internal.ResourceFactoryTrackerData$1.getService()
+	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse.factoryGetService(ServiceFactoryUse.java:226)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse.getService(ServiceFactoryUse.java:114)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceConsumer$2.getService(ServiceConsumer.java:48)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistrationImpl.getService(ServiceRegistrationImpl.java:547)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.getService(ServiceRegistry.java:533)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.getService(BundleContextImpl.java:656)
+	at com.ibm.ws.jndi.internal.WSContextFactory.lambda$getService$0(WSContextFactory.java:81)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.ibm.ws.jndi.internal.WSContextFactory.lambda$getService$1(WSContextFactory.java:81)
+	at java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1660)
+	at com.ibm.ws.jndi.internal.WSContextFactory.getService(WSContextFactory.java:81)
+	at com.ibm.ws.jndi.internal.WSContext.getReference(WSContext.java:520)
+	at com.ibm.ws.jndi.internal.WSContext.resolveObject(WSContext.java:139)
+	at com.ibm.ws.jndi.internal.WSContext.lookup(WSContext.java:309)
+	at com.ibm.ws.jndi.WSContextBase.lookup(WSContextBase.java:61)
+	at org.apache.aries.jndi.DelegateContext.lookup(DelegateContext.java:149)
+	at javax.naming.InitialContext.lookup(InitialContext.java:417)
+	at com.ibm.ws.jpa.container.osgi.internal.OSGiJPAPUnitInfo.lookupDataSource(OSGiJPAPUnitInfo.java:317)
+	at com.ibm.ws.jpa.management.JPAPUnitInfo.getJPADataSource(JPAPUnitInfo.java:338)
+	at com.ibm.ws.jpa.management.JPAPUnitInfo.getJtaDataSource(JPAPUnitInfo.java:381)
+	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.predeploy(EntityManagerSetupImpl.java:1892)
+	at org.eclipse.persistence.jpa.PersistenceProvider.createContainerEntityManagerFactoryImpl(PersistenceProvider.java:350)
+	at org.eclipse.persistence.jpa.PersistenceProvider.createContainerEntityManagerFactory(PersistenceProvider.java:316)
+	at com.ibm.ws.jpa.management.JPAPUnitInfo.createEMFactory(JPAPUnitInfo.java:925)
+	at com.ibm.ws.jpa.management.JPAPUnitInfo.initialize(JPAPUnitInfo.java:767)
+	at com.ibm.ws.jpa.management.JPAPxmlInfo.extractPersistenceUnits(JPAPxmlInfo.java:182)
+	at com.ibm.ws.jpa.management.JPAScopeInfo.processPersistenceUnit(JPAScopeInfo.java:88)
+	at com.ibm.ws.jpa.management.JPAApplInfo.addPersistenceUnits(JPAApplInfo.java:119)
+	at com.ibm.ws.jpa.container.osgi.internal.JPAComponentImpl.processWebModulePersistenceXml(JPAComponentImpl.java:554)
+	at com.ibm.ws.jpa.container.osgi.internal.JPAComponentImpl.applicationStarting(JPAComponentImpl.java:341)
+	at com.ibm.ws.container.service.state.internal.ApplicationStateManager.fireStarting(ApplicationStateManager.java:51)
+	at com.ibm.ws.container.service.state.internal.StateChangeServiceImpl.fireApplicationStarting(StateChangeServiceImpl.java:50)
+	at com.ibm.ws.app.manager.module.internal.SimpleDeployedAppInfoBase.preDeployApp(SimpleDeployedAppInfoBase.java:547)
+	at com.ibm.ws.app.manager.module.internal.SimpleDeployedAppInfoBase.installApp(SimpleDeployedAppInfoBase.java:508)
+	at com.ibm.ws.app.manager.module.internal.DeployedAppInfoBase.deployApp(DeployedAppInfoBase.java:349)
+	at com.ibm.ws.app.manager.war.internal.WARApplicationHandlerImpl.install(WARApplicationHandlerImpl.java:65)
+	at com.ibm.ws.app.manager.internal.statemachine.StartAction.execute(StartAction.java:149)
+	at com.ibm.ws.app.manager.internal.statemachine.ApplicationStateMachineImpl.enterState(ApplicationStateMachineImpl.java:1352)
+	at com.ibm.ws.app.manager.internal.statemachine.ApplicationStateMachineImpl.run(ApplicationStateMachineImpl.java:897)
+	at com.ibm.ws.threading.internal.ExecutorServiceImpl$RunnableWrapper.run(ExecutorServiceImpl.java:238)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.RuntimeException: java.sql.SQLNonTransientException: DSRA4000E: No implementations of org.postgresql.ds.PGConnectionPoolDataSource are found for dataSource[datasource] with library postgresql-library. The name or location of JDBC driver JAR files might be incorrect or inaccessible. Searched in: []. Searched under packages: [org.postgresql.ds].
+	at com.ibm.ws.resource.internal.ResourceFactoryTrackerData$1.getService(ResourceFactoryTrackerData.java:122)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse$1.run(ServiceFactoryUse.java:216)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse.factoryGetService(ServiceFactoryUse.java:213)
+	... 42 more
+Caused by: java.sql.SQLNonTransientException: DSRA4000E: No implementations of org.postgresql.ds.PGConnectionPoolDataSource are found for dataSource[datasource] with library postgresql-library. The name or location of JDBC driver JAR files might be incorrect or inaccessible. Searched in: []. Searched under packages: [org.postgresql.ds].
+	at com.ibm.ws.jdbc.internal.JDBCDriverService.classNotFound(JDBCDriverService.java:224)
+	at com.ibm.ws.jdbc.internal.JDBCDriverService.create(JDBCDriverService.java:348)
+	at com.ibm.ws.jdbc.internal.JDBCDriverService.createConnectionPoolDataSource(JDBCDriverService.java:563)
+	at com.ibm.ws.jdbc.DataSourceService.init(DataSourceService.java:612)
+	at com.ibm.ws.jca.cm.AbstractConnectionFactoryService$2.run(AbstractConnectionFactoryService.java:522)
+	at com.ibm.ws.jca.cm.AbstractConnectionFactoryService$2.run(AbstractConnectionFactoryService.java:519)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.ibm.ws.jca.cm.AbstractConnectionFactoryService.initPrivileged(AbstractConnectionFactoryService.java:519)
+	at com.ibm.ws.jca.cm.AbstractConnectionFactoryService.createResource(AbstractConnectionFactoryService.java:149)
+	at com.ibm.ws.resource.internal.ResourceFactoryTrackerData$1.getService(ResourceFactoryTrackerData.java:120)
+	... 45 more
+Caused by: java.lang.ClassNotFoundException: org.postgresql.ds.PGConnectionPoolDataSource
+	at com.ibm.ws.classloading.internal.AppClassLoader.findClassCommonLibraryClassLoaders(AppClassLoader.java:654)
+	at com.ibm.ws.classloading.internal.AppClassLoader.findClass(AppClassLoader.java:296)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:418)
+	at com.ibm.ws.classloading.internal.AppClassLoader.findOrDelegateLoadClass(AppClassLoader.java:632)
+	at com.ibm.ws.classloading.internal.AppClassLoader.loadClass(AppClassLoader.java:531)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:351)
+	at com.ibm.ws.jdbc.internal.JDBCDriverService$1.run(JDBCDriverService.java:272)
+	at com.ibm.ws.jdbc.internal.JDBCDriverService$1.run(JDBCDriverService.java:262)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.ibm.ws.jdbc.internal.JDBCDriverService.create(JDBCDriverService.java:262)
+	... 53 more
+ Event:org.osgi.framework.FrameworkEvent[source=com.ibm.ws.jdbc_1.0.59.cl211220211117-1256 [49]] 
+[1/6/22 21:35:58:248 EET] 00000024 io.openliberty.microprofile.openapi20.ApplicationProcessor   I CWWKO1660I: The application microservices was processed and an OpenAPI document was produced.
+[1/6/22 21:35:58:282 EET] 00000024 org.jboss.weld.Version                                       I WELD-000900: 3.1.8 (Final)
+[1/6/22 21:36:00:603 EET] 00000024 m.ws.microprofile.rest.client.cdi.LibertyRestClientExtension I CWWKW0750I: The following interfaces are configured as RequestScoped which will result in slower performance:  Consider using ApplicationScoped for better performance.
+[1/6/22 21:36:00:664 EET] 00000024 com.ibm.ws.webcontainer.osgi.webapp.WebGroup                 I SRVE0169I: Loading Web Module: microservices.
+[1/6/22 21:36:00:664 EET] 00000024 com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0016I: Web application available (default_host): http://localhost:9080/
+[1/6/22 21:36:00:667 EET] 00000035 com.ibm.ws.session.WASSessionCore                            I SESN0176I: A new session context will be created for application key default_host/
+[1/6/22 21:36:00:667 EET] 00000035 com.ibm.ws.util                                              I SESN0172I: The session manager is using the Java default SecureRandom implementation for session ID generation.
+[1/6/22 21:36:00:702 EET] 00000029 com.ibm.ws.webcontainer.osgi.mbeans.PluginGenerator          I SRVE9103I: A configuration file for a web server plugin was automatically generated for this server at D:\Facultate\Tehnologii Java\lab11\service-a\target\liberty\wlp\usr\servers\microservices\logs\state\plugin-cfg.xml.
+[1/6/22 21:36:00:707 EET] 00000035 com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0001I: Application microservices started in 7.759 seconds.
+[1/6/22 21:36:00:734 EET] 00000022 com.ibm.ws.tcpchannel.internal.TCPPort                       I CWWKO0219I: TCP Channel defaultHttpEndpoint has been started and is now listening for requests on host kubernetes.docker.internal  (IPv4: 127.0.0.1) port 9080.
+[1/6/22 21:36:00:734 EET] 00000022 com.ibm.ws.tcpchannel.internal.TCPPort                       I CWWKO0219I: TCP Channel defaultHttpEndpoint-ssl has been started and is now listening for requests on host kubernetes.docker.internal  (IPv4: 127.0.0.1) port 9443.
+[1/6/22 21:36:00:761 EET] 00000022 com.ibm.ws.kernel.feature.internal.FeatureManager            A CWWKF0012I: The server installed the following features: [appSecurity-3.0, cdi-2.0, distributedMap-1.0, el-3.0, jaxrs-2.1, jaxrsClient-2.1, jdbc-4.2, jndi-1.0, jpa-2.2, jpaContainer-2.2, json-1.0, jsonb-1.0, jsonp-1.1, jwt-1.0, microProfile-4.0, monitor-1.0, mpConfig-2.0, mpFaultTolerance-3.0, mpHealth-3.0, mpJwt-1.2, mpMetrics-3.0, mpOpenAPI-2.0, mpOpenTracing-2.0, mpRestClient-2.0, opentracing-2.0, servlet-4.0, ssl-1.0].
+[1/6/22 21:36:00:762 EET] 00000022 com.ibm.ws.kernel.feature.internal.FeatureManager            I CWWKF0008I: Feature update completed in 11.521 seconds.
+[1/6/22 21:36:00:764 EET] 00000022 com.ibm.ws.kernel.feature.internal.FeatureManager            A CWWKF0011I: The microservices server is ready to run a smarter planet. The microservices server started in 12.666 seconds.
+[1/6/22 21:36:03:303 EET] 0000002b com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0017I: Web application removed (default_host): http://localhost:9080/
+[1/6/22 21:36:03:367 EET] 0000002b com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0009I: The application microservices has stopped successfully.
+[1/6/22 21:36:03:373 EET] 0000002b com.ibm.ws.app.manager.AppMessageHelper                      I CWWKZ0018I: Starting application microservices.
+[1/6/22 21:36:03:373 EET] 0000002b bm.ws.app.manager.war.internal.WARDeployedAppInfoFactoryImpl I CWWKZ0134I: The microservices application is using the loose application definition at the D:\Facultate\Tehnologii Java\lab11\service-a\target\liberty\wlp\usr\servers\microservices\apps\microservices.war.xml location.
+[1/6/22 21:36:03:392 EET] 00000027 com.ibm.ws.webcontainer.osgi.mbeans.PluginGenerator          I SRVE9103I: A configuration file for a web server plugin was automatically generated for this server at D:\Facultate\Tehnologii Java\lab11\service-a\target\liberty\wlp\usr\servers\microservices\logs\state\plugin-cfg.xml.
+[1/6/22 21:36:03:779 EET] 0000002b com.ibm.ws.jca.cm.ConnectorService                           I J2CA8050I: An authentication alias should be used instead of defining a user name and password on dataSource[datasource].
+[1/6/22 21:36:03:782 EET] 0000002b com.ibm.ws.jca.cm.ConnectorService                           I J2CA8050I: An authentication alias should be used instead of defining a user name and password on dataSource[datasource].
+[1/6/22 21:36:03:782 EET] 00000014 LogService-49-com.ibm.ws.jdbc                                E CWWKE0701E: FrameworkEvent ERROR org.osgi.framework.ServiceException: Exception in com.ibm.ws.resource.internal.ResourceFactoryTrackerData$1.getService()
+	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse.factoryGetService(ServiceFactoryUse.java:226)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse.getService(ServiceFactoryUse.java:114)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceConsumer$2.getService(ServiceConsumer.java:48)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistrationImpl.getService(ServiceRegistrationImpl.java:547)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.getService(ServiceRegistry.java:533)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.getService(BundleContextImpl.java:656)
+	at com.ibm.ws.jndi.internal.WSContextFactory.lambda$getService$0(WSContextFactory.java:81)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.ibm.ws.jndi.internal.WSContextFactory.lambda$getService$1(WSContextFactory.java:81)
+	at java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1660)
+	at com.ibm.ws.jndi.internal.WSContextFactory.getService(WSContextFactory.java:81)
+	at com.ibm.ws.jndi.internal.WSContext.getReference(WSContext.java:520)
+	at com.ibm.ws.jndi.internal.WSContext.resolveObject(WSContext.java:139)
+	at com.ibm.ws.jndi.internal.WSContext.lookup(WSContext.java:309)
+	at com.ibm.ws.jndi.WSContextBase.lookup(WSContextBase.java:61)
+	at org.apache.aries.jndi.DelegateContext.lookup(DelegateContext.java:149)
+	at javax.naming.InitialContext.lookup(InitialContext.java:417)
+	at com.ibm.ws.jpa.container.osgi.internal.OSGiJPAPUnitInfo.lookupDataSource(OSGiJPAPUnitInfo.java:317)
+	at com.ibm.ws.jpa.management.JPAPUnitInfo.getJPADataSource(JPAPUnitInfo.java:338)
+	at com.ibm.ws.jpa.management.JPAPUnitInfo.getJtaDataSource(JPAPUnitInfo.java:381)
+	at com.ibm.ws.jpa.management.JPAPUnitInfo.initialize(JPAPUnitInfo.java:751)
+	at com.ibm.ws.jpa.management.JPAPxmlInfo.extractPersistenceUnits(JPAPxmlInfo.java:182)
+	at com.ibm.ws.jpa.management.JPAScopeInfo.processPersistenceUnit(JPAScopeInfo.java:88)
+	at com.ibm.ws.jpa.management.JPAApplInfo.addPersistenceUnits(JPAApplInfo.java:119)
+	at com.ibm.ws.jpa.container.osgi.internal.JPAComponentImpl.processWebModulePersistenceXml(JPAComponentImpl.java:554)
+	at com.ibm.ws.jpa.container.osgi.internal.JPAComponentImpl.applicationStarting(JPAComponentImpl.java:341)
+	at com.ibm.ws.container.service.state.internal.ApplicationStateManager.fireStarting(ApplicationStateManager.java:51)
+	at com.ibm.ws.container.service.state.internal.StateChangeServiceImpl.fireApplicationStarting(StateChangeServiceImpl.java:50)
+	at com.ibm.ws.app.manager.module.internal.SimpleDeployedAppInfoBase.preDeployApp(SimpleDeployedAppInfoBase.java:547)
+	at com.ibm.ws.app.manager.module.internal.SimpleDeployedAppInfoBase.installApp(SimpleDeployedAppInfoBase.java:508)
+	at com.ibm.ws.app.manager.module.internal.DeployedAppInfoBase.deployApp(DeployedAppInfoBase.java:349)
+	at com.ibm.ws.app.manager.war.internal.WARApplicationHandlerImpl.install(WARApplicationHandlerImpl.java:65)
+	at com.ibm.ws.app.manager.internal.statemachine.StartAction.execute(StartAction.java:149)
+	at com.ibm.ws.app.manager.internal.statemachine.ApplicationStateMachineImpl.enterState(ApplicationStateMachineImpl.java:1352)
+	at com.ibm.ws.app.manager.internal.statemachine.ApplicationStateMachineImpl.performAction(ApplicationStateMachineImpl.java:1217)
+	at com.ibm.ws.app.manager.internal.statemachine.ApplicationStateMachineImpl.run(ApplicationStateMachineImpl.java:905)
+	at com.ibm.ws.threading.internal.ExecutorServiceImpl$RunnableWrapper.run(ExecutorServiceImpl.java:238)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.RuntimeException: java.sql.SQLNonTransientException: DSRA4000E: No implementations of org.postgresql.ds.PGConnectionPoolDataSource are found for dataSource[datasource] with library postgresql-library. The name or location of JDBC driver JAR files might be incorrect or inaccessible. Searched in: []. Searched under packages: [org.postgresql.ds].
+	at com.ibm.ws.resource.internal.ResourceFactoryTrackerData$1.getService(ResourceFactoryTrackerData.java:122)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse$1.run(ServiceFactoryUse.java:216)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse.factoryGetService(ServiceFactoryUse.java:213)
+	... 39 more
+Caused by: java.sql.SQLNonTransientException: DSRA4000E: No implementations of org.postgresql.ds.PGConnectionPoolDataSource are found for dataSource[datasource] with library postgresql-library. The name or location of JDBC driver JAR files might be incorrect or inaccessible. Searched in: []. Searched under packages: [org.postgresql.ds].
+	at com.ibm.ws.jdbc.internal.JDBCDriverService.classNotFound(JDBCDriverService.java:224)
+	at com.ibm.ws.jdbc.internal.JDBCDriverService.create(JDBCDriverService.java:348)
+	at com.ibm.ws.jdbc.internal.JDBCDriverService.createConnectionPoolDataSource(JDBCDriverService.java:563)
+	at com.ibm.ws.jdbc.DataSourceService.init(DataSourceService.java:612)
+	at com.ibm.ws.jca.cm.AbstractConnectionFactoryService$2.run(AbstractConnectionFactoryService.java:522)
+	at com.ibm.ws.jca.cm.AbstractConnectionFactoryService$2.run(AbstractConnectionFactoryService.java:519)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.ibm.ws.jca.cm.AbstractConnectionFactoryService.initPrivileged(AbstractConnectionFactoryService.java:519)
+	at com.ibm.ws.jca.cm.AbstractConnectionFactoryService.createResource(AbstractConnectionFactoryService.java:149)
+	at com.ibm.ws.resource.internal.ResourceFactoryTrackerData$1.getService(ResourceFactoryTrackerData.java:120)
+	... 42 more
+Caused by: java.lang.ClassNotFoundException: org.postgresql.ds.PGConnectionPoolDataSource
+	at com.ibm.ws.classloading.internal.AppClassLoader.findClassCommonLibraryClassLoaders(AppClassLoader.java:654)
+	at com.ibm.ws.classloading.internal.AppClassLoader.findClass(AppClassLoader.java:296)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:418)
+	at com.ibm.ws.classloading.internal.AppClassLoader.findOrDelegateLoadClass(AppClassLoader.java:632)
+	at com.ibm.ws.classloading.internal.AppClassLoader.loadClass(AppClassLoader.java:531)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:351)
+	at com.ibm.ws.jdbc.internal.JDBCDriverService$1.run(JDBCDriverService.java:272)
+	at com.ibm.ws.jdbc.internal.JDBCDriverService$1.run(JDBCDriverService.java:262)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.ibm.ws.jdbc.internal.JDBCDriverService.create(JDBCDriverService.java:262)
+	... 50 more
+ Event:org.osgi.framework.FrameworkEvent[source=com.ibm.ws.jdbc_1.0.59.cl211220211117-1256 [49]] 
+[1/6/22 21:36:03:789 EET] 00000014 LogService-49-com.ibm.ws.jdbc                                E CWWKE0701E: FrameworkEvent ERROR org.osgi.framework.ServiceException: Exception in com.ibm.ws.resource.internal.ResourceFactoryTrackerData$1.getService()
+	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse.factoryGetService(ServiceFactoryUse.java:226)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse.getService(ServiceFactoryUse.java:114)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceConsumer$2.getService(ServiceConsumer.java:48)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistrationImpl.getService(ServiceRegistrationImpl.java:547)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.getService(ServiceRegistry.java:533)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.getService(BundleContextImpl.java:656)
+	at com.ibm.ws.jndi.internal.WSContextFactory.lambda$getService$0(WSContextFactory.java:81)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.ibm.ws.jndi.internal.WSContextFactory.lambda$getService$1(WSContextFactory.java:81)
+	at java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1660)
+	at com.ibm.ws.jndi.internal.WSContextFactory.getService(WSContextFactory.java:81)
+	at com.ibm.ws.jndi.internal.WSContext.getReference(WSContext.java:520)
+	at com.ibm.ws.jndi.internal.WSContext.resolveObject(WSContext.java:139)
+	at com.ibm.ws.jndi.internal.WSContext.lookup(WSContext.java:309)
+	at com.ibm.ws.jndi.WSContextBase.lookup(WSContextBase.java:61)
+	at org.apache.aries.jndi.DelegateContext.lookup(DelegateContext.java:149)
+	at javax.naming.InitialContext.lookup(InitialContext.java:417)
+	at com.ibm.ws.jpa.container.osgi.internal.OSGiJPAPUnitInfo.lookupDataSource(OSGiJPAPUnitInfo.java:317)
+	at com.ibm.ws.jpa.management.JPAPUnitInfo.getJPADataSource(JPAPUnitInfo.java:338)
+	at com.ibm.ws.jpa.management.JPAPUnitInfo.getJtaDataSource(JPAPUnitInfo.java:381)
+	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.predeploy(EntityManagerSetupImpl.java:1892)
+	at org.eclipse.persistence.jpa.PersistenceProvider.createContainerEntityManagerFactoryImpl(PersistenceProvider.java:350)
+	at org.eclipse.persistence.jpa.PersistenceProvider.createContainerEntityManagerFactory(PersistenceProvider.java:316)
+	at com.ibm.ws.jpa.management.JPAPUnitInfo.createEMFactory(JPAPUnitInfo.java:925)
+	at com.ibm.ws.jpa.management.JPAPUnitInfo.initialize(JPAPUnitInfo.java:767)
+	at com.ibm.ws.jpa.management.JPAPxmlInfo.extractPersistenceUnits(JPAPxmlInfo.java:182)
+	at com.ibm.ws.jpa.management.JPAScopeInfo.processPersistenceUnit(JPAScopeInfo.java:88)
+	at com.ibm.ws.jpa.management.JPAApplInfo.addPersistenceUnits(JPAApplInfo.java:119)
+	at com.ibm.ws.jpa.container.osgi.internal.JPAComponentImpl.processWebModulePersistenceXml(JPAComponentImpl.java:554)
+	at com.ibm.ws.jpa.container.osgi.internal.JPAComponentImpl.applicationStarting(JPAComponentImpl.java:341)
+	at com.ibm.ws.container.service.state.internal.ApplicationStateManager.fireStarting(ApplicationStateManager.java:51)
+	at com.ibm.ws.container.service.state.internal.StateChangeServiceImpl.fireApplicationStarting(StateChangeServiceImpl.java:50)
+	at com.ibm.ws.app.manager.module.internal.SimpleDeployedAppInfoBase.preDeployApp(SimpleDeployedAppInfoBase.java:547)
+	at com.ibm.ws.app.manager.module.internal.SimpleDeployedAppInfoBase.installApp(SimpleDeployedAppInfoBase.java:508)
+	at com.ibm.ws.app.manager.module.internal.DeployedAppInfoBase.deployApp(DeployedAppInfoBase.java:349)
+	at com.ibm.ws.app.manager.war.internal.WARApplicationHandlerImpl.install(WARApplicationHandlerImpl.java:65)
+	at com.ibm.ws.app.manager.internal.statemachine.StartAction.execute(StartAction.java:149)
+	at com.ibm.ws.app.manager.internal.statemachine.ApplicationStateMachineImpl.enterState(ApplicationStateMachineImpl.java:1352)
+	at com.ibm.ws.app.manager.internal.statemachine.ApplicationStateMachineImpl.performAction(ApplicationStateMachineImpl.java:1217)
+	at com.ibm.ws.app.manager.internal.statemachine.ApplicationStateMachineImpl.run(ApplicationStateMachineImpl.java:905)
+	at com.ibm.ws.threading.internal.ExecutorServiceImpl$RunnableWrapper.run(ExecutorServiceImpl.java:238)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.RuntimeException: java.sql.SQLNonTransientException: DSRA4000E: No implementations of org.postgresql.ds.PGConnectionPoolDataSource are found for dataSource[datasource] with library postgresql-library. The name or location of JDBC driver JAR files might be incorrect or inaccessible. Searched in: []. Searched under packages: [org.postgresql.ds].
+	at com.ibm.ws.resource.internal.ResourceFactoryTrackerData$1.getService(ResourceFactoryTrackerData.java:122)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse$1.run(ServiceFactoryUse.java:216)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse.factoryGetService(ServiceFactoryUse.java:213)
+	... 43 more
+Caused by: java.sql.SQLNonTransientException: DSRA4000E: No implementations of org.postgresql.ds.PGConnectionPoolDataSource are found for dataSource[datasource] with library postgresql-library. The name or location of JDBC driver JAR files might be incorrect or inaccessible. Searched in: []. Searched under packages: [org.postgresql.ds].
+	at com.ibm.ws.jdbc.internal.JDBCDriverService.classNotFound(JDBCDriverService.java:224)
+	at com.ibm.ws.jdbc.internal.JDBCDriverService.create(JDBCDriverService.java:348)
+	at com.ibm.ws.jdbc.internal.JDBCDriverService.createConnectionPoolDataSource(JDBCDriverService.java:563)
+	at com.ibm.ws.jdbc.DataSourceService.init(DataSourceService.java:612)
+	at com.ibm.ws.jca.cm.AbstractConnectionFactoryService$2.run(AbstractConnectionFactoryService.java:522)
+	at com.ibm.ws.jca.cm.AbstractConnectionFactoryService$2.run(AbstractConnectionFactoryService.java:519)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.ibm.ws.jca.cm.AbstractConnectionFactoryService.initPrivileged(AbstractConnectionFactoryService.java:519)
+	at com.ibm.ws.jca.cm.AbstractConnectionFactoryService.createResource(AbstractConnectionFactoryService.java:149)
+	at com.ibm.ws.resource.internal.ResourceFactoryTrackerData$1.getService(ResourceFactoryTrackerData.java:120)
+	... 46 more
+Caused by: java.lang.ClassNotFoundException: org.postgresql.ds.PGConnectionPoolDataSource
+	at com.ibm.ws.classloading.internal.AppClassLoader.findClassCommonLibraryClassLoaders(AppClassLoader.java:654)
+	at com.ibm.ws.classloading.internal.AppClassLoader.findClass(AppClassLoader.java:296)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:418)
+	at com.ibm.ws.classloading.internal.AppClassLoader.findOrDelegateLoadClass(AppClassLoader.java:632)
+	at com.ibm.ws.classloading.internal.AppClassLoader.loadClass(AppClassLoader.java:531)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:351)
+	at com.ibm.ws.jdbc.internal.JDBCDriverService$1.run(JDBCDriverService.java:272)
+	at com.ibm.ws.jdbc.internal.JDBCDriverService$1.run(JDBCDriverService.java:262)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.ibm.ws.jdbc.internal.JDBCDriverService.create(JDBCDriverService.java:262)
+	... 54 more
+ Event:org.osgi.framework.FrameworkEvent[source=com.ibm.ws.jdbc_1.0.59.cl211220211117-1256 [49]] 
+[1/6/22 21:36:05:237 EET] 0000002b io.openliberty.microprofile.openapi20.ApplicationProcessor   I CWWKO1660I: The application microservices was processed and an OpenAPI document was produced.
+[1/6/22 21:36:05:755 EET] 0000002b m.ws.microprofile.rest.client.cdi.LibertyRestClientExtension I CWWKW0750I: The following interfaces are configured as RequestScoped which will result in slower performance:  Consider using ApplicationScoped for better performance.
+[1/6/22 21:36:05:772 EET] 0000002b com.ibm.ws.webcontainer.osgi.webapp.WebGroup                 I SRVE0169I: Loading Web Module: microservices.
+[1/6/22 21:36:05:772 EET] 0000002b com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0016I: Web application available (default_host): http://localhost:9080/
+[1/6/22 21:36:05:777 EET] 00000034 com.ibm.ws.session.WASSessionCore                            I SESN0176I: A new session context will be created for application key default_host/
+[1/6/22 21:36:05:777 EET] 00000034 com.ibm.ws.util                                              I SESN0172I: The session manager is using the Java default SecureRandom implementation for session ID generation.
+[1/6/22 21:36:05:793 EET] 00000034 com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0003I: The application microservices updated in 2.420 seconds.
+[1/6/22 21:36:05:802 EET] 00000028 com.ibm.ws.webcontainer.osgi.mbeans.PluginGenerator          I SRVE9103I: A configuration file for a web server plugin was automatically generated for this server at D:\Facultate\Tehnologii Java\lab11\service-a\target\liberty\wlp\usr\servers\microservices\logs\state\plugin-cfg.xml.
+[1/6/22 21:36:55:046 EET] 00000038 .apache.cxf.cxf.core.3.2:1.0.59.cl211220211117-1256(id=130)] I Setting the server's publish address to be /data/
+[1/6/22 21:36:55:258 EET] 00000038 com.ibm.ws.webcontainer.servlet                              I SRVE0242I: [microservices] [/] [config.MicroservicesRestApplication]: Initialization successful.
+[1/6/22 21:36:56:166 EET] 00000038 io.jaegertracing.Configuration                               I Initialized tracer=JaegerTracer(version=Java-1.5.0, serviceName=microservices, reporter=RemoteReporter(sender=UdpSender(host=localhost, port=6831), closeEnqueueTimeout=1000), sampler=RemoteControlledSampler(maxOperations=2000, manager=HttpSamplingManager(hostPort=localhost:5778), sampler=ProbabilisticSampler(tags={sampler.type=probabilistic, sampler.param=0.001})), tags={hostname=DESKTOP-4C65F0G, jaeger.version=Java-1.5.0, ip=192.168.1.105}, zipkinSharedRpcSpan=false, expandExceptionLogs=false, useTraceId128Bit=false)
+[1/6/22 21:36:56:171 EET] 00000038 m.ibm.ws.microprofile.opentracing.jaeger.JaegerTracerFactory I CWMOT1001I: A JaegerTracer instance was created for the microservices application.  Tracing information is sent to localhost:6831.
+[1/6/22 21:37:19:508 EET] 00000013 com.ibm.ws.kernel.launch.internal.ServerCommandListener      A CWWKE0055I: Server shutdown requested on Thursday, January 6, 2022 at 9:37 PM. The server microservices is shutting down.
+[1/6/22 21:37:19:518 EET] 00000052 com.ibm.ws.runtime.update.internal.RuntimeUpdateManagerImpl  A CWWKE1100I: Waiting for up to 30 seconds for the server to quiesce.
+[1/6/22 21:37:19:526 EET] 0000002f com.ibm.ws.tcpchannel.internal.TCPChannel                    I CWWKO0220I: TCP Channel defaultHttpEndpoint-ssl has stopped listening for requests on host kubernetes.docker.internal  (IPv4: 127.0.0.1) port 9443.
+[1/6/22 21:37:19:526 EET] 0000002f com.ibm.ws.tcpchannel.internal.TCPChannel                    I CWWKO0220I: TCP Channel defaultHttpEndpoint has stopped listening for requests on host kubernetes.docker.internal  (IPv4: 127.0.0.1) port 9080.
+[1/6/22 21:37:19:526 EET] 0000002f com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0017I: Web application removed (default_host): http://localhost:9080/jwt/
+[1/6/22 21:37:19:526 EET] 0000002f com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0017I: Web application removed (default_host): http://localhost:9080/openapi/ui/
+[1/6/22 21:37:19:526 EET] 0000002f com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0017I: Web application removed (default_host): http://localhost:9080/metrics/
+[1/6/22 21:37:19:526 EET] 0000002f com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0017I: Web application removed (default_host): http://localhost:9080/health/
+[1/6/22 21:37:19:526 EET] 0000002f com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0017I: Web application removed (default_host): http://localhost:9080/
+[1/6/22 21:37:19:526 EET] 0000002f com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0017I: Web application removed (default_host): http://localhost:9080/openapi/
+[1/6/22 21:37:19:531 EET] 0000002f com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0017I: Web application removed (default_host): http://localhost:9080/ibm/api/
+[1/6/22 21:37:20:536 EET] 00000052 com.ibm.ws.runtime.update.internal.RuntimeUpdateManagerImpl  I CWWKE1101I: Server quiesce complete.
+[1/6/22 21:37:20:576 EET] 00000034 com.ibm.ws.webcontainer.servlet                              I SRVE0253I: [microservices] [/] [config.MicroservicesRestApplication]: Destroy successful.
+[1/6/22 21:37:20:596 EET] 00000034 com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0009I: The application microservices has stopped successfully.
+[1/6/22 21:37:20:706 EET] 00000052 com.ibm.ws.webcontainer.servlet                              I SRVE0253I: [io.openliberty.microprofile.openapi.2.0.internal] [/openapi] [ApplicationServlet]: Destroy successful.
+[1/6/22 21:37:20:716 EET] 00000052 com.ibm.ws.webcontainer.servlet                              I SRVE0253I: [io.openliberty.microprofile.metrics.internal.public] [/metrics] [PublicMetricsRESTProxyServlet]: Destroy successful.
+[1/6/22 21:37:20:730 EET] 00000052 com.ibm.ws.webcontainer.servlet                              I SRVE0253I: [io.openliberty.microprofile.health.3.0.internal] [/health] [HealthCheckReadinessServlet]: Destroy successful.
+[1/6/22 21:37:20:730 EET] 00000052 com.ibm.ws.webcontainer.servlet                              I SRVE0253I: [io.openliberty.microprofile.health.3.0.internal] [/health] [HealthCheckLivenessServlet]: Destroy successful.
+[1/6/22 21:37:20:730 EET] 00000052 com.ibm.ws.webcontainer.servlet                              I SRVE0253I: [io.openliberty.microprofile.health.3.0.internal] [/health] [HealthCheckServlet]: Destroy successful.
+[1/6/22 21:37:20:906 EET] 00000052 rty.security.mp.jwt.v12.config.impl.MpConfigProxyServiceImpl I CWWKS5782I: The MicroProfile JWT version 1.2 mpConfigProxy deactivated successfully.
+[1/6/22 21:37:20:906 EET] 00000052 .ws.security.mp.jwt.v11.config.impl.MpConfigProxyServiceImpl I CWWKS5777I: The MicroProfile JWT version 1.1 mpConfigProxy deactivated successfully.
+[1/6/22 21:37:20:911 EET] 00000052 com.ibm.ws.security.mp.jwt.impl.MicroProfileJwtConfigImpl    I CWWKS5502I: The MicroProfile JWT configuration [jwtUserConsumer] was successfully deactivated.
+[1/6/22 21:37:20:911 EET] 00000052 com.ibm.ws.security.mp.jwt.impl.MicroProfileJwtConfigImpl    I CWWKS5502I: The MicroProfile JWT configuration [defaultMpJwt] was successfully deactivated.
+[1/6/22 21:37:20:911 EET] 00000052 com.ibm.ws.security.mp.jwt.impl.MicroProfileJwtServiceImpl   I CWWKS5502I: The MicroProfile JWT configuration [MicroProfileJwtService] was successfully deactivated.
+[1/6/22 21:37:20:946 EET] 00000052 .microprofile.metrics.internal.monitor.MonitorMetricsHandler I CWPMI2004I: All monitoring metrics were unregistered from mpMetrics.
+[1/6/22 21:37:21:046 EET] 00000052 com.ibm.ws.security.ready.internal.SecurityReadyServiceImpl  I CWWKS0009I: The security service has stopped.
+[1/6/22 21:37:21:076 EET] 00000052 ibm.ws.security.authentication.internal.jaas.JAASServiceImpl I CWWKS1124I: The collective authentication plugin with class name NullCollectiveAuthenticationPlugin has been deactivated. 
+[1/6/22 21:37:21:569 EET] 00000001 com.ibm.ws.kernel.launch.internal.FrameworkManager           A CWWKE0036I: The server microservices stopped after 1 minutes, 33.473 seconds.

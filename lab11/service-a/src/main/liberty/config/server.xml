@@ -3,10 +3,29 @@
 
     <featureManager>
         <feature>microProfile-4.0</feature>
-        
+        <feature>jpa-2.2</feature>
     </featureManager>
-    
 
+    <library id="postgresql-library">
+        <file name="jdbc/postgresql.jar" />
+    </library>
+    
+    <jdbcDriver id="postgresql-driver"
+                javax.sql.ConnectionPoolDataSource="org.postgresql.ds.PGConnectionPoolDataSource"
+                libraryRef="postgresql-library"/>
+
+    <dataSource id="datasource" 
+                jndiName="jdbc/database"
+                jdbcDriverRef="postgresql-driver"
+                type="javax.sql.ConnectionPoolDataSource"
+                transactional="true">
+        <properties serverName="172.17.0.2"
+                    portNumber="5432"
+                    databaseName="lab10"
+                    user="postgres"
+                    password="password"/>
+    </dataSource>
+    
     <httpEndpoint id="defaultHttpEndpoint"
                   httpPort="9080"
                   httpsPort="9443"/>
@@ -21,6 +40,6 @@
 
 
     <!-- The MP JWT configuration that injects the caller's JWT into a ResourceScoped bean for inspection. -->
-    <mpJwt id="jwtUserConsumer" keyName="theKeyId" audiences="targetService" issuer="${jwt.issuer}"/>
+    <mpJwt id="jwtUserConsumer" keyName="theKeyId" audiences="targetService" issuer="https://server.example.com"/>
 
 </server>

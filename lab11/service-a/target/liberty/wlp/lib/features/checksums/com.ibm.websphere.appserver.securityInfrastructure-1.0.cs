@@ -1,4 +1,4 @@
-#Thu Jan 06 13:09:32 EET 2022
+#Thu Jan 06 20:33:12 EET 2022
 lib/com.ibm.ws.security.credentials_1.0.59.jar=047225ef3ef0311cd23b8dec13cbf459
 lib/com.ibm.ws.security.mp.jwt.proxy_1.0.59.jar=7007837d3f22ee6a27ed7767190020da
 lib/com.ibm.websphere.security.authentication_1.0.59.jar=15326e6fa5cc1d234feab94363383d66

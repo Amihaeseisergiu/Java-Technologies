@@ -1,4 +1,4 @@
-#Thu Jan 06 13:09:32 EET 2022
+#Thu Jan 06 20:33:11 EET 2022
 lib/com.ibm.ws.security.token_1.0.59.jar=d4c22c71e1217cdf4e70efc48f123c25
 lib/com.ibm.ws.security.credentials.ssotoken_1.0.59.jar=2c4d72fdfa48b0fad0640b7778b5f19e
 lib/features/com.ibm.websphere.appserver.ltpa-1.0.mf=525960800cd87f29aef1418eabfcb0d6

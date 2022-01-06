@@ -1,4 +1,4 @@
-#Thu Jan 06 13:09:38 EET 2022
+#Thu Jan 06 20:33:23 EET 2022
 lib/features/com.ibm.websphere.appserver.restHandler-1.0.mf=5fefaf4e21694f770e80bd55fad13747
 dev/spi/ibm/com.ibm.websphere.appserver.spi.restHandler_2.0.59.jar=3d050c3bc58eb670a216860801e8ae71
 lib/com.ibm.websphere.jsonsupport_1.0.59.jar=f88103bfcdaab247fcd267558ab7cfc6
