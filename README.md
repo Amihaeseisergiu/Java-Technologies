@@ -119,3 +119,12 @@
 - [X] Implemented and tested a health check procedure, in order to determine the readiness and liveness of my service
 - [X] Used MicroProfile Metrics API in order to monitor the behaviour of my service
 	- [X] Analyzed the number of invocations and the response time for at least one method
+	
+### Laboratory 11
+- [ ] Implemented a scenario that uses one of the following data management patterns:
+	- [ ] Saga
+	- [ ] Event Sourcing
+	- [ ] CQRS
+- [X] Added security features to the microservices:
+	- [X] Secured at least one microservice, using signed JWTs
+	- [X] Invoked the microservice from another microservice in order to test the security

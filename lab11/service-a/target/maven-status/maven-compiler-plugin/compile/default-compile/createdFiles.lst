@@ -1,0 +1,14 @@
+client\ClientController.class
+controller\HelloController.class
+secure\MPJWTToken.class
+metric\MetricController.class
+config\MicroservicesRestApplication.class
+health\ServiceLiveHealthCheck.class
+resilient\ResilienceController.class
+client\Service.class
+openapi\BookingController.class
+secure\TestSecureController.class
+openapi\Destination.class
+config\ConfigTestController.class
+health\ServiceReadyHealthCheck.class
+openapi\Booking.class
